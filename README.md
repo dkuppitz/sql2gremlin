@@ -336,7 +336,8 @@ ORDER BY [Count] DESC
 
 **Gremlin**
 ```groovy
-g.V('type','product').unitPrice.groupCount().cap().orderMap(T.decr).next()
+g.V('type','product').property('unitPrice').groupCount().cap() \
+ .orderMap(T.decr).next()
 ```
 
 **References:**
