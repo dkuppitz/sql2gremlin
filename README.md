@@ -409,3 +409,75 @@ Maybe
 ## Pivots
 
 Maybe
+
+## Complex
+
+### Recommendation
+
+This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
+
+* determine what the customer has already ordered
+* determine who else ordered the same products
+* determine what others also ordered
+* determine products which were not already ordered by the initial customer, but ordered by the others
+* rank products by occurence in other orders
+
+#### SQL
+```sql
+  SELECT TOP (5) [t14].[ProductName]
+    FROM (SELECT COUNT(*) AS [value],
+                 [t13].[ProductName]
+            FROM [customers] AS [t0]
+     CROSS APPLY (SELECT [t9].[ProductName]
+                    FROM [orders] AS [t1]
+              CROSS JOIN [order details] AS [t2]
+              INNER JOIN [products] AS [t3]
+                      ON [t3].[ProductID] = [t2].[ProductID]
+              CROSS JOIN [order details] AS [t4]
+              INNER JOIN [orders] AS [t5]
+                      ON [t5].[OrderID] = [t4].[OrderID]
+               LEFT JOIN [customers] AS [t6]
+                      ON [t6].[CustomerID] = [t5].[CustomerID]
+              CROSS JOIN ([orders] AS [t7]
+                          CROSS JOIN [order details] AS [t8]
+                          INNER JOIN [products] AS [t9]
+                                  ON [t9].[ProductID] = [t8].[ProductID])
+                   WHERE NOT EXISTS(SELECT NULL AS [EMPTY]
+                                      FROM [orders] AS [t10]
+                                CROSS JOIN [order details] AS [t11]
+                                INNER JOIN [products] AS [t12]
+                                        ON [t12].[ProductID] = [t11].[ProductID]
+                                     WHERE [t9].[ProductID] = [t12].[ProductID]
+                                       AND [t10].[CustomerID] = [t0].[CustomerID]
+                                       AND [t11].[OrderID] = [t10].[OrderID])
+                     AND [t6].[CustomerID] <> [t0].[CustomerID]
+                     AND [t1].[CustomerID] = [t0].[CustomerID]
+                     AND [t2].[OrderID] = [t1].[OrderID]
+                     AND [t4].[ProductID] = [t3].[ProductID]
+                     AND [t7].[CustomerID] = [t6].[CustomerID]
+                     AND [t8].[OrderID] = [t7].[OrderID]) AS [t13]
+           WHERE [t0].[CustomerID] = N'ALFKI'
+        GROUP BY [t13].[ProductName]) AS [t14]
+ORDER BY [t14].[value] DESC
+```
+
+#### Gremlin
+```groovy
+g.V('customerId','ALFKI').as('customer')                      \
+ .out('ordered').out('contains').out('is').as('products')     \
+ .in('is').in('contains').in('ordered').except('customer')    \
+ .out('ordered').out('contains').out('is').except('products') \
+ .groupCount().cap().orderMap(T.decr)[0..<5].productName
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin as step](http://gremlindocs.com/#side-effect/as)
+* [Gremlin out step](http://gremlindocs.com/#transform/out)
+* [Gremlin in step](http://gremlindocs.com/#transform/in)
+* [Gremlin except step](http://gremlindocs.com/#filter/except)
+* [Gremlin groupCount step](http://gremlindocs.com/#side-effect/groupcount)
+* [Gremlin cap step](http://gremlindocs.com/#transform/cap)
+* [Gremlin orderMap step](http://gremlindocs.com/#transform/ordermap)
+* [Gremlin range filter](http://gremlindocs.com/#filter/i-j)
