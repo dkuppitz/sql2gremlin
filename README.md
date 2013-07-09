@@ -73,6 +73,7 @@ g.V('type','category').transform({
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin transform step](http://gremlindocs.com/#transform/transform)
+* [Gremlin property access](http://gremlindocs.com/#transform/key)
 
 ### Select calculated column
 
@@ -317,13 +318,63 @@ g.V('type','product').order({
 * [Gremlin range filter](http://gremlindocs.com/#filter/i-j)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
 
-## Joining
-
-TODO
-
 ## Grouping
 
 TODO
+
+## Joining
+
+### Inner join
+
+This sample shows how to query all products from a specific category.
+
+**SQL**
+```sql
+    SELECT Products.*
+      FROM Products
+INNER JOIN Categories
+        ON Categories.CategoryID = Products.CategoryID
+     WHERE Categories.CategoryName = 'Beverages'
+```
+
+**Gremlin**
+```groovy
+g.V('categoryName','Beverages').in('inCategory')
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin in step](http://gremlindocs.com/#transform/in)
+
+### Left join
+
+This sample shows how to count the number of orders for each customer.
+
+**SQL**
+```sql
+    SELECT Customers.CustomerID, COUNT(Orders.OrderID)
+      FROM Customers
+ LEFT JOIN Orders
+        ON Orders.CustomerID = Customers.CustomerID
+  GROUP BY Customers.CustomerID
+```
+
+**Gremlin**
+```groovy
+g.V('type','customer').transform({
+  [ 'customerId' : it.getProperty('customerId')
+  , 'orders'     : it.out('ordered').count() ]
+})
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin transform step](http://gremlindocs.com/#transform/transform)
+* [Gremlin property access](http://gremlindocs.com/#transform/key)
+* [Gremlin out step](http://gremlindocs.com/#transform/out)
+* [Gremlin count](http://www.tinkerpop.com/docs/javadocs/gremlin/2.3.0/com/tinkerpop/gremlin/java/GremlinPipeline.html#count%28%29)
 
 ## CTE
 
