@@ -482,7 +482,8 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> [<span class="aggregate">Count</span>] <span class="keyword">DESC</span></code></pre>
 <p><strong>Gremlin</strong>
 </p>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').unitPrice.groupCount<span class="container">()</span>.cap<span class="container">()</span>.orderMap<span class="container">(<span class="type">T</span>.<span class="title">decr</span>)</span>.next<span class="container">()</span></span></code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').property<span class="container">('<span class="title">unitPrice'</span>)</span>.groupCount<span class="container">()</span>.cap<span class="container">()</span> \</span>
+ .orderMap(<span class="type">T</span>.decr).next()</code></pre>
 <p><strong>References:</strong>
 
 </p>
