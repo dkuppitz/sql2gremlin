@@ -320,7 +320,29 @@ g.V('type','product').order({
 
 ## Grouping
 
-TODO
+### Group by value
+
+This sample shows how to determine the most used unit price.
+
+**SQL**
+```sql
+  SELECT TOP(1) UnitPrice
+    FROM (SELECT Products.UnitPrice,
+                 COUNT(*) AS [Count]
+            FROM Products
+        GROUP BY Products.UnitPrice) AS T
+ORDER BY [Count] DESC
+```
+
+**Gremlin**
+```groovy
+g.V('type','product').unitPrice.groupCount().cap().orderMap(T.decr).next()
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin in step](http://gremlindocs.com/#transform/in)
 
 ## Joining
 
