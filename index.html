@@ -130,6 +130,14 @@
         <li>
           <a href="#grouping">Grouping</a>
           
+            <ul>
+              
+                <li>
+                  <a href="#grouping/group-by-value">Group by value</a>
+                </li>
+              
+            </ul>
+          
         </li>
       
         <li>
@@ -460,9 +468,28 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
 <h2 id='grouping'>Grouping</h2 id='grouping'>
-<p>TODO
+<h3 id='grouping/group-by-value'>Group by value</h3 id='grouping/group-by-value'>
+<p>This sample shows how to determine the most used unit price.
 
 </p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP(<span class="number">1</span>) UnitPrice
+    <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> Products.UnitPrice,
+                 <span class="aggregate">COUNT</span>(*) <span class="keyword">AS</span> [<span class="aggregate">Count</span>]
+            <span class="keyword">FROM</span> Products
+        <span class="keyword">GROUP</span> <span class="keyword">BY</span> Products.UnitPrice) <span class="keyword">AS</span> T
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> [<span class="aggregate">Count</span>] <span class="keyword">DESC</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').unitPrice.groupCount<span class="container">()</span>.cap<span class="container">()</span>.orderMap<span class="container">(<span class="type">T</span>.<span class="title">decr</span>)</span>.next<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/in">Gremlin in step</a></li>
+</ul>
 <h2 id='joining'>Joining</h2 id='joining'>
 <h3 id='joining/inner-join'>Inner join</h3 id='joining/inner-join'>
 <p>This sample shows how to query all products from a specific category.
