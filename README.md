@@ -231,7 +231,7 @@ g.V('type','product').order({
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
 
-### Order by value ascending
+### Order by value descending
 
 This sample shows how to query all products ordered by descending unit price.
 
