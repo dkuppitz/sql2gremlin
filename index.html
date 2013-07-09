@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL2Gremlin</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
+    
+    
+
+    
+
+    <!-- Typekit -->
+    
+      <script type="text/javascript">
+        (function() {
+          var config = {
+            kitId: 'hjp0pft',
+            scriptTimeout: 3000
+          };
+          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/( |^)wf-loading( |$)/g,"");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script");tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(a&&a!="complete"&&a!="loaded")return;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+        })();
+      </script>
+    
+  </head>
+  <body><div id="container">
+  <div id="nav">
+    
+      <div id="header">
+        <a href="#" id="logo">SQL2Gremlin</a>
+      </div>
+    
+    <ul id="sections">
+      
+        <li>
+          <a href="#introduction">Introduction</a>
+          
+        </li>
+      
+        <li>
+          <a href="#select">Select</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#select/select-all">Select all</a>
+                </li>
+              
+                <li>
+                  <a href="#select/select-single-column">Select single column</a>
+                </li>
+              
+                <li>
+                  <a href="#select/select-multiple-columns">Select multiple columns</a>
+                </li>
+              
+                <li>
+                  <a href="#select/select-calculated-column">Select calculated column</a>
+                </li>
+              
+                <li>
+                  <a href="#select/select-distinct-values">Select distinct values</a>
+                </li>
+              
+                <li>
+                  <a href="#select/select-scalar-value">Select scalar value</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#filtering">Filtering</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#filtering/filter-by-equality">Filter by equality</a>
+                </li>
+              
+                <li>
+                  <a href="#filtering/filter-by-inequality">Filter by inequality</a>
+                </li>
+              
+                <li>
+                  <a href="#filtering/filter-by-value-range">Filter by value range</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#ordering">Ordering</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#ordering/order-by-value-ascending">Order by value ascending</a>
+                </li>
+              
+                <li>
+                  <a href="#ordering/order-by-value-descending">Order by value descending</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#paging">Paging</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#paging/limit-number-of-results">Limit number of results</a>
+                </li>
+              
+                <li>
+                  <a href="#paging/paged-result-set">Paged result set</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#joining">Joining</a>
+          
+        </li>
+      
+        <li>
+          <a href="#grouping">Grouping</a>
+          
+        </li>
+      
+        <li>
+          <a href="#cte">CTE</a>
+          
+        </li>
+      
+        <li>
+          <a href="#pivots">Pivots</a>
+          
+        </li>
+      
+    </ul>
+    
+    
+      <div class="extra twitter">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=dkuppitz&show_count=false"></iframe>
+      </div>
+    
+  </div>
+  <div id="content">
+    
+    <h1><img src="http://aaronrussell.co.uk/assets/images/labs-illustration.png" alt="SQL2Gremlin"></h1>
+<h2 id='introduction'>Introduction</h2 id='introduction'>
+<p>SQL2Gremlin guides you through typical SQL concepts and shows how to do the same in Gremlin. The format of the Gremlin results will not necessarily match the format of the SQL results. Gremlin will often have better ways to structure your results, SQL can only give you tabular data.
+
+</p>
+<p>The provided Gremlin queries will not necessarily show the optimal way to query the appropriate data. Instead SQL2Gremlin shall show you different Gremlin query concepts. If you have slow queries and need to know a better solution, don&#39;t hesitate to ask in the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-users group</a>.
+
+</p>
+<p>The SQL samples will make use of T-SQL syntax. MySQL users might not know some of the concepts (e.g. paging), but should at least be able to understand the queries. The point is, that SQL2Gremlin is not made to teach SQL. You should just focus on each queries short description and the corresponding Gremlin part.
+
+</p>
+<p>TODO: link <a href="http://gremlin.tinkerpop.com">http://gremlin.tinkerpop.com</a>
+TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.createGraph())
+
+</p>
+<h2 id='select'>Select</h2 id='select'>
+<h3 id='select/select-all'>Select all</h3 id='select/select-all'>
+<p>This sample shows how to query all categories.
+
+</p>
+<h4>SQL</h4>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> Categories</code></pre>
+<h4>Gremlin</h4>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category')</span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+</ul>
+<h3 id='select/select-single-column'>Select single column</h3 id='select/select-single-column'>
+<p>This sample shows how to query the names of all categories.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName
+  <span class="keyword">FROM</span> Categories</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName</span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+</ul>
+<h3 id='select/select-multiple-columns'>Select multiple columns</h3 id='select/select-multiple-columns'>
+<p>This sample shows how to query the IDs and names of all categories.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryID, CategoryName
+  <span class="keyword">FROM</span> Categories</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').transform<span class="container">({
+  [ '<span class="title">id'</span>   : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">categoryId'</span>)</span></span>
+  ,<span class="string"> 'name'</span> : it.getProperty('categoryName') ]
+}).categoryName</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+</ul>
+<h3 id='select/select-calculated-column'>Select calculated column</h3 id='select/select-calculated-column'>
+<p>This sample shows how to query the length of the name of all categories.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> LENGTH(CategoryName)
+  <span class="keyword">FROM</span> Categories</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>})</span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#length%28%29">Java string length</a></li>
+</ul>
+<h3 id='select/select-distinct-values'>Select distinct values</h3 id='select/select-distinct-values'>
+<p>This sample shows how to query all distinct lengths of category names.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> LENGTH(CategoryName)
+  <span class="keyword">FROM</span> Categories</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).dedup<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://gremlindocs.com/#filter/dedup">Gremlin dedup step</a></li>
+<li><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#length%28%29">Java string length</a></li>
+</ul>
+<h3 id='select/select-scalar-value'>Select scalar value</h3 id='select/select-scalar-value'>
+<p>This sample shows how to query the length of the longest category name.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">MAX</span>(LENGTH(CategoryName))
+  <span class="keyword">FROM</span> Categories</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).max<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#length%28%29">Java string length</a></li>
+<li><a href="http://groovy.codehaus.org/groovy-jdk/java/util/Collection.html#max%28%29">Groovy max method</a></li>
+</ul>
+<h2 id='filtering'>Filtering</h2 id='filtering'>
+<h3 id='filtering/filter-by-equality'>Filter by equality</h3 id='filtering/filter-by-equality'>
+<p>This sample shows how to query all products having no unit in stock.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> Products
+ <span class="keyword">WHERE</span> UnitsInStock = <span class="number">0</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#filter/has">Gremlin has step</a></li>
+</ul>
+<h3 id='filtering/filter-by-inequality'>Filter by inequality</h3 id='filtering/filter-by-inequality'>
+<p>This sample shows how to query all products with a unit price not exceeding 10.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> Products
+ <span class="keyword">WHERE</span> <span class="keyword">NOT</span>(UnitPrice > <span class="number">10</span>)</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#filter/hasnot">Gremlin hasNot step</a></li>
+</ul>
+<h3 id='filtering/filter-by-value-range'>Filter by value range</h3 id='filtering/filter-by-value-range'>
+<p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> Products
+ <span class="keyword">WHERE</span> UnitPrice >= <span class="number">5</span> <span class="keyword">AND</span> UnitPrice &lt; <span class="number">10</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span></span></code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#filter/interval">Gremlin interval step</a></li>
+</ul>
+<h2 id='ordering'>Ordering</h2 id='ordering'>
+<h3 id='ordering/order-by-value-ascending'>Order by value ascending</h3 id='ordering/order-by-value-ascending'>
+<p>This sample shows how to query all products ordered by unit price.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
+    <span class="keyword">FROM</span> Products
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">ASC</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">a</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.b.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+})</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
+</ul>
+<h3 id='ordering/order-by-value-descending'>Order by value descending</h3 id='ordering/order-by-value-descending'>
+<p>This sample shows how to query all products ordered by descending unit price.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
+    <span class="keyword">FROM</span> Products
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">DESC</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+})</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
+</ul>
+<h2 id='paging'>Paging</h2 id='paging'>
+<h3 id='paging/limit-number-of-results'>Limit number of results</h3 id='paging/limit-number-of-results'>
+<p>This sample shows how to query the first 5 products ordered by unit price.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) *
+    <span class="keyword">FROM</span> Products
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+})[<span class="number">0.</span>.&lt;<span class="number">5</span>]</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
+<li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
+</ul>
+<h3 id='paging/paged-result-set'>Paged result set</h3 id='paging/paged-result-set'>
+<p>This sample shows how to query the next 5 products (page 2) ordered by unit price.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">   <span class="operator"><span class="keyword">SELECT</span> Products.*
+     <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> ROW_NUMBER()
+                    OVER (
+                      <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice) <span class="keyword">AS</span> [ROW_NUMBER],
+                  ProductID
+             <span class="keyword">FROM</span> Products) <span class="keyword">AS</span> SortedProducts
+       <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Products
+               <span class="keyword">ON</span> Products.ProductID = SortedProducts.ProductID
+    <span class="keyword">WHERE</span> [ROW_NUMBER] BETWEEN <span class="number">6</span> <span class="keyword">AND</span> <span class="number">10</span>
+ <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ROW_NUMBER]</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+})[<span class="number">5.</span>.&lt;<span class="number">10</span>]</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
+<li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
+</ul>
+<h2 id='joining'>Joining</h2 id='joining'>
+<p>TODO
+
+</p>
+<h2 id='grouping'>Grouping</h2 id='grouping'>
+<p>TODO
+
+</p>
+<h2 id='cte'>CTE</h2 id='cte'>
+<p>Maybe
+
+</p>
+<h2 id='pivots'>Pivots</h2 id='pivots'>
+<p>Maybe</p>
+
+  </div>
+</div></body>
+</html>
