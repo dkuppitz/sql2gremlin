@@ -342,7 +342,10 @@ g.V('type','product').unitPrice.groupCount().cap().orderMap(T.decr).next()
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
-* [Gremlin in step](http://gremlindocs.com/#transform/in)
+* [Gremlin groupCount step](http://gremlindocs.com/#side-effect/groupcount)
+* [Gremlin cap step](http://gremlindocs.com/#transform/cap)
+* [Gremlin orderMap step](http://gremlindocs.com/#transform/ordermap)
+* [Gremlin next method](http://gremlindocs.com/#methods/pipe-next)
 
 ## Joining
 
