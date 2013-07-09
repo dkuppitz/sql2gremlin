@@ -128,12 +128,24 @@
         </li>
       
         <li>
-          <a href="#joining">Joining</a>
+          <a href="#grouping">Grouping</a>
           
         </li>
       
         <li>
-          <a href="#grouping">Grouping</a>
+          <a href="#joining">Joining</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#joining/inner-join">Inner join</a>
+                </li>
+              
+                <li>
+                  <a href="#joining/left-join">Left join</a>
+                </li>
+              
+            </ul>
           
         </li>
       
@@ -225,6 +237,7 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 </ul>
 <h3 id='select/select-calculated-column'>Select calculated column</h3 id='select/select-calculated-column'>
 <p>This sample shows how to query the length of the name of all categories.
@@ -446,14 +459,59 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
-<h2 id='joining'>Joining</h2 id='joining'>
-<p>TODO
-
-</p>
 <h2 id='grouping'>Grouping</h2 id='grouping'>
 <p>TODO
 
 </p>
+<h2 id='joining'>Joining</h2 id='joining'>
+<h3 id='joining/inner-join'>Inner join</h3 id='joining/inner-join'>
+<p>This sample shows how to query all products from a specific category.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Products.*
+      <span class="keyword">FROM</span> Products
+<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Categories
+        <span class="keyword">ON</span> Categories.CategoryID = Products.CategoryID
+     <span class="keyword">WHERE</span> Categories.CategoryName = <span class="string">'Beverages'</span></code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>')</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/in">Gremlin in step</a></li>
+</ul>
+<h3 id='joining/left-join'>Left join</h3 id='joining/left-join'>
+<p>This sample shows how to count the number of orders for each customer.
+
+</p>
+<p><strong>SQL</strong>
+</p>
+<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CustomerID, <span class="aggregate">COUNT</span>(Orders.OrderID)
+      <span class="keyword">FROM</span> Customers
+ <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Orders
+        <span class="keyword">ON</span> Orders.CustomerID = Customers.CustomerID
+  <span class="keyword">GROUP</span> <span class="keyword">BY</span> Customers.CustomerID</code></pre>
+<p><strong>Gremlin</strong>
+</p>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').transform<span class="container">({
+  [ '<span class="title">customerId'</span> : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">customerId'</span>)</span></span>
+  ,<span class="string"> 'orders'</span>     : it.out('ordered').count() ]
+})</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#transform/out">Gremlin out step</a></li>
+<li><a href="http://www.tinkerpop.com/docs/javadocs/gremlin/2.3.0/com/tinkerpop/gremlin/java/GremlinPipeline.html#count%28%29">Gremlin count</a></li>
+</ul>
 <h2 id='cte'>CTE</h2 id='cte'>
 <p>Maybe
 
