@@ -546,7 +546,13 @@ g.V('type','customer') \
 
 **References:**
 
-* [GremlinDocs](http://gremlindocs.com/)
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin order step](http://gremlindocs.com/#transform/order)
+* [Gremlin property access](http://gremlindocs.com/#transform/key)
+* [Gremlin filter step](http://gremlindocs.com/#filter/filter)
+* [Gremlin out step](http://gremlindocs.com/#transform/out)
+* [Gremlin transform step](http://gremlindocs.com/#transform/transform)
+* [Gremlin groupBy step](http://gremlindocs.com/#side-effect/groupby)
 
 ### Recommendation
 
