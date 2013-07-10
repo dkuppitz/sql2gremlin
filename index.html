@@ -586,9 +586,43 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
    true
  }).iterate(); r</code></pre>
 <h2 id='pivots'>Pivots</h2 id='pivots'>
-<p>TODO
-
-</p>
+<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CompanyName,
+           COALESCE([<span class="number">1</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Jan],
+           COALESCE([<span class="number">2</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Feb],
+           COALESCE([<span class="number">3</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Mar],
+           COALESCE([<span class="number">4</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Apr],
+           COALESCE([<span class="number">5</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [May],
+           COALESCE([<span class="number">6</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Jun],
+           COALESCE([<span class="number">7</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Jul],
+           COALESCE([<span class="number">8</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Aug],
+           COALESCE([<span class="number">9</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Sep],
+           COALESCE([<span class="number">10</span>], <span class="number">0</span>) <span class="keyword">AS</span> [Oct],
+           COALESCE([<span class="number">11</span>], <span class="number">0</span>) <span class="keyword">AS</span> [Nov],
+           COALESCE([<span class="number">12</span>], <span class="number">0</span>) <span class="keyword">AS</span> [<span class="keyword">Dec</span>]
+      <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> Orders.CustomerID,
+                   <span class="keyword">MONTH</span>(Orders.OrderDate)                                   <span class="keyword">AS</span> [<span class="keyword">Month</span>],
+                   <span class="aggregate">SUM</span>([<span class="keyword">Order</span> Details].UnitPrice * [<span class="keyword">Order</span> Details].Quantity) <span class="keyword">AS</span> Total
+              <span class="keyword">FROM</span> Orders
+        <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [<span class="keyword">Order</span> Details]
+                <span class="keyword">ON</span> [<span class="keyword">Order</span> Details].OrderID = Orders.OrderID
+          <span class="keyword">GROUP</span> <span class="keyword">BY</span> Orders.CustomerID,
+                   <span class="keyword">MONTH</span>(Orders.OrderDate)) o
+     PIVOT (<span class="aggregate">AVG</span>(Total) <span class="keyword">FOR</span> [<span class="keyword">Month</span>] <span class="keyword">IN</span> ([<span class="number">1</span>],
+                                       [<span class="number">2</span>],
+                                       [<span class="number">3</span>],
+                                       [<span class="number">4</span>],
+                                       [<span class="number">5</span>],
+                                       [<span class="number">6</span>],
+                                       [<span class="number">7</span>],
+                                       [<span class="number">8</span>],
+                                       [<span class="number">9</span>],
+                                       [<span class="number">10</span>],
+                                       [<span class="number">11</span>],
+                                       [<span class="number">12</span>])) <span class="keyword">AS</span> [Pivot]
+<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Customers
+        <span class="keyword">ON</span> Customers.CustomerID = [Pivot].customerid
+  <span class="keyword">ORDER</span> <span class="keyword">BY</span> Customers.CompanyName</code></pre>
+<pre><code class="gremlin"><span class="title">println</span> <span class="string">"42"</span></code></pre>
 <h2 id='complex'>Complex</h2 id='complex'>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
 <p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
