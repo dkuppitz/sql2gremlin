@@ -522,7 +522,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 
 </p>
 <h4>SQL</h4>
-<pre><code class="sql">WITH EmployeeHierarchy (EmployeeID, LastName, FirstName, ReportsTo, HierarchyLevel) AS
+<pre><code class="sql">WITH EmployeeHierarchy (EmployeeID,
+                        LastName,
+                        FirstName,
+                        ReportsTo,
+                        HierarchyLevel) AS
 (
     SELECT EmployeeID
          , LastName
@@ -644,7 +648,13 @@ g.V(<span class="comment">'type','customer') \</span>
 
 </p>
 <ul>
-<li><a href="http://gremlindocs.com/">GremlinDocs</a></li>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#filter/filter">Gremlin filter step</a></li>
+<li><a href="http://gremlindocs.com/#transform/out">Gremlin out step</a></li>
+<li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
+<li><a href="http://gremlindocs.com/#side-effect/groupby">Gremlin groupBy step</a></li>
 </ul>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
 <p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
