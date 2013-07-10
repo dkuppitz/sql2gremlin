@@ -171,14 +171,13 @@
         </li>
       
         <li>
-          <a href="#pivots">Pivots</a>
-          
-        </li>
-      
-        <li>
           <a href="#complex">Complex</a>
           
             <ul>
+              
+                <li>
+                  <a href="#complex/pivots">Pivots</a>
+                </li>
               
                 <li>
                   <a href="#complex/recommendation">Recommendation</a>
@@ -585,7 +584,8 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
    r &lt;&lt; t(it.object, it.loops)
    true
  }).iterate(); r</code></pre>
-<h2 id='pivots'>Pivots</h2 id='pivots'>
+<h2 id='complex'>Complex</h2 id='complex'>
+<h3 id='complex/pivots'>Pivots</h3 id='complex/pivots'>
 <p>This sample shows how to determine the average total order value per month for each customer.
 
 </p>
@@ -628,7 +628,6 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
   <span class="keyword">ORDER</span> <span class="keyword">BY</span> Customers.CompanyName</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">println</span> <span class="string">"42"</span></code></pre>
-<h2 id='complex'>Complex</h2 id='complex'>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
 <p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
 
