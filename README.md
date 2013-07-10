@@ -410,7 +410,11 @@ This sample shows how to query all employees, their supervisors and their hierar
 
 #### SQL
 ```sql
-WITH EmployeeHierarchy (EmployeeID, LastName, FirstName, ReportsTo, HierarchyLevel) AS
+WITH EmployeeHierarchy (EmployeeID,
+                        LastName,
+                        FirstName,
+                        ReportsTo,
+                        HierarchyLevel) AS
 (
     SELECT EmployeeID
          , LastName
