@@ -436,16 +436,19 @@ INNER JOIN EmployeeHierarchy eh
 ORDER BY HierarchyLevel, LastName, FirstName
 ```
 
-#### Gremlin
+#### Gremlin (hierarchical)
 ```groovy
 boss = g.V('type','employee').filter({
   !it.out('reportsTo').hasNext()
 }).next(); \
 Tree.createTree(boss, boss.as('employee') \
     .in('reportsTo').loop('employee'){true}{true}.tree().cap().next())
+```
 
-// you can also produce the same tabular result that's produced by SQL
+You can also produce the same tabular result that's produced by SQL.
 
+#### Gremlin (tabular)
+```groovy
 r = []; t = { e, l ->
   [ 'employeeId'     : e.employeeId
   , 'lastname'       : e.lastname
