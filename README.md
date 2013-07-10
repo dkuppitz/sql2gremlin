@@ -462,6 +462,9 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
 
 ## Pivots
 
+This sample shows how to determine the average total order value per month for each customer.
+
+#### SQL
 ```sql
     SELECT Customers.CompanyName,
            COALESCE([1], 0)  AS [Jan],
@@ -497,11 +500,12 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
                                        [11],
                                        [12])) AS [Pivot]
 INNER JOIN Customers
-        ON Customers.CustomerID = [Pivot].customerid
+        ON Customers.CustomerID = [Pivot].CustomerID
   ORDER BY Customers.CompanyName
 ```
 
-```gremlin
+#### Gremlin
+```groovy
 println "42"
 ```
 
