@@ -460,7 +460,9 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
  }).iterate(); r
 ```
 
-## Pivots
+## Complex
+
+### Pivots
 
 This sample shows how to determine the average total order value per month for each customer.
 
@@ -508,8 +510,6 @@ INNER JOIN Customers
 ```groovy
 println "42"
 ```
-
-## Complex
 
 ### Recommendation
 
