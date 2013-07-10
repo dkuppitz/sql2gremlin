@@ -9,7 +9,19 @@ The provided Gremlin queries will not necessarily show the optimal way to query 
 The SQL samples will make use of T-SQL syntax. MySQL users might not know some of the concepts (e.g. paging), but should at least be able to understand the queries. The point is, that SQL2Gremlin is not made to teach SQL. You should just focus on each queries short description and the corresponding Gremlin part.
 
 TODO: link http://gremlin.tinkerpop.com
-TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.createGraph())
+
+To get started download the [northwind.groovy](/assets/northwind.groovy) and start your Gremlin shell:
+
+```sh
+./gremlin.sh /path/to/your/northwind.groovy
+```
+
+In your Gremlin shell create the Northwind graph and you're ready to go:
+
+```text
+gremlin> g = NorthwindFactory.createGraph()
+==>tinkergraph[vertices:3209 edges:6177]
+```
 
 ## Select
 
@@ -53,19 +65,19 @@ g.V('type','category').categoryName
 
 ### Select multiple columns
 
-This sample shows how to query the IDs and names of all categories.
+This sample shows how to query the names and descriptions of all categories.
 
 #### SQL
 ```sql
-SELECT CategoryID, CategoryName
+SELECT CategoryName, Description
   FROM Categories
 ```
 
 #### Gremlin
 ```groovy
 g.V('type','category').transform({
-  [ 'id'   : it.getProperty('categoryId')
-  , 'name' : it.getProperty('categoryName') ]
+  [ 'name' : it.getProperty('categoryName')
+  , 'desc' : it.getProperty('description') ]
 })
 ```
 
@@ -442,11 +454,8 @@ ORDER BY HierarchyLevel, LastName, FirstName
 
 #### Gremlin (hierarchical)
 ```groovy
-boss = g.V('type','employee').filter({
-  !it.out('reportsTo').hasNext()
-}).next(); \
-Tree.createTree(boss, boss.as('employee') \
-    .in('reportsTo').loop('employee'){true}{true}.tree().cap().next())
+g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
+ .as('employee').in('reportsTo').loop('employee'){true}{true}.tree().cap().next()
 ```
 
 You can also produce the same tabular result that's produced by SQL.
@@ -454,10 +463,10 @@ You can also produce the same tabular result that's produced by SQL.
 #### Gremlin (tabular)
 ```groovy
 r = []; t = { e, l ->
-  [ 'employeeId'     : e.employeeId
-  , 'lastname'       : e.lastname
-  , 'firstname'      : e.firstname
-  , 'reportsTo'      : l > 1 ? e.out('reportsTo').next().employeeId : null
+  [ 'employeeId'     : e.id
+  , 'lastname'       : e.getProperty('lastName')
+  , 'firstname'      : e.getProperty('firstName')
+  , 'reportsTo'      : l > 1 ? e.out('reportsTo').next().id : null
   , 'hierarchyLevel' : l ]
 }; \
 g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
@@ -535,7 +544,7 @@ g.V('type','customer') \
    m = [:]
    t = ['customerId':it.getProperty('customerId')]
    it.out('ordered').groupBy(m,
-     {it.getProperty('orderDate').getMonth()},
+     {new Date(it.getProperty('orderDate')).getMonth()},
      {it.out('contains').transform(rowTotal).sum()}).iterate()
    (0..11).each({
      t.put(monthNames[it], m.containsKey(it) ? m[it].mean().round(2) : 0f)
