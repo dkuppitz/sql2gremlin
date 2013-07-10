@@ -36,13 +36,13 @@ g.V('type','category')
 
 This sample shows how to query the names of all categories.
 
-**SQL**
+#### SQL
 ```sql
 SELECT CategoryName
   FROM Categories
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','category').categoryName
 ```
@@ -55,13 +55,13 @@ g.V('type','category').categoryName
 
 This sample shows how to query the IDs and names of all categories.
 
-**SQL**
+#### SQL
 ```sql
 SELECT CategoryID, CategoryName
   FROM Categories
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','category').transform({
   [ 'id'   : it.getProperty('categoryId')
@@ -79,13 +79,13 @@ g.V('type','category').transform({
 
 This sample shows how to query the length of the name of all categories.
 
-**SQL**
+#### SQL
 ```sql
 SELECT LENGTH(CategoryName)
   FROM Categories
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','category').categoryName.transform({it.length()})
 ```
@@ -100,13 +100,13 @@ g.V('type','category').categoryName.transform({it.length()})
 
 This sample shows how to query all distinct lengths of category names.
 
-**SQL**
+#### SQL
 ```sql
 SELECT DISTINCT LENGTH(CategoryName)
   FROM Categories
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','category').categoryName.transform({it.length()}).dedup()
 ```
@@ -122,13 +122,13 @@ g.V('type','category').categoryName.transform({it.length()}).dedup()
 
 This sample shows how to query the length of the longest category name.
 
-**SQL**
+#### SQL
 ```sql
 SELECT MAX(LENGTH(CategoryName))
   FROM Categories
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','category').categoryName.transform({it.length()}).max()
 ```
@@ -146,14 +146,14 @@ g.V('type','category').categoryName.transform({it.length()}).max()
 
 This sample shows how to query all products having no unit in stock.
 
-**SQL**
+#### SQL
 ```sql
 SELECT *
   FROM Products
  WHERE UnitsInStock = 0
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').has('unitsInStock', 0)
 ```
@@ -167,14 +167,14 @@ g.V('type','product').has('unitsInStock', 0)
 
 This sample shows how to query all products with a unit price not exceeding 10.
 
-**SQL**
+#### SQL
 ```sql
 SELECT *
   FROM Products
  WHERE NOT(UnitPrice > 10)
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').hasNot('unitPrice', T.gt, 10f)
 ```
@@ -188,14 +188,14 @@ g.V('type','product').hasNot('unitPrice', T.gt, 10f)
 
 This sample shows how to query all products with a minimum price of 5 and maximum price below 10.
 
-**SQL**
+#### SQL
 ```sql
 SELECT *
   FROM Products
  WHERE UnitPrice >= 5 AND UnitPrice < 10
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').interval('unitPrice', 5f, 10f)
 ```
@@ -211,14 +211,14 @@ g.V('type','product').interval('unitPrice', 5f, 10f)
 
 This sample shows how to query all products ordered by unit price.
 
-**SQL**
+#### SQL
 ```sql
   SELECT *
     FROM Products
 ORDER BY UnitPrice ASC
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').order({
   it.a.getProperty('unitPrice') <=> it.b.getProperty('unitPrice')
@@ -236,14 +236,14 @@ g.V('type','product').order({
 
 This sample shows how to query all products ordered by descending unit price.
 
-**SQL**
+#### SQL
 ```sql
   SELECT *
     FROM Products
 ORDER BY UnitPrice DESC
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
@@ -263,14 +263,14 @@ g.V('type','product').order({
 
 This sample shows how to query the first 5 products ordered by unit price.
 
-**SQL**
+#### SQL
 ```sql
   SELECT TOP (5) *
     FROM Products
 ORDER BY UnitPrice
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
@@ -289,7 +289,7 @@ g.V('type','product').order({
 
 This sample shows how to query the next 5 products (page 2) ordered by unit price.
 
-**SQL**
+#### SQL
 ```sql
    SELECT Products.*
      FROM (SELECT ROW_NUMBER()
@@ -303,7 +303,7 @@ This sample shows how to query the next 5 products (page 2) ordered by unit pric
  ORDER BY [ROW_NUMBER]
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
@@ -324,7 +324,7 @@ g.V('type','product').order({
 
 This sample shows how to determine the most used unit price.
 
-**SQL**
+#### SQL
 ```sql
   SELECT TOP(1) UnitPrice
     FROM (SELECT Products.UnitPrice,
@@ -334,7 +334,7 @@ This sample shows how to determine the most used unit price.
 ORDER BY [Count] DESC
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','product').property('unitPrice').groupCount().cap() \
  .orderMap(T.decr).next()
@@ -354,7 +354,7 @@ g.V('type','product').property('unitPrice').groupCount().cap() \
 
 This sample shows how to query all products from a specific category.
 
-**SQL**
+#### SQL
 ```sql
     SELECT Products.*
       FROM Products
@@ -363,7 +363,7 @@ INNER JOIN Categories
      WHERE Categories.CategoryName = 'Beverages'
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('categoryName','Beverages').in('inCategory')
 ```
@@ -377,7 +377,7 @@ g.V('categoryName','Beverages').in('inCategory')
 
 This sample shows how to count the number of orders for each customer.
 
-**SQL**
+#### SQL
 ```sql
     SELECT Customers.CustomerID, COUNT(Orders.OrderID)
       FROM Customers
@@ -386,7 +386,7 @@ This sample shows how to count the number of orders for each customer.
   GROUP BY Customers.CustomerID
 ```
 
-**Gremlin**
+#### Gremlin
 ```groovy
 g.V('type','customer').transform({
   [ 'customerId' : it.getProperty('customerId')
@@ -404,7 +404,61 @@ g.V('type','customer').transform({
 
 ## CTE
 
-Maybe
+### Recursive query
+
+This sample shows how to query all employees, their supervisors and their hierarchy level depending on where the employee is located in the supervisor chain.
+
+#### SQL
+```sql
+WITH EmployeeHierarchy (EmployeeID, LastName, FirstName, ReportsTo, HierarchyLevel) AS
+(
+    SELECT EmployeeID
+         , LastName
+         , FirstName
+         , ReportsTo
+         , 1 as HierarchyLevel
+      FROM Employees
+     WHERE ReportsTo IS NULL
+
+     UNION ALL
+
+    SELECT e.EmployeeID
+         , e.LastName
+         , e.FirstName
+         , e.ReportsTo
+         , eh.HierarchyLevel + 1 AS HierarchyLevel
+      FROM Employees e
+INNER JOIN EmployeeHierarchy eh
+        ON e.ReportsTo = eh.EmployeeID
+)
+  SELECT *
+    FROM EmployeeHierarchy
+ORDER BY HierarchyLevel, LastName, FirstName
+```
+
+#### Gremlin
+```groovy
+boss = g.V('type','employee').filter({
+  !it.out('reportsTo').hasNext()
+}).next(); \
+Tree.createTree(boss, boss.as('employee') \
+    .in('reportsTo').loop('employee'){true}{true}.tree().cap().next())
+
+// you can also produce the same tabular result that's produced by SQL
+
+r = []; t = { e, l ->
+  [ 'employeeId'     : e.employeeId
+  , 'lastname'       : e.lastname
+  , 'firstname'      : e.firstname
+  , 'reportsTo'      : l > 1 ? e.out('reportsTo').next().employeeId : null
+  , 'hierarchyLevel' : l ]
+}; \
+g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
+ .sideEffect({ r << t(it, 1) }).as('boss').in('reportsTo').loop('boss', {
+   r << t(it.object, it.loops)
+   true
+ }).iterate(); r
+```
 
 ## Pivots
 
