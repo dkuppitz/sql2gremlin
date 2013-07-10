@@ -160,10 +160,31 @@
         <li>
           <a href="#cte">CTE</a>
           
+            <ul>
+              
+                <li>
+                  <a href="#cte/recursive-query">Recursive query</a>
+                </li>
+              
+            </ul>
+          
         </li>
       
         <li>
           <a href="#pivots">Pivots</a>
+          
+        </li>
+      
+        <li>
+          <a href="#complex">Complex</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#complex/recommendation">Recommendation</a>
+                </li>
+              
+            </ul>
           
         </li>
       
@@ -212,12 +233,10 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the names of all categories.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName
   <span class="keyword">FROM</span> Categories</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName</span></code></pre>
 <p><strong>References:</strong>
 
@@ -229,12 +248,10 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the IDs and names of all categories.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryID, CategoryName
   <span class="keyword">FROM</span> Categories</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').transform<span class="container">({
   [ '<span class="title">id'</span>   : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">categoryId'</span>)</span></span>
   ,<span class="string"> 'name'</span> : it.getProperty('categoryName') ]
@@ -251,12 +268,10 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the length of the name of all categories.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> LENGTH(CategoryName)
   <span class="keyword">FROM</span> Categories</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>})</span></code></pre>
 <p><strong>References:</strong>
 
@@ -270,12 +285,10 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all distinct lengths of category names.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> LENGTH(CategoryName)
   <span class="keyword">FROM</span> Categories</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).dedup<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
@@ -290,12 +303,10 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the length of the longest category name.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">MAX</span>(LENGTH(CategoryName))
   <span class="keyword">FROM</span> Categories</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).max<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
@@ -311,13 +322,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products having no unit in stock.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> UnitsInStock = <span class="number">0</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span></span></code></pre>
 <p><strong>References:</strong>
 
@@ -330,13 +339,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products with a unit price not exceeding 10.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> <span class="keyword">NOT</span>(UnitPrice > <span class="number">10</span>)</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span></span></code></pre>
 <p><strong>References:</strong>
 
@@ -349,13 +356,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> UnitPrice >= <span class="number">5</span> <span class="keyword">AND</span> UnitPrice &lt; <span class="number">10</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span></span></code></pre>
 <p><strong>References:</strong>
 
@@ -369,13 +374,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products ordered by unit price.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">ASC</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">a</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.b.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })</code></pre>
@@ -392,13 +395,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products ordered by descending unit price.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">DESC</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })</code></pre>
@@ -416,13 +417,11 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the first 5 products ordered by unit price.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })[<span class="number">0.</span>.&lt;<span class="number">5</span>]</code></pre>
@@ -440,8 +439,7 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query the next 5 products (page 2) ordered by unit price.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">   <span class="operator"><span class="keyword">SELECT</span> Products.*
      <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> ROW_NUMBER()
                     OVER (
@@ -452,8 +450,7 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
                <span class="keyword">ON</span> Products.ProductID = SortedProducts.ProductID
     <span class="keyword">WHERE</span> [ROW_NUMBER] BETWEEN <span class="number">6</span> <span class="keyword">AND</span> <span class="number">10</span>
  <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ROW_NUMBER]</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })[<span class="number">5.</span>.&lt;<span class="number">10</span>]</code></pre>
@@ -472,16 +469,14 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to determine the most used unit price.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP(<span class="number">1</span>) UnitPrice
     <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> Products.UnitPrice,
                  <span class="aggregate">COUNT</span>(*) <span class="keyword">AS</span> [<span class="aggregate">Count</span>]
             <span class="keyword">FROM</span> Products
         <span class="keyword">GROUP</span> <span class="keyword">BY</span> Products.UnitPrice) <span class="keyword">AS</span> T
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> [<span class="aggregate">Count</span>] <span class="keyword">DESC</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').property<span class="container">('<span class="title">unitPrice'</span>)</span>.groupCount<span class="container">()</span>.cap<span class="container">()</span> \</span>
  .orderMap(<span class="type">T</span>.decr).next()</code></pre>
 <p><strong>References:</strong>
@@ -499,15 +494,13 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to query all products from a specific category.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Products.*
       <span class="keyword">FROM</span> Products
 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Categories
         <span class="keyword">ON</span> Categories.CategoryID = Products.CategoryID
      <span class="keyword">WHERE</span> Categories.CategoryName = <span class="string">'Beverages'</span></code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>')</code></pre>
 <p><strong>References:</strong>
 
@@ -520,15 +513,13 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <p>This sample shows how to count the number of orders for each customer.
 
 </p>
-<p><strong>SQL</strong>
-</p>
+<h4>SQL</h4>
 <pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CustomerID, <span class="aggregate">COUNT</span>(Orders.OrderID)
       <span class="keyword">FROM</span> Customers
  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Orders
         <span class="keyword">ON</span> Orders.CustomerID = Customers.CustomerID
   <span class="keyword">GROUP</span> <span class="keyword">BY</span> Customers.CustomerID</code></pre>
-<p><strong>Gremlin</strong>
-</p>
+<h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').transform<span class="container">({
   [ '<span class="title">customerId'</span> : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">customerId'</span>)</span></span>
   ,<span class="string"> 'orders'</span>     : it.out('ordered').count() ]
@@ -544,11 +535,128 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <li><a href="http://www.tinkerpop.com/docs/javadocs/gremlin/2.3.0/com/tinkerpop/gremlin/java/GremlinPipeline.html#count%28%29">Gremlin count</a></li>
 </ul>
 <h2 id='cte'>CTE</h2 id='cte'>
-<p>Maybe
+<h3 id='cte/recursive-query'>Recursive query</h3 id='cte/recursive-query'>
+<p>This sample shows how to query all employees, their supervisors and their hierarchy level depending on where the employee is located in the supervisor chain.
 
 </p>
+<h4>SQL</h4>
+<pre><code class="sql">WITH EmployeeHierarchy (EmployeeID, LastName, FirstName, ReportsTo, HierarchyLevel) AS
+(
+    SELECT EmployeeID
+         , LastName
+         , FirstName
+         , ReportsTo
+         , 1 as HierarchyLevel
+      FROM Employees
+     WHERE ReportsTo IS NULL
+
+     UNION ALL
+
+    SELECT e.EmployeeID
+         , e.LastName
+         , e.FirstName
+         , e.ReportsTo
+         , eh.HierarchyLevel + 1 AS HierarchyLevel
+      FROM Employees e
+INNER JOIN EmployeeHierarchy eh
+        ON e.ReportsTo = eh.EmployeeID
+)
+  SELECT *
+    FROM EmployeeHierarchy
+ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
+<h4>Gremlin</h4>
+<pre><code class="groovy"><span class="title">boss</span> = g.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({
+  !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span></span>
+}).next(); \
+<span class="type">Tree</span>.createTree(boss, boss.<span class="keyword">as</span>('employee') \
+    .<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next())
+
+// you can also produce the same tabular result that's produced by <span class="type">SQL</span>
+
+<span class="title">r</span> = []; t = { e, l ->
+  [<span class="string"> 'employeeId'</span>     : e.employeeId
+  ,<span class="string"> 'lastname'</span>       : e.lastname
+  ,<span class="string"> 'firstname'</span>      : e.firstname
+  ,<span class="string"> 'reportsTo'</span>      : l > <span class="number">1</span> ? e.out('reportsTo').next().employeeId : null
+  ,<span class="string"> 'hierarchyLevel'</span> : l ]
+}; \
+<span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
+ .sideEffect({ r &lt;&lt; t(it, <span class="number">1</span>) }).<span class="keyword">as</span>('boss').<span class="keyword">in</span>('reportsTo').loop('boss', {
+   r &lt;&lt; t(it.object, it.loops)
+   true
+ }).iterate(); r</code></pre>
 <h2 id='pivots'>Pivots</h2 id='pivots'>
-<p>Maybe</p>
+<p>TODO
+
+</p>
+<h2 id='complex'>Complex</h2 id='complex'>
+<h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
+<p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
+
+</p>
+<ul>
+<li>determine what the customer has already ordered</li>
+<li>determine who else ordered the same products</li>
+<li>determine what others also ordered</li>
+<li>determine products which were not already ordered by the initial customer, but ordered by the others</li>
+<li>rank products by occurence in other orders</li>
+</ul>
+<h4>SQL</h4>
+<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) [t14].[ProductName]
+    <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="aggregate">COUNT</span>(*) <span class="keyword">AS</span> [<span class="keyword">value</span>],
+                 [t13].[ProductName]
+            <span class="keyword">FROM</span> [customers] <span class="keyword">AS</span> [t0]
+     <span class="keyword">CROSS</span> APPLY (<span class="keyword">SELECT</span> [t9].[ProductName]
+                    <span class="keyword">FROM</span> [orders] <span class="keyword">AS</span> [t1]
+              <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t2]
+              <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [products] <span class="keyword">AS</span> [t3]
+                      <span class="keyword">ON</span> [t3].[ProductID] = [t2].[ProductID]
+              <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t4]
+              <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [orders] <span class="keyword">AS</span> [t5]
+                      <span class="keyword">ON</span> [t5].[OrderID] = [t4].[OrderID]
+               <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> [customers] <span class="keyword">AS</span> [t6]
+                      <span class="keyword">ON</span> [t6].[CustomerID] = [t5].[CustomerID]
+              <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> ([orders] <span class="keyword">AS</span> [t7]
+                          <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t8]
+                          <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [products] <span class="keyword">AS</span> [t9]
+                                  <span class="keyword">ON</span> [t9].[ProductID] = [t8].[ProductID])
+                   <span class="keyword">WHERE</span> <span class="keyword">NOT</span> EXISTS(<span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="keyword">AS</span> [EMPTY]
+                                      <span class="keyword">FROM</span> [orders] <span class="keyword">AS</span> [t10]
+                                <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t11]
+                                <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [products] <span class="keyword">AS</span> [t12]
+                                        <span class="keyword">ON</span> [t12].[ProductID] = [t11].[ProductID]
+                                     <span class="keyword">WHERE</span> [t9].[ProductID] = [t12].[ProductID]
+                                       <span class="keyword">AND</span> [t10].[CustomerID] = [t0].[CustomerID]
+                                       <span class="keyword">AND</span> [t11].[OrderID] = [t10].[OrderID])
+                     <span class="keyword">AND</span> [t6].[CustomerID] &lt;> [t0].[CustomerID]
+                     <span class="keyword">AND</span> [t1].[CustomerID] = [t0].[CustomerID]
+                     <span class="keyword">AND</span> [t2].[OrderID] = [t1].[OrderID]
+                     <span class="keyword">AND</span> [t4].[ProductID] = [t3].[ProductID]
+                     <span class="keyword">AND</span> [t7].[CustomerID] = [t6].[CustomerID]
+                     <span class="keyword">AND</span> [t8].[OrderID] = [t7].[OrderID]) <span class="keyword">AS</span> [t13]
+           <span class="keyword">WHERE</span> [t0].[CustomerID] = N<span class="string">'ALFKI'</span>
+        <span class="keyword">GROUP</span> <span class="keyword">BY</span> [t13].[ProductName]) <span class="keyword">AS</span> [t14]
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> [t14].[<span class="keyword">value</span>] <span class="keyword">DESC</span></code></pre>
+<h4>Gremlin</h4>
+<pre><code class="groovy">g.V(<span class="attribute">'customerId</span>',<span class="attribute">'ALFKI</span>').as(<span class="attribute">'customer</span>')                      \
+ .<span class="keyword">out</span>(<span class="attribute">'ordered</span>').<span class="keyword">out</span>(<span class="attribute">'contains</span>').<span class="keyword">out</span>(<span class="attribute">'is</span>').as(<span class="attribute">'products</span>')     \
+ .<span class="keyword">in</span>(<span class="attribute">'is</span>').<span class="keyword">in</span>(<span class="attribute">'contains</span>').<span class="keyword">in</span>(<span class="attribute">'ordered</span>').except(<span class="attribute">'customer</span>')    \
+ .<span class="keyword">out</span>(<span class="attribute">'ordered</span>').<span class="keyword">out</span>(<span class="attribute">'contains</span>').<span class="keyword">out</span>(<span class="attribute">'is</span>').except(<span class="attribute">'products</span>') \
+ .groupCount().cap().orderMap(T.decr)[<span class="number">0.</span>.&lt;<span class="number">5</span>].productName</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#side-effect/as">Gremlin as step</a></li>
+<li><a href="http://gremlindocs.com/#transform/out">Gremlin out step</a></li>
+<li><a href="http://gremlindocs.com/#transform/in">Gremlin in step</a></li>
+<li><a href="http://gremlindocs.com/#filter/except">Gremlin except step</a></li>
+<li><a href="http://gremlindocs.com/#side-effect/groupcount">Gremlin groupCount step</a></li>
+<li><a href="http://gremlindocs.com/#transform/cap">Gremlin cap step</a></li>
+<li><a href="http://gremlindocs.com/#transform/ordermap">Gremlin orderMap step</a></li>
+<li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
+</ul>
 
   </div>
 </div></body>
