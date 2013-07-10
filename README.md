@@ -463,6 +463,8 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
  }).iterate(); r
 ```
 
+**References:**
+
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin filter step](http://gremlindocs.com/#filter/filter)
 * [Gremlin out step](http://gremlindocs.com/#transform/out)
@@ -521,8 +523,26 @@ INNER JOIN Customers
 
 #### Gremlin
 ```groovy
-println "42"
+monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; \
+rowTotal   = { it.getProperty('unitPrice') * it.getProperty('quantity') }; \
+g.V('type','customer') \
+ .order({ it.a.getProperty('customerId') <=> it.b.getProperty('customerId') }) \
+ .filter({ it.out('ordered').hasNext() }).transform({
+   m = [:]
+   t = ['customerId':it.getProperty('customerId')]
+   it.out('ordered').groupBy(m,
+     {it.getProperty('orderDate').getMonth()},
+     {it.out('contains').transform(rowTotal).sum()}).iterate()
+   (0..11).each({
+     t.put(monthNames[it], m.containsKey(it) ? m[it].mean().round(2) : 0f)
+   })
+   t
+})
 ```
+
+**References:**
+
+* [GremlinDocs](http://gremlindocs.com/)
 
 ### Recommendation
 
