@@ -1,4 +1,4 @@
-# ![SQL2Gremlin](http://aaronrussell.co.uk/assets/images/labs-illustration.png)
+# ![SQL2Gremlin](sql2gremlin.png)
 
 ## Introduction
 
