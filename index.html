@@ -563,16 +563,17 @@ INNER JOIN EmployeeHierarchy eh
   SELECT *
     FROM EmployeeHierarchy
 ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
-<h4>Gremlin</h4>
+<h4>Gremlin (hierarchical)</h4>
 <pre><code class="groovy"><span class="title">boss</span> = g.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({
   !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span></span>
 }).next(); \
 <span class="type">Tree</span>.createTree(boss, boss.<span class="keyword">as</span>('employee') \
-    .<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next())
+    .<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next())</code></pre>
+<p>You can also produce the same tabular result that&#39;s produced by SQL.
 
-// you can also produce the same tabular result that's produced by <span class="type">SQL</span>
-
-<span class="title">r</span> = []; t = { e, l ->
+</p>
+<h4>Gremlin (tabular)</h4>
+<pre><code class="groovy"><span class="title">r</span> = []; t = { e, l ->
   [<span class="string"> 'employeeId'</span>     : e.employeeId
   ,<span class="string"> 'lastname'</span>       : e.lastname
   ,<span class="string"> 'firstname'</span>      : e.firstname
