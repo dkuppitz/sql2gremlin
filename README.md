@@ -462,7 +462,48 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
 
 ## Pivots
 
-TODO
+```sql
+    SELECT Customers.CompanyName,
+           COALESCE([1], 0)  AS [Jan],
+           COALESCE([2], 0)  AS [Feb],
+           COALESCE([3], 0)  AS [Mar],
+           COALESCE([4], 0)  AS [Apr],
+           COALESCE([5], 0)  AS [May],
+           COALESCE([6], 0)  AS [Jun],
+           COALESCE([7], 0)  AS [Jul],
+           COALESCE([8], 0)  AS [Aug],
+           COALESCE([9], 0)  AS [Sep],
+           COALESCE([10], 0) AS [Oct],
+           COALESCE([11], 0) AS [Nov],
+           COALESCE([12], 0) AS [Dec]
+      FROM (SELECT Orders.CustomerID,
+                   MONTH(Orders.OrderDate)                                   AS [Month],
+                   SUM([Order Details].UnitPrice * [Order Details].Quantity) AS Total
+              FROM Orders
+        INNER JOIN [Order Details]
+                ON [Order Details].OrderID = Orders.OrderID
+          GROUP BY Orders.CustomerID,
+                   MONTH(Orders.OrderDate)) o
+     PIVOT (AVG(Total) FOR [Month] IN ([1],
+                                       [2],
+                                       [3],
+                                       [4],
+                                       [5],
+                                       [6],
+                                       [7],
+                                       [8],
+                                       [9],
+                                       [10],
+                                       [11],
+                                       [12])) AS [Pivot]
+INNER JOIN Customers
+        ON Customers.CustomerID = [Pivot].customerid
+  ORDER BY Customers.CompanyName
+```
+
+```gremlin
+println "42"
+```
 
 ## Complex
 
