@@ -586,6 +586,10 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
    true
  }).iterate(); r</code></pre>
 <h2 id='pivots'>Pivots</h2 id='pivots'>
+<p>This sample shows how to determine the average total order value per month for each customer.
+
+</p>
+<h4>SQL</h4>
 <pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CompanyName,
            COALESCE([<span class="number">1</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Jan],
            COALESCE([<span class="number">2</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Feb],
@@ -620,9 +624,10 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
                                        [<span class="number">11</span>],
                                        [<span class="number">12</span>])) <span class="keyword">AS</span> [Pivot]
 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Customers
-        <span class="keyword">ON</span> Customers.CustomerID = [Pivot].customerid
+        <span class="keyword">ON</span> Customers.CustomerID = [Pivot].CustomerID
   <span class="keyword">ORDER</span> <span class="keyword">BY</span> Customers.CompanyName</code></pre>
-<pre><code class="gremlin"><span class="title">println</span> <span class="string">"42"</span></code></pre>
+<h4>Gremlin</h4>
+<pre><code class="groovy"><span class="title">println</span> <span class="string">"42"</span></code></pre>
 <h2 id='complex'>Complex</h2 id='complex'>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
 <p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
