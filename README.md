@@ -460,6 +460,16 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
  }).iterate(); r
 ```
 
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin filter step](http://gremlindocs.com/#filter/filter)
+* [Gremlin out step](http://gremlindocs.com/#transform/out)
+* [Gremlin sideEffect step](http://gremlindocs.com/#side-effect/sideeffect)
+* [Gremlin as step](http://gremlindocs.com/#side-effect/as)
+* [Gremlin in step](http://gremlindocs.com/#transform/in)
+* [Gremlin loop step](http://gremlindocs.com/#branch/loop)
+* [Gremlin iterate](http://gremlindocs.com/#methods/pipe-iterate)
+* [Groovy left shift](http://groovy.codehaus.org/groovy-jdk/java/util/Collection.html#leftShift%28T%29)
+
 ## Complex
 
 ### Pivots
