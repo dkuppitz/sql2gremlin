@@ -192,9 +192,17 @@
 
 </p>
 <p>TODO: link <a href="http://gremlin.tinkerpop.com">http://gremlin.tinkerpop.com</a>
-TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.createGraph())
 
 </p>
+<p>To get started download the <a href="/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
+
+</p>
+<pre><code class="sh">.<span class="regexp">/gremlin.sh /path</span><span class="regexp">/to/your</span><span class="regexp">/northwind.groovy</code></pre>
+<p>In your Gremlin shell create the Northwind graph and you&#39;re ready to go:
+
+</p>
+<pre><code class="text">gremlin&gt; g = NorthwindFactory.createGraph()
+==&gt;tinkergraph[vertices:3209 edges:6177]</code></pre>
 <h2 id='select'>Select</h2 id='select'>
 <h3 id='select/select-all'>Select all</h3 id='select/select-all'>
 <p>This sample shows how to query all categories.
@@ -227,16 +235,16 @@ TODO: Northwind blabla. Provide NorthwindFactory.groovy (g = NorthwindFactory.cr
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 </ul>
 <h3 id='select/select-multiple-columns'>Select multiple columns</h3 id='select/select-multiple-columns'>
-<p>This sample shows how to query the IDs and names of all categories.
+<p>This sample shows how to query the names and descriptions of all categories.
 
 </p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryID, CategoryName
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName, Description
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').transform<span class="container">({
-  [ '<span class="title">id'</span>   : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">categoryId'</span>)</span></span>
-  ,<span class="string"> 'name'</span> : it.getProperty('categoryName') ]
+  [ '<span class="title">name'</span> : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">categoryName'</span>)</span></span>
+  ,<span class="string"> 'desc'</span> : it.getProperty('description') ]
 })</code></pre>
 <p><strong>References:</strong>
 
@@ -551,20 +559,17 @@ INNER JOIN EmployeeHierarchy eh
     FROM EmployeeHierarchy
 ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
 <h4>Gremlin (hierarchical)</h4>
-<pre><code class="groovy"><span class="title">boss</span> = g.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({
-  !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span></span>
-}).next(); \
-<span class="type">Tree</span>.createTree(boss, boss.<span class="keyword">as</span>('employee') \
-    .<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next())</code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
+ .<span class="keyword">as</span>('employee').<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next()</code></pre>
 <p>You can also produce the same tabular result that&#39;s produced by SQL.
 
 </p>
 <h4>Gremlin (tabular)</h4>
 <pre><code class="groovy"><span class="title">r</span> = []; t = { e, l ->
-  [<span class="string"> 'employeeId'</span>     : e.employeeId
-  ,<span class="string"> 'lastname'</span>       : e.lastname
-  ,<span class="string"> 'firstname'</span>      : e.firstname
-  ,<span class="string"> 'reportsTo'</span>      : l > <span class="number">1</span> ? e.out('reportsTo').next().employeeId : null
+  [<span class="string"> 'employeeId'</span>     : e.id
+  ,<span class="string"> 'lastname'</span>       : e.getProperty('lastName')
+  ,<span class="string"> 'firstname'</span>      : e.getProperty('firstName')
+  ,<span class="string"> 'reportsTo'</span>      : l > <span class="number">1</span> ? e.out('reportsTo').next().id : null
   ,<span class="string"> 'hierarchyLevel'</span> : l ]
 }; \
 <span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
@@ -637,7 +642,7 @@ g.V(<span class="comment">'type','customer') \</span>
    m = [:]
    t = [<span class="comment">'customerId':it.getProperty('customerId')]</span>
    it.out(<span class="comment">'ordered').groupBy(m,</span>
-     {it.getProperty(<span class="comment">'orderDate').getMonth()},</span>
+     {<span class="keyword">new</span> <span class="built_in">Date</span>(it.getProperty(<span class="comment">'orderDate')).getMonth()},</span>
      {it.out(<span class="comment">'contains').transform(rowTotal).sum()}).iterate()</span>
    (<span class="number">0.</span>.<span class="number">11</span>).<span class="keyword">each</span>({
      t.put(monthNames[it], m.containsKey(it) ? m[it].mean().<span class="built_in">round</span>(<span class="number">2</span>) : <span class="number">0</span>f)
