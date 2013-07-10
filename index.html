@@ -585,6 +585,9 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
    r &lt;&lt; t(it.object, it.loops)
    true
  }).iterate(); r</code></pre>
+<p><strong>References:</strong>
+
+</p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/filter">Gremlin filter step</a></li>
@@ -639,7 +642,27 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
         <span class="keyword">ON</span> Customers.CustomerID = [Pivot].CustomerID
   <span class="keyword">ORDER</span> <span class="keyword">BY</span> Customers.CompanyName</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">println</span> <span class="string">"42"</span></code></pre>
+<pre><code class="groovy">monthNames = [<span class="comment">'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; \</span>
+rowTotal   = { it.getProperty(<span class="comment">'unitPrice') * it.getProperty('quantity') }; \</span>
+g.V(<span class="comment">'type','customer') \</span>
+ .order({ it.a.getProperty(<span class="comment">'customerId') &lt;=> it.b.getProperty('customerId') }) \</span>
+ .<span class="built_in">filter</span>({ it.out(<span class="comment">'ordered').hasNext() }).transform({</span>
+   m = [:]
+   t = [<span class="comment">'customerId':it.getProperty('customerId')]</span>
+   it.out(<span class="comment">'ordered').groupBy(m,</span>
+     {it.getProperty(<span class="comment">'orderDate').getMonth()},</span>
+     {it.out(<span class="comment">'contains').transform(rowTotal).sum()}).iterate()</span>
+   (<span class="number">0.</span>.<span class="number">11</span>).<span class="keyword">each</span>({
+     t.put(monthNames[it], m.containsKey(it) ? m[it].mean().<span class="built_in">round</span>(<span class="number">2</span>) : <span class="number">0</span>f)
+   })
+   t
+})</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/">GremlinDocs</a></li>
+</ul>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
 <p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
 
