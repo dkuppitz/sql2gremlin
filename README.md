@@ -462,7 +462,7 @@ g.V('type','employee').filter({ !it.out('reportsTo').hasNext() }) \
 
 ## Pivots
 
-Maybe
+TODO
 
 ## Complex
 
