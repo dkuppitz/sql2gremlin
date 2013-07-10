@@ -66,7 +66,7 @@ SELECT CategoryID, CategoryName
 g.V('type','category').transform({
   [ 'id'   : it.getProperty('categoryId')
   , 'name' : it.getProperty('categoryName') ]
-}).categoryName
+})
 ```
 
 **References:**
