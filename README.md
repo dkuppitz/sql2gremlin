@@ -2,13 +2,11 @@
 
 ## Introduction
 
-SQL2Gremlin guides you through typical SQL concepts and shows how to do the same in Gremlin. The format of the Gremlin results will not necessarily match the format of the SQL results. Gremlin will often have better ways to structure your results, SQL can only give you tabular data.
+SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns found when querying data with SQL. The format of the Gremlin results will not necessarily match the format of the SQL results. While SQL can only provide results in a tabular form, Gremlin provides various ways to structure a result set. Next, the Gremlin queries demonstrated are for elucidatory purposes and may not be the optimal way to retrieve the desired data. If a particular query runs slow and an optimal solution is desired, please do not hesitate to ask for help on the [Gremlin-users mailing list](https://groups.google.com/forum/#!forum/gremlin-users). Finally, the SQL examples presented make use of T-SQL syntax. MySQL users may not know some of the expressions (e.g. paging), but should be able to understand the purpose of the query. 
 
-The provided Gremlin queries will not necessarily show the optimal way to query the appropriate data. Instead SQL2Gremlin shall show you different Gremlin query concepts. If you have slow queries and need to know a better solution, don't hesitate to ask in the [Gremlin-users group](https://groups.google.com/forum/#!forum/gremlin-users).
+If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the [SQL2Gremlin issue tracker](https://github.com/dkuppitz/sql2gremlin/issues).
 
-The SQL samples will make use of T-SQL syntax. MySQL users might not know some of the concepts (e.g. paging), but should at least be able to understand the queries. The point is, that SQL2Gremlin is not made to teach SQL. You should just focus on each queries short description and the corresponding Gremlin part.
-
-To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](/assets/northwind.groovy) and start your Gremlin shell:
+To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](http://sql2gremlin.com/assets/northwind.groovy) and start your Gremlin shell:
 
 ```text
 $ wget -q http://tinkerpop.com/downloads/gremlin/gremlin-groovy-2.3.0.zip
