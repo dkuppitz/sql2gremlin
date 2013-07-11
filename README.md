@@ -6,6 +6,8 @@ SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns 
 
 If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the [SQL2Gremlin issue tracker](https://github.com/dkuppitz/sql2gremlin/issues).
 
+_Acknowledgements_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumblr.com/).
+
 To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](http://sql2gremlin.com/assets/northwind.groovy) and start your Gremlin shell:
 
 ```text
