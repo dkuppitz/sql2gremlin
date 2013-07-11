@@ -464,6 +464,39 @@ g.V('type','customer').transform({
 * [Gremlin out step](http://gremlindocs.com/#transform/out)
 * [Gremlin count](http://www.tinkerpop.com/docs/javadocs/gremlin/2.3.0/com/tinkerpop/gremlin/java/GremlinPipeline.html#count%28%29)
 
+## Miscellaneous
+
+### Concat
+
+This sample shows how to concat two result sets (customers whos company name starts with 'A' and customers whos company name starts with 'E').
+
+#### SQL
+```sql
+SELECT [customer].[CompanyName]
+  FROM [Customers] AS [customer]
+ WHERE [customer].[CompanyName] LIKE 'A%'
+ UNION ALL
+SELECT [customer].[CompanyName]
+  FROM [Customers] AS [customer]
+ WHERE [customer].[CompanyName] LIKE 'E%'
+```
+
+#### Gremlin
+```groovy
+g.V('type','customer').copySplit(
+  _().filter({ it.getProperty('companyName')[0] == "A" }),
+  _().filter({ it.getProperty('companyName')[0] == "E" })
+).exhaustMerge().companyName
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin copySplit step](http://gremlindocs.com/#branch/copysplit)
+* [Gremlin filter step](http://gremlindocs.com/#filter/filter)
+* [Gremlin property access](http://gremlindocs.com/#transform/key)
+* [Gremlin exhaustMerge step](http://gremlindocs.com/#branch/exhaustmerge)
+
 ## CTE
 
 ### Recursive query
