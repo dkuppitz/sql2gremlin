@@ -195,16 +195,13 @@
     
     <h1><img src="sql2gremlin.png" alt="SQL2Gremlin"></h1>
 <h2 id='introduction'>Introduction</h2 id='introduction'>
-<p>SQL2Gremlin guides you through typical SQL concepts and shows how to do the same in Gremlin. The format of the Gremlin results will not necessarily match the format of the SQL results. Gremlin will often have better ways to structure your results, SQL can only give you tabular data.
+<p>SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns found when querying data with SQL. The format of the Gremlin results will not necessarily match the format of the SQL results. While SQL can only provide results in a tabular form, Gremlin provides various ways to structure a result set. Next, the Gremlin queries demonstrated are for elucidatory purposes and may not be the optimal way to retrieve the desired data. If a particular query runs slow and an optimal solution is desired, please do not hesitate to ask for help on the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-users mailing list</a>. Finally, the SQL examples presented make use of T-SQL syntax. MySQL users may not know some of the expressions (e.g. paging), but should be able to understand the purpose of the query. 
 
 </p>
-<p>The provided Gremlin queries will not necessarily show the optimal way to query the appropriate data. Instead SQL2Gremlin shall show you different Gremlin query concepts. If you have slow queries and need to know a better solution, don&#39;t hesitate to ask in the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-users group</a>.
+<p>If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the <a href="https://github.com/dkuppitz/sql2gremlin/issues">SQL2Gremlin issue tracker</a>.
 
 </p>
-<p>The SQL samples will make use of T-SQL syntax. MySQL users might not know some of the concepts (e.g. paging), but should at least be able to understand the queries. The point is, that SQL2Gremlin is not made to teach SQL. You should just focus on each queries short description and the corresponding Gremlin part.
-
-</p>
-<p>To get started download the latest Gremlin version from <a href="http://gremlin.tinkerpop.com">gremlin.tinkerpop.com</a> and extract it. Then download the file <a href="/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
+<p>To get started download the latest Gremlin version from <a href="http://gremlin.tinkerpop.com">gremlin.tinkerpop.com</a> and extract it. Then download the file <a href="http://sql2gremlin.com/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
 
 </p>
 <pre><code class="text">$ wget -q http://tinkerpop.com/downloads/gremlin/gremlin-groovy-2.3.0.zip
