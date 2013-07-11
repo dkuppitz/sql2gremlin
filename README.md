@@ -466,9 +466,9 @@ g.V('type','customer').transform({
 
 ## Miscellaneous
 
-### Concat
+### Concatenate
 
-This sample shows how to concat two result sets (customers whos company name starts with 'A' and customers whos company name starts with 'E').
+This sample shows how to concatenate two result sets (customers whos company name starts with 'A' and customers whos company name starts with 'E').
 
 #### SQL
 ```sql
