@@ -30,6 +30,40 @@ gremlin> g = NorthwindFactory.createGraph()
 ==>tinkergraph[vertices:3209 edges:6177]
 ```
 
+The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>The type of this vertex.</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>The code or name for a specific region.</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>The code or name for a specific country.</td>
+    </tr>
+    <tr>
+      <td>customerId</td>
+      <td>The well-known Northwind customer identifier (e.g. ALFKI).</td>
+    </tr>
+    <tr>
+      <td>categoryName</td>
+      <td>The name of a specific category.</td>
+    </tr>
+    </tr>
+  </tbody>
+</table>
+
 ## Select
 
 ### Select all
