@@ -8,8 +8,6 @@ The provided Gremlin queries will not necessarily show the optimal way to query 
 
 The SQL samples will make use of T-SQL syntax. MySQL users might not know some of the concepts (e.g. paging), but should at least be able to understand the queries. The point is, that SQL2Gremlin is not made to teach SQL. You should just focus on each queries short description and the corresponding Gremlin part.
 
-TODO: link http://gremlin.tinkerpop.com
-
 To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](/assets/northwind.groovy) and start your Gremlin shell:
 
 ```text
