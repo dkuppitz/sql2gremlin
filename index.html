@@ -225,12 +225,13 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category')</span></code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').map<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
 </p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='select/select-single-column'>Select single column</h3 id='select/select-single-column'>
 <p>This sample shows how to query the names of all categories.
@@ -330,13 +331,14 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> UnitsInStock = <span class="number">0</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span></span></code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span>.map<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
 </p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/has">Gremlin has step</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='filtering/filter-by-inequality'>Filter by inequality</h3 id='filtering/filter-by-inequality'>
 <p>This sample shows how to query all products with a unit price not exceeding 10.
@@ -347,13 +349,14 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> <span class="keyword">NOT</span>(UnitPrice > <span class="number">10</span>)</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span></span></code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
 </p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/hasnot">Gremlin hasNot step</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='filtering/filter-by-value-range'>Filter by value range</h3 id='filtering/filter-by-value-range'>
 <p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.
@@ -364,13 +367,14 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> UnitPrice >= <span class="number">5</span> <span class="keyword">AND</span> UnitPrice &lt; <span class="number">10</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span></span></code></pre>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
 <p><strong>References:</strong>
 
 </p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/interval">Gremlin interval step</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h2 id='ordering'>Ordering</h2 id='ordering'>
 <h3 id='ordering/order-by-value-ascending'>Order by value ascending</h3 id='ordering/order-by-value-ascending'>
@@ -384,7 +388,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">a</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.b.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
-})</code></pre>
+}).map()</code></pre>
 <p><strong>References:</strong>
 
 </p>
@@ -393,6 +397,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='ordering/order-by-value-descending'>Order by value descending</h3 id='ordering/order-by-value-descending'>
 <p>This sample shows how to query all products ordered by descending unit price.
@@ -405,7 +410,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
-})</code></pre>
+}).map()</code></pre>
 <p><strong>References:</strong>
 
 </p>
@@ -413,6 +418,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
 <h2 id='paging'>Paging</h2 id='paging'>
@@ -427,7 +433,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
-})[<span class="number">0.</span>.&lt;<span class="number">5</span>]</code></pre>
+})[<span class="number">0.</span>.&lt;<span class="number">5</span>].map()</code></pre>
 <p><strong>References:</strong>
 
 </p>
@@ -436,6 +442,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 <li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
 <h3 id='paging/paged-result-set'>Paged result set</h3 id='paging/paged-result-set'>
@@ -456,7 +463,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <h4>Gremlin</h4>
 <pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
   <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
-})[<span class="number">5.</span>.&lt;<span class="number">10</span>]</code></pre>
+})[<span class="number">5.</span>.&lt;<span class="number">10</span>].map()</code></pre>
 <p><strong>References:</strong>
 
 </p>
@@ -465,6 +472,7 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 <li><a href="http://gremlindocs.com/#filter/i-j">Gremlin range filter</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
 <h2 id='grouping'>Grouping</h2 id='grouping'>
@@ -504,13 +512,14 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
         <span class="keyword">ON</span> Categories.CategoryID = Products.CategoryID
      <span class="keyword">WHERE</span> Categories.CategoryName = <span class="string">'Beverages'</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>')</code></pre>
+<pre><code class="groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>').<span class="keyword">map</span>()</code></pre>
 <p><strong>References:</strong>
 
 </p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/in">Gremlin in step</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='joining/left-join'>Left join</h3 id='joining/left-join'>
 <p>This sample shows how to count the number of orders for each customer.
