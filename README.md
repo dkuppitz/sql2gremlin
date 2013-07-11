@@ -6,7 +6,7 @@ SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns 
 
 If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the [SQL2Gremlin issue tracker](https://github.com/dkuppitz/sql2gremlin/issues).
 
-_Acknowledgements_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumblr.com/).
+_Acknowledgement_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumblr.com/).
 
 ## Northwind Graph Model
 
