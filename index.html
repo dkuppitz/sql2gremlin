@@ -164,6 +164,19 @@
         </li>
       
         <li>
+          <a href="#miscellaneous">Miscellaneous</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#miscellaneous/concat">Concat</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
           <a href="#cte">CTE</a>
           
             <ul>
@@ -595,6 +608,34 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 <li><a href="http://gremlindocs.com/#transform/out">Gremlin out step</a></li>
 <li><a href="http://www.tinkerpop.com/docs/javadocs/gremlin/2.3.0/com/tinkerpop/gremlin/java/GremlinPipeline.html#count%28%29">Gremlin count</a></li>
+</ul>
+<h2 id='miscellaneous'>Miscellaneous</h2 id='miscellaneous'>
+<h3 id='miscellaneous/concat'>Concat</h3 id='miscellaneous/concat'>
+<p>This sample shows how to concat two result sets (customers whos company name starts with &#39;A&#39; and customers whos company name starts with &#39;E&#39;).
+
+</p>
+<h4>SQL</h4>
+<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> [customer].[CompanyName]
+  <span class="keyword">FROM</span> [Customers] <span class="keyword">AS</span> [customer]
+ <span class="keyword">WHERE</span> [customer].[CompanyName] <span class="keyword">LIKE</span> <span class="string">'A%'</span>
+ <span class="keyword">UNION</span> <span class="keyword">ALL</span>
+<span class="keyword">SELECT</span> [customer].[CompanyName]
+  <span class="keyword">FROM</span> [Customers] <span class="keyword">AS</span> [customer]
+ <span class="keyword">WHERE</span> [customer].[CompanyName] <span class="keyword">LIKE</span> <span class="string">'E%'</span></code></pre>
+<h4>Gremlin</h4>
+<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').copySplit<span class="container">(
+  <span class="title">_</span>()</span>.filter<span class="container">({ <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">companyName'</span>)</span>[0] == "<span class="type">A</span>" }),</span>
+  _().filter({ it.getProperty('companyName')[<span class="number">0</span>] == <span class="string">"E"</span> })
+).exhaustMerge().companyName</code></pre>
+<p><strong>References:</strong>
+
+</p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#branch/copysplit">Gremlin copySplit step</a></li>
+<li><a href="http://gremlindocs.com/#filter/filter">Gremlin filter step</a></li>
+<li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
+<li><a href="http://gremlindocs.com/#branch/exhaustmerge">Gremlin exhaustMerge step</a></li>
 </ul>
 <h2 id='cte'>CTE</h2 id='cte'>
 <h3 id='cte/recursive-query'>Recursive query</h3 id='cte/recursive-query'>
