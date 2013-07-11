@@ -231,6 +231,41 @@ $ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </p>
 <pre><code class="text">gremlin&gt; g = NorthwindFactory.createGraph()
 ==&gt;tinkergraph[vertices:3209 edges:6177]</code></pre>
+<p>The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:
+
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>The type of this vertex.</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>The code or name for a specific region.</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>The code or name for a specific country.</td>
+    </tr>
+    <tr>
+      <td>customerId</td>
+      <td>The well-known Northwind customer identifier (e.g. ALFKI).</td>
+    </tr>
+    <tr>
+      <td>categoryName</td>
+      <td>The name of a specific category.</td>
+    </tr>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id='select'>Select</h2 id='select'>
 <h3 id='select/select-all'>Select all</h3 id='select/select-all'>
 <p>This sample shows how to query all categories.
