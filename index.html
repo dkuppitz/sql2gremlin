@@ -207,10 +207,13 @@
 <p>TODO: link <a href="http://gremlin.tinkerpop.com">http://gremlin.tinkerpop.com</a>
 
 </p>
-<p>To get started download the <a href="/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
+<p>To get started download the latest Gremlin version from <a href="http://gremlin.tinkerpop.com">gremlin.tinkerpop.com</a> and extract it. Then download the file <a href="/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
 
 </p>
-<pre><code class="sh">.<span class="regexp">/gremlin.sh /path</span><span class="regexp">/to/your</span><span class="regexp">/northwind.groovy</code></pre>
+<pre><code class="text">$ wget -q http://tinkerpop.com/downloads/gremlin/gremlin-groovy-2.3.0.zip
+$ wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
+$ unzip -q gremlin-groovy-2.3.0.zip
+$ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <p>In your Gremlin shell create the Northwind graph and you&#39;re ready to go:
 
 </p>
