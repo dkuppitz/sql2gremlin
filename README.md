@@ -10,10 +10,13 @@ The SQL samples will make use of T-SQL syntax. MySQL users might not know some o
 
 TODO: link http://gremlin.tinkerpop.com
 
-To get started download the [northwind.groovy](/assets/northwind.groovy) and start your Gremlin shell:
+To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](/assets/northwind.groovy) and start your Gremlin shell:
 
-```sh
-./gremlin.sh /path/to/your/northwind.groovy
+```text
+$ wget -q http://tinkerpop.com/downloads/gremlin/gremlin-groovy-2.3.0.zip
+$ wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
+$ unzip -q gremlin-groovy-2.3.0.zip
+$ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy
 ```
 
 In your Gremlin shell create the Northwind graph and you're ready to go:
