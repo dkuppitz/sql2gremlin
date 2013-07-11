@@ -38,12 +38,13 @@ SELECT *
 
 #### Gremlin
 ```groovy
-g.V('type','category')
+g.V('type','category').map()
 ```
 
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ### Select single column
 
@@ -168,13 +169,14 @@ SELECT *
 
 #### Gremlin
 ```groovy
-g.V('type','product').has('unitsInStock', 0)
+g.V('type','product').has('unitsInStock', 0).map()
 ```
 
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin has step](http://gremlindocs.com/#filter/has)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ### Filter by inequality
 
@@ -189,13 +191,14 @@ SELECT *
 
 #### Gremlin
 ```groovy
-g.V('type','product').hasNot('unitPrice', T.gt, 10f)
+g.V('type','product').hasNot('unitPrice', T.gt, 10f).map()
 ```
 
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin hasNot step](http://gremlindocs.com/#filter/hasnot)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ### Filter by value range
 
@@ -210,13 +213,14 @@ SELECT *
 
 #### Gremlin
 ```groovy
-g.V('type','product').interval('unitPrice', 5f, 10f)
+g.V('type','product').interval('unitPrice', 5f, 10f).map()
 ```
 
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin interval step](http://gremlindocs.com/#filter/interval)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ## Ordering
 
@@ -235,7 +239,7 @@ ORDER BY UnitPrice ASC
 ```groovy
 g.V('type','product').order({
   it.a.getProperty('unitPrice') <=> it.b.getProperty('unitPrice')
-})
+}).map()
 ```
 
 **References:**
@@ -244,6 +248,7 @@ g.V('type','product').order({
 * [Gremlin order step](http://gremlindocs.com/#transform/order)
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ### Order by value descending
 
@@ -260,7 +265,7 @@ ORDER BY UnitPrice DESC
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
-})
+}).map()
 ```
 
 **References:**
@@ -268,6 +273,7 @@ g.V('type','product').order({
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin order step](http://gremlindocs.com/#transform/order)
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
 
 ## Paging
@@ -287,7 +293,7 @@ ORDER BY UnitPrice
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
-})[0..<5]
+})[0..<5].map()
 ```
 
 **References:**
@@ -296,6 +302,7 @@ g.V('type','product').order({
 * [Gremlin order step](http://gremlindocs.com/#transform/order)
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
 * [Gremlin range filter](http://gremlindocs.com/#filter/i-j)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
 
 ### Paged result set
@@ -320,7 +327,7 @@ This sample shows how to query the next 5 products (page 2) ordered by unit pric
 ```groovy
 g.V('type','product').order({
   it.b.getProperty('unitPrice') <=> it.a.getProperty('unitPrice')
-})[5..<10]
+})[5..<10].map()
 ```
 
 **References:**
@@ -329,6 +336,7 @@ g.V('type','product').order({
 * [Gremlin order step](http://gremlindocs.com/#transform/order)
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
 * [Gremlin range filter](http://gremlindocs.com/#filter/i-j)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 * [Groovy spaceship operator](http://groovy.codehaus.org/Operators#Operators-TableofOperators)
 
 ## Grouping
@@ -378,13 +386,14 @@ INNER JOIN Categories
 
 #### Gremlin
 ```groovy
-g.V('categoryName','Beverages').in('inCategory')
+g.V('categoryName','Beverages').in('inCategory').map()
 ```
 
 **References:**
 
 * [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
 * [Gremlin in step](http://gremlindocs.com/#transform/in)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
 
 ### Left join
 
