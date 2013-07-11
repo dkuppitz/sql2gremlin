@@ -10,7 +10,7 @@ _Acknowledgements_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tum
 
 ## Northwind Graph Model
 
-![Northwind Graph Model](C:\\Projects\\sql2gremlin\\assets\\model.png)
+![Northwind Graph Model](http://sql2gremlin.com/assets/model.png)
 
 ## Getting Started
 
