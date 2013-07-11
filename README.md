@@ -8,6 +8,12 @@ If you would like to see other SQL2Gremlin translations using the Northwind data
 
 _Acknowledgements_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumblr.com/).
 
+## Northwind Graph Model
+
+![Northwind Graph Model](C:\\Projects\\sql2gremlin\\assets\\model.png)
+
+## Getting Started
+
 To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](http://sql2gremlin.com/assets/northwind.groovy) and start your Gremlin shell:
 
 ```text
