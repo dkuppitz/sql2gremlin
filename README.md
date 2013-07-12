@@ -17,10 +17,14 @@ _Acknowledgement_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumb
 To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](http://sql2gremlin.com/assets/northwind.groovy) and start your Gremlin shell:
 
 ```text
-$ wget -q http://tinkerpop.com/downloads/gremlin/gremlin-groovy-2.3.0.zip
-$ wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
-$ unzip -q gremlin-groovy-2.3.0.zip
-$ gremlin-groovy-2.3.0/bin/gremlin.sh /tmp/northwind.groovy
+LATEST_URL=$(curl https://github.com/tinkerpop/gremlin/wiki/Downloads | grep -o 'http://.*.zip' | head -n1)
+LATEST_FILENAME=$(echo $LATEST_URL | grep -Po '(?<=/)[^/]+\.zip$')
+LATEST_DIRECTORY=$(echo $LATEST_FILENAME | grep -Po '.*(?=\.zip$)')
+
+wget -q $LATEST_URL
+wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
+unzip -q $LATEST_FILENAME
+$LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy
 ```
 
 In your Gremlin shell create the Northwind graph and you're ready to go:
