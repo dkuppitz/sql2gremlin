@@ -218,39 +218,26 @@
     
     <h1><img src="http://sql2gremlin.com/assets/sql2gremlin.png" alt="SQL2Gremlin"></h1>
 <h2 id='introduction'>Introduction</h2 id='introduction'>
-<p>SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns found when querying data with SQL. The format of the Gremlin results will not necessarily match the format of the SQL results. While SQL can only provide results in a tabular form, Gremlin provides various ways to structure a result set. Next, the Gremlin queries demonstrated are for elucidatory purposes and may not be the optimal way to retrieve the desired data. If a particular query runs slow and an optimal solution is desired, please do not hesitate to ask for help on the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-users mailing list</a>. Finally, the SQL examples presented make use of T-SQL syntax. MySQL users may not know some of the expressions (e.g. paging), but should be able to understand the purpose of the query. 
-
-</p>
-<p>If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the <a href="https://github.com/dkuppitz/sql2gremlin/issues">SQL2Gremlin issue tracker</a>.
-
-</p>
-<p><em>Acknowledgement</em>: Gremlin artwork by <a href="http://ketrinadrawsalot.tumblr.com/">Ketrina Yim</a> -- &quot;safety first.&quot;
-
-</p>
+<p>SQL2Gremlin teaches the Gremlin graph traversal language using typical patterns found when querying data with SQL. The format of the Gremlin results will not necessarily match the format of the SQL results. While SQL can only provide results in a tabular form, Gremlin provides various ways to structure a result set. Next, the Gremlin queries demonstrated are for elucidatory purposes and may not be the optimal way to retrieve the desired data. If a particular query runs slow and an optimal solution is desired, please do not hesitate to ask for help on the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-users mailing list</a>. Finally, the SQL examples presented make use of T-SQL syntax. MySQL users may not know some of the expressions (e.g. paging), but should be able to understand the purpose of the query. </p>
+<p>If you would like to see other SQL2Gremlin translations using the Northwind dataset, please provide a ticket on the <a href="https://github.com/dkuppitz/sql2gremlin/issues">SQL2Gremlin issue tracker</a>.</p>
+<p><em>Acknowledgement</em>: Gremlin artwork by <a href="http://ketrinadrawsalot.tumblr.com/">Ketrina Yim</a> -- &quot;safety first.&quot;</p>
 <h2 id='northwind-graph-model'>Northwind Graph Model</h2 id='northwind-graph-model'>
-<p><img src="http://sql2gremlin.com/assets/model.png" alt="Northwind Graph Model">
-
-</p>
+<p><img src="http://sql2gremlin.com/assets/model.png" alt="Northwind Graph Model"></p>
+<p>You can visually examine the graph by viewing the <a href="http://sql2gremlin.com/graph/">Northwind Graph Visualization</a>.</p>
 <h2 id='getting-started'>Getting Started</h2 id='getting-started'>
-<p>To get started download the latest Gremlin version from <a href="http://gremlin.tinkerpop.com">gremlin.tinkerpop.com</a> and extract it. Then download the file <a href="http://sql2gremlin.com/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:
+<p>To get started download the latest Gremlin version from <a href="http://gremlin.tinkerpop.com">gremlin.tinkerpop.com</a> and extract it. Then download the file <a href="http://sql2gremlin.com/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:</p>
+<pre><code class="lang-text">LATEST_URL=<span class="variable">$(</span>curl https:<span class="regexp">//github</span>.com/tinkerpop/gremlin/wiki/Downloads | <span class="keyword">grep</span> -o <span class="string">'http://.*.zip'</span> | head -n1)
+LATEST_FILENAME=<span class="variable">$(</span>echo <span class="variable">$LATEST_URL</span> | <span class="keyword">grep</span> -Po <span class="string">'(?&lt;=/)[^/]+\.zip$'</span>)
+LATEST_DIRECTORY=<span class="variable">$(</span>echo <span class="variable">$LATEST_FILENAME</span> | <span class="keyword">grep</span> -Po <span class="string">'.*(?=\.zip$)'</span>)
 
-</p>
-<pre><code class="text">LATEST_URL=$(curl https://github.com/tinkerpop/gremlin/wiki/Downloads | grep -o &#39;http://.*.zip&#39; | head -n1)
-LATEST_FILENAME=$(echo $LATEST_URL | grep -Po &#39;(?&lt;=/)[^/]+\.zip$&#39;)
-LATEST_DIRECTORY=$(echo $LATEST_FILENAME | grep -Po &#39;.*(?=\.zip$)&#39;)
-
-wget -q $LATEST_URL
-wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
-unzip -q $LATEST_FILENAME
-$LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
-<p>In your Gremlin shell create the Northwind graph and you&#39;re ready to go:
-
-</p>
-<pre><code class="text">gremlin&gt; g = NorthwindFactory.createGraph()
-==&gt;tinkergraph[vertices:3209 edges:6177]</code></pre>
-<p>The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:
-
-</p>
+wget -<span class="keyword">q</span> <span class="variable">$LATEST_URL</span>
+wget -<span class="keyword">q</span> http:<span class="regexp">//sql</span>2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy 
+unzip -<span class="keyword">q</span> <span class="variable">$LATEST_FILENAME</span>
+<span class="variable">$LATEST_DIRECTORY</span>/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
+<p>In your Gremlin shell create the Northwind graph and you&#39;re ready to go:</p>
+<pre><code class="lang-text">gremlin&gt; g = <span class="class">NorthwindFactory</span>.createGraph()
+==&gt;tinkergraph[<span class="method">vertices:</span><span class="number">3209</span> <span class="method">edges:</span><span class="number">6177</span>]</code></pre>
+<p>The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:</p>
 <table>
   <thead>
     <tr>
@@ -285,85 +272,65 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 
 <h2 id='select'>Select</h2 id='select'>
 <h3 id='select/select-all'>Select all</h3 id='select/select-all'>
-<p>This sample shows how to query all categories.
-
-</p>
+<p>This sample shows how to query all categories.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').map<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').map<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='select/select-single-column'>Select single column</h3 id='select/select-single-column'>
-<p>This sample shows how to query the names of all categories.
-
-</p>
+<p>This sample shows how to query the names of all categories.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName</span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName</span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 </ul>
 <h3 id='select/select-multiple-columns'>Select multiple columns</h3 id='select/select-multiple-columns'>
-<p>This sample shows how to query the names and descriptions of all categories.
-
-</p>
+<p>This sample shows how to query the names and descriptions of all categories.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName, Description
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> CategoryName, Description
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').transform<span class="container">({
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').transform<span class="container">({
   [ '<span class="title">name'</span> : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">categoryName'</span>)</span></span>
   ,<span class="string"> 'desc'</span> : it.getProperty('description') ]
 })</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 </ul>
 <h3 id='select/select-calculated-column'>Select calculated column</h3 id='select/select-calculated-column'>
-<p>This sample shows how to query the length of the name of all categories.
-
-</p>
+<p>This sample shows how to query the length of the name of all categories.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> LENGTH(CategoryName)
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> LENGTH(CategoryName)
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>})</span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>})</span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
 <li><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#length%28%29">Java string length</a></li>
 </ul>
 <h3 id='select/select-distinct-values'>Select distinct values</h3 id='select/select-distinct-values'>
-<p>This sample shows how to query all distinct lengths of category names.
-
-</p>
+<p>This sample shows how to query all distinct lengths of category names.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> LENGTH(CategoryName)
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> LENGTH(CategoryName)
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).dedup<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).dedup<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
@@ -371,17 +338,13 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html#length%28%29">Java string length</a></li>
 </ul>
 <h3 id='select/select-scalar-value'>Select scalar value</h3 id='select/select-scalar-value'>
-<p>This sample shows how to query the length of the longest category name.
-
-</p>
+<p>This sample shows how to query the length of the longest category name.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">MAX</span>(LENGTH(CategoryName))
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> <span class="aggregate">MAX</span>(LENGTH(CategoryName))
   <span class="keyword">FROM</span> Categories</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).max<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','category').categoryName.transform<span class="container">({<span class="title">it</span>.<span class="title">length</span>()</span>}).max<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
@@ -390,54 +353,42 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='filtering'>Filtering</h2 id='filtering'>
 <h3 id='filtering/filter-by-equality'>Filter by equality</h3 id='filtering/filter-by-equality'>
-<p>This sample shows how to query all products having no unit in stock.
-
-</p>
+<p>This sample shows how to query all products having no unit in stock.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
  <span class="keyword">WHERE</span> UnitsInStock = <span class="number">0</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span>.map<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">unitsInStock'</span>, 0)</span>.map<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/has">Gremlin has step</a></li>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='filtering/filter-by-inequality'>Filter by inequality</h3 id='filtering/filter-by-inequality'>
-<p>This sample shows how to query all products with a unit price not exceeding 10.
-
-</p>
+<p>This sample shows how to query all products with a unit price not exceeding 10.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
- <span class="keyword">WHERE</span> <span class="keyword">NOT</span>(UnitPrice > <span class="number">10</span>)</code></pre>
+ <span class="keyword">WHERE</span> <span class="keyword">NOT</span>(UnitPrice &gt; <span class="number">10</span>)</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').hasNot<span class="container">('<span class="title">unitPrice'</span>, <span class="type">T</span>.<span class="title">gt</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/hasnot">Gremlin hasNot step</a></li>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='filtering/filter-by-value-range'>Filter by value range</h3 id='filtering/filter-by-value-range'>
-<p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.
-
-</p>
+<p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> *
   <span class="keyword">FROM</span> Products
- <span class="keyword">WHERE</span> UnitPrice >= <span class="number">5</span> <span class="keyword">AND</span> UnitPrice &lt; <span class="number">10</span></code></pre>
+ <span class="keyword">WHERE</span> UnitPrice &gt;= <span class="number">5</span> <span class="keyword">AND</span> UnitPrice &lt; <span class="number">10</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').interval<span class="container">('<span class="title">unitPrice'</span>, 5<span class="title">f</span>, 10<span class="title">f</span>)</span>.map<span class="container">()</span></span></code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/interval">Gremlin interval step</a></li>
@@ -445,20 +396,16 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='ordering'>Ordering</h2 id='ordering'>
 <h3 id='ordering/order-by-value-ascending'>Order by value ascending</h3 id='ordering/order-by-value-ascending'>
-<p>This sample shows how to query all products ordered by unit price.
-
-</p>
+<p>This sample shows how to query all products ordered by unit price.</p>
 <h4>SQL</h4>
-<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql">  <span class="operator"><span class="keyword">SELECT</span> *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">ASC</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
-  <span class="title">it</span>.<span class="title">a</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.b.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">a</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=&gt; it.b.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 }).map()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
@@ -467,20 +414,16 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='ordering/order-by-value-descending'>Order by value descending</h3 id='ordering/order-by-value-descending'>
-<p>This sample shows how to query all products ordered by descending unit price.
-
-</p>
+<p>This sample shows how to query all products ordered by descending unit price.</p>
 <h4>SQL</h4>
-<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> *
+<pre><code class="lang-sql">  <span class="operator"><span class="keyword">SELECT</span> *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice <span class="keyword">DESC</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
-  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=&gt; it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 }).map()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
@@ -490,20 +433,16 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='paging'>Paging</h2 id='paging'>
 <h3 id='paging/limit-number-of-results'>Limit number of results</h3 id='paging/limit-number-of-results'>
-<p>This sample shows how to query the first 5 products ordered by unit price.
-
-</p>
+<p>This sample shows how to query the first 5 products ordered by unit price.</p>
 <h4>SQL</h4>
-<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) *
+<pre><code class="lang-sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) *
     <span class="keyword">FROM</span> Products
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
-  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=&gt; it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })[<span class="number">0.</span>.&lt;<span class="number">5</span>].map()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
@@ -513,11 +452,9 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 <li><a href="http://groovy.codehaus.org/Operators#Operators-TableofOperators">Groovy spaceship operator</a></li>
 </ul>
 <h3 id='paging/paged-result-set'>Paged result set</h3 id='paging/paged-result-set'>
-<p>This sample shows how to query the next 5 products (page 2) ordered by unit price.
-
-</p>
+<p>This sample shows how to query the next 5 products (page 2) ordered by unit price.</p>
 <h4>SQL</h4>
-<pre><code class="sql">   <span class="operator"><span class="keyword">SELECT</span> Products.*
+<pre><code class="lang-sql">   <span class="operator"><span class="keyword">SELECT</span> Products.*
      <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> ROW_NUMBER()
                     OVER (
                       <span class="keyword">ORDER</span> <span class="keyword">BY</span> UnitPrice) <span class="keyword">AS</span> [ROW_NUMBER],
@@ -528,12 +465,10 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
     <span class="keyword">WHERE</span> [ROW_NUMBER] BETWEEN <span class="number">6</span> <span class="keyword">AND</span> <span class="number">10</span>
  <span class="keyword">ORDER</span> <span class="keyword">BY</span> [ROW_NUMBER]</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
-  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=> it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').order<span class="container">({
+  <span class="title">it</span>.<span class="title">b</span>.<span class="title">getProperty</span>('<span class="title">unitPrice'</span>)</span> &lt;=&gt; it.a.getProperty<span class="container">('<span class="title">unitPrice'</span>)</span></span>
 })[<span class="number">5.</span>.&lt;<span class="number">10</span>].map()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
@@ -544,22 +479,18 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='grouping'>Grouping</h2 id='grouping'>
 <h3 id='grouping/group-by-value'>Group by value</h3 id='grouping/group-by-value'>
-<p>This sample shows how to determine the most used unit price.
-
-</p>
+<p>This sample shows how to determine the most used unit price.</p>
 <h4>SQL</h4>
-<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP(<span class="number">1</span>) UnitPrice
+<pre><code class="lang-sql">  <span class="operator"><span class="keyword">SELECT</span> TOP(<span class="number">1</span>) UnitPrice
     <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> Products.UnitPrice,
                  <span class="aggregate">COUNT</span>(*) <span class="keyword">AS</span> [<span class="aggregate">Count</span>]
             <span class="keyword">FROM</span> Products
         <span class="keyword">GROUP</span> <span class="keyword">BY</span> Products.UnitPrice) <span class="keyword">AS</span> T
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> [<span class="aggregate">Count</span>] <span class="keyword">DESC</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').property<span class="container">('<span class="title">unitPrice'</span>)</span>.groupCount<span class="container">()</span>.cap<span class="container">()</span> \</span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').property<span class="container">('<span class="title">unitPrice'</span>)</span>.groupCount<span class="container">()</span>.cap<span class="container">()</span> \</span>
  .orderMap(<span class="type">T</span>.decr).next()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#side-effect/groupcount">Gremlin groupCount step</a></li>
@@ -569,43 +500,35 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='joining'>Joining</h2 id='joining'>
 <h3 id='joining/inner-join'>Inner join</h3 id='joining/inner-join'>
-<p>This sample shows how to query all products from a specific category.
-
-</p>
+<p>This sample shows how to query all products from a specific category.</p>
 <h4>SQL</h4>
-<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Products.*
+<pre><code class="lang-sql">    <span class="operator"><span class="keyword">SELECT</span> Products.*
       <span class="keyword">FROM</span> Products
 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Categories
         <span class="keyword">ON</span> Categories.CategoryID = Products.CategoryID
      <span class="keyword">WHERE</span> Categories.CategoryName = <span class="string">'Beverages'</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>').<span class="keyword">map</span>()</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<pre><code class="lang-groovy">g.V(<span class="attribute">'categoryName</span>',<span class="attribute">'Beverages</span>').<span class="keyword">in</span>(<span class="attribute">'inCategory</span>').<span class="keyword">map</span>()</code></pre>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/in">Gremlin in step</a></li>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h3 id='joining/left-join'>Left join</h3 id='joining/left-join'>
-<p>This sample shows how to count the number of orders for each customer.
-
-</p>
+<p>This sample shows how to count the number of orders for each customer.</p>
 <h4>SQL</h4>
-<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CustomerID, <span class="aggregate">COUNT</span>(Orders.OrderID)
+<pre><code class="lang-sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CustomerID, <span class="aggregate">COUNT</span>(Orders.OrderID)
       <span class="keyword">FROM</span> Customers
  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Orders
         <span class="keyword">ON</span> Orders.CustomerID = Customers.CustomerID
   <span class="keyword">GROUP</span> <span class="keyword">BY</span> Customers.CustomerID</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').transform<span class="container">({
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').transform<span class="container">({
   [ '<span class="title">customerId'</span> : <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">customerId'</span>)</span></span>
   ,<span class="string"> 'orders'</span>     : it.out('ordered').count() ]
 })</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/transform">Gremlin transform step</a></li>
@@ -615,11 +538,9 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='miscellaneous'>Miscellaneous</h2 id='miscellaneous'>
 <h3 id='miscellaneous/concatenate'>Concatenate</h3 id='miscellaneous/concatenate'>
-<p>This sample shows how to concatenate two result sets (customers whos company name starts with &#39;A&#39; and customers whos company name starts with &#39;E&#39;).
-
-</p>
+<p>This sample shows how to concatenate two result sets (customers whos company name starts with &#39;A&#39; and customers whos company name starts with &#39;E&#39;).</p>
 <h4>SQL</h4>
-<pre><code class="sql"><span class="operator"><span class="keyword">SELECT</span> [customer].[CompanyName]
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> [customer].[CompanyName]
   <span class="keyword">FROM</span> [Customers] <span class="keyword">AS</span> [customer]
  <span class="keyword">WHERE</span> [customer].[CompanyName] <span class="keyword">LIKE</span> <span class="string">'A%'</span>
  <span class="keyword">UNION</span> <span class="keyword">ALL</span>
@@ -627,13 +548,11 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
   <span class="keyword">FROM</span> [Customers] <span class="keyword">AS</span> [customer]
  <span class="keyword">WHERE</span> [customer].[CompanyName] <span class="keyword">LIKE</span> <span class="string">'E%'</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').copySplit<span class="container">(
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','customer').copySplit<span class="container">(
   <span class="title">_</span>()</span>.filter<span class="container">({ <span class="title">it</span>.<span class="title">getProperty</span>('<span class="title">companyName'</span>)</span>[0] == "<span class="type">A</span>" }),</span>
   _().filter({ it.getProperty('companyName')[<span class="number">0</span>] == <span class="string">"E"</span> })
 ).exhaustMerge().companyName</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#branch/copysplit">Gremlin copySplit step</a></li>
@@ -643,50 +562,46 @@ $LATEST_DIRECTORY/bin/gremlin.sh /tmp/northwind.groovy</code></pre>
 </ul>
 <h2 id='cte'>CTE</h2 id='cte'>
 <h3 id='cte/recursive-query'>Recursive query</h3 id='cte/recursive-query'>
-<p>This sample shows how to query all employees, their supervisors and their hierarchy level depending on where the employee is located in the supervisor chain.
-
-</p>
+<p>This sample shows how to query all employees, their supervisors and their hierarchy level depending on where the employee is located in the supervisor chain.</p>
 <h4>SQL</h4>
-<pre><code class="sql">WITH EmployeeHierarchy (EmployeeID,
+<pre><code class="lang-sql">WITH EmployeeHierarchy (EmployeeID,
                         LastName,
                         FirstName,
                         ReportsTo,
                         HierarchyLevel) AS
 (
-    SELECT EmployeeID
+    <span class="operator"><span class="keyword">SELECT</span> EmployeeID
          , LastName
          , FirstName
          , ReportsTo
-         , 1 as HierarchyLevel
-      FROM Employees
-     WHERE ReportsTo IS NULL
+         , <span class="number">1</span> <span class="keyword">as</span> HierarchyLevel
+      <span class="keyword">FROM</span> Employees
+     <span class="keyword">WHERE</span> ReportsTo <span class="keyword">IS</span> <span class="keyword">NULL</span>
 
-     UNION ALL
+     <span class="keyword">UNION</span> <span class="keyword">ALL</span>
 
-    SELECT e.EmployeeID
+    <span class="keyword">SELECT</span> e.EmployeeID
          , e.LastName
          , e.FirstName
          , e.ReportsTo
-         , eh.HierarchyLevel + 1 AS HierarchyLevel
-      FROM Employees e
-INNER JOIN EmployeeHierarchy eh
-        ON e.ReportsTo = eh.EmployeeID
+         , eh.HierarchyLevel + <span class="number">1</span> <span class="keyword">AS</span> HierarchyLevel
+      <span class="keyword">FROM</span> Employees e
+<span class="keyword">INNER</span> <span class="keyword">JOIN</span> EmployeeHierarchy eh
+        <span class="keyword">ON</span> e.ReportsTo = eh.EmployeeID
 )
-  SELECT *
-    FROM EmployeeHierarchy
-ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
+  <span class="keyword">SELECT</span> *
+    <span class="keyword">FROM</span> EmployeeHierarchy
+<span class="keyword">ORDER</span> <span class="keyword">BY</span> HierarchyLevel, LastName, FirstName</code></pre>
 <h4>Gremlin (hierarchical)</h4>
-<pre><code class="groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
  .<span class="keyword">as</span>('employee').<span class="keyword">in</span>('reportsTo').loop('employee'){true}{true}.tree().cap().next()</code></pre>
-<p>You can also produce the same tabular result that&#39;s produced by SQL.
-
-</p>
+<p>You can also produce the same tabular result that&#39;s produced by SQL.</p>
 <h4>Gremlin (tabular)</h4>
-<pre><code class="groovy"><span class="title">r</span> = []; t = { e, l ->
+<pre><code class="lang-groovy"><span class="title">r</span> = []; t = { e, l -&gt;
   [<span class="string"> 'employeeId'</span>     : e.id
   ,<span class="string"> 'lastname'</span>       : e.getProperty('lastName')
   ,<span class="string"> 'firstname'</span>      : e.getProperty('firstName')
-  ,<span class="string"> 'reportsTo'</span>      : l > <span class="number">1</span> ? e.out('reportsTo').next().id : null
+  ,<span class="string"> 'reportsTo'</span>      : l &gt; <span class="number">1</span> ? e.out('reportsTo').next().id : null
   ,<span class="string"> 'hierarchyLevel'</span> : l ]
 }; \
 <span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','employee').filter<span class="container">({ !<span class="title">it</span>.<span class="title">out</span>('<span class="title">reportsTo'</span>)</span>.hasNext<span class="container">()</span> }) \</span>
@@ -694,9 +609,7 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
    r &lt;&lt; t(it.object, it.loops)
    true
  }).iterate(); r</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/filter">Gremlin filter step</a></li>
@@ -710,11 +623,9 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
 </ul>
 <h2 id='complex'>Complex</h2 id='complex'>
 <h3 id='complex/pivots'>Pivots</h3 id='complex/pivots'>
-<p>This sample shows how to determine the average total order value per month for each customer.
-
-</p>
+<p>This sample shows how to determine the average total order value per month for each customer.</p>
 <h4>SQL</h4>
-<pre><code class="sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CompanyName,
+<pre><code class="lang-sql">    <span class="operator"><span class="keyword">SELECT</span> Customers.CompanyName,
            COALESCE([<span class="number">1</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Jan],
            COALESCE([<span class="number">2</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Feb],
            COALESCE([<span class="number">3</span>], <span class="number">0</span>)  <span class="keyword">AS</span> [Mar],
@@ -751,24 +662,22 @@ ORDER BY HierarchyLevel, LastName, FirstName</code></pre>
         <span class="keyword">ON</span> Customers.CustomerID = [Pivot].CustomerID
   <span class="keyword">ORDER</span> <span class="keyword">BY</span> Customers.CompanyName</code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy">monthNames = [<span class="comment">'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; \</span>
-rowTotal   = { it.getProperty(<span class="comment">'unitPrice') * it.getProperty('quantity') }; \</span>
-g.V(<span class="comment">'type','customer') \</span>
- .order({ it.a.getProperty(<span class="comment">'customerId') &lt;=> it.b.getProperty('customerId') }) \</span>
- .<span class="built_in">filter</span>({ it.out(<span class="comment">'ordered').hasNext() }).transform({</span>
+<pre><code class="lang-groovy">monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; \
+rowTotal   = { <span class="keyword">it</span>.getProperty('unitPrice') * <span class="keyword">it</span>.getProperty('quantity') }; \
+g.V('type','customer') \
+ .order({ <span class="keyword">it</span>.a.getProperty('customerId') &lt;=&gt; <span class="keyword">it</span>.b.getProperty('customerId') }) \
+ .filter({ <span class="keyword">it</span>.out('ordered').hasNext() }).transform({
    m = [:]
-   t = [<span class="comment">'customerId':it.getProperty('customerId')]</span>
-   it.out(<span class="comment">'ordered').groupBy(m,</span>
-     {<span class="keyword">new</span> <span class="built_in">Date</span>(it.getProperty(<span class="comment">'orderDate')).getMonth()},</span>
-     {it.out(<span class="comment">'contains').transform(rowTotal).sum()}).iterate()</span>
-   (<span class="number">0.</span>.<span class="number">11</span>).<span class="keyword">each</span>({
-     t.put(monthNames[it], m.containsKey(it) ? m[it].mean().<span class="built_in">round</span>(<span class="number">2</span>) : <span class="number">0</span>f)
+   t = ['customerId':<span class="keyword">it</span>.getProperty('customerId')]
+   <span class="keyword">it</span>.out('ordered').groupBy(m,
+     {new Date(<span class="keyword">it</span>.getProperty('orderDate')).getMonth()},
+     {<span class="keyword">it</span>.out('<span class="keyword">contains</span>').transform(rowTotal).sum()}).iterate()
+   (<span class="number">0.</span><span class="number">.11</span>).each({
+     t.<span class="keyword">put</span>(monthNames[<span class="keyword">it</span>], m.containsKey(<span class="keyword">it</span>) ? m[<span class="keyword">it</span>].mean().<span class="command">round</span>(<span class="number">2</span>) : <span class="number">0</span>f)
    })
    t
 })</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#transform/order">Gremlin order step</a></li>
@@ -779,9 +688,7 @@ g.V(<span class="comment">'type','customer') \</span>
 <li><a href="http://gremlindocs.com/#side-effect/groupby">Gremlin groupBy step</a></li>
 </ul>
 <h3 id='complex/recommendation'>Recommendation</h3 id='complex/recommendation'>
-<p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:
-
-</p>
+<p>This sample shows how to recommend 5 products for a specific customer. The products are chosen as follows:</p>
 <ul>
 <li>determine what the customer has already ordered</li>
 <li>determine who else ordered the same products</li>
@@ -790,7 +697,7 @@ g.V(<span class="comment">'type','customer') \</span>
 <li>rank products by occurence in other orders</li>
 </ul>
 <h4>SQL</h4>
-<pre><code class="sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) [t14].[ProductName]
+<pre><code class="lang-sql">  <span class="operator"><span class="keyword">SELECT</span> TOP (<span class="number">5</span>) [t14].[ProductName]
     <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="aggregate">COUNT</span>(*) <span class="keyword">AS</span> [<span class="keyword">value</span>],
                  [t13].[ProductName]
             <span class="keyword">FROM</span> [customers] <span class="keyword">AS</span> [t0]
@@ -808,7 +715,7 @@ g.V(<span class="comment">'type','customer') \</span>
                           <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t8]
                           <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [products] <span class="keyword">AS</span> [t9]
                                   <span class="keyword">ON</span> [t9].[ProductID] = [t8].[ProductID])
-                   <span class="keyword">WHERE</span> <span class="keyword">NOT</span> EXISTS(<span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="keyword">AS</span> [EMPTY]
+                   <span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>(<span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="keyword">AS</span> [EMPTY]
                                       <span class="keyword">FROM</span> [orders] <span class="keyword">AS</span> [t10]
                                 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> [<span class="keyword">order</span> details] <span class="keyword">AS</span> [t11]
                                 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> [products] <span class="keyword">AS</span> [t12]
@@ -816,7 +723,7 @@ g.V(<span class="comment">'type','customer') \</span>
                                      <span class="keyword">WHERE</span> [t9].[ProductID] = [t12].[ProductID]
                                        <span class="keyword">AND</span> [t10].[CustomerID] = [t0].[CustomerID]
                                        <span class="keyword">AND</span> [t11].[OrderID] = [t10].[OrderID])
-                     <span class="keyword">AND</span> [t6].[CustomerID] &lt;> [t0].[CustomerID]
+                     <span class="keyword">AND</span> [t6].[CustomerID] &lt;&gt; [t0].[CustomerID]
                      <span class="keyword">AND</span> [t1].[CustomerID] = [t0].[CustomerID]
                      <span class="keyword">AND</span> [t2].[OrderID] = [t1].[OrderID]
                      <span class="keyword">AND</span> [t4].[ProductID] = [t3].[ProductID]
@@ -826,14 +733,12 @@ g.V(<span class="comment">'type','customer') \</span>
         <span class="keyword">GROUP</span> <span class="keyword">BY</span> [t13].[ProductName]) <span class="keyword">AS</span> [t14]
 <span class="keyword">ORDER</span> <span class="keyword">BY</span> [t14].[<span class="keyword">value</span>] <span class="keyword">DESC</span></code></pre>
 <h4>Gremlin</h4>
-<pre><code class="groovy">g.V(<span class="attribute">'customerId</span>',<span class="attribute">'ALFKI</span>').as(<span class="attribute">'customer</span>')                      \
+<pre><code class="lang-groovy">g.V(<span class="attribute">'customerId</span>',<span class="attribute">'ALFKI</span>').as(<span class="attribute">'customer</span>')                      \
  .<span class="keyword">out</span>(<span class="attribute">'ordered</span>').<span class="keyword">out</span>(<span class="attribute">'contains</span>').<span class="keyword">out</span>(<span class="attribute">'is</span>').as(<span class="attribute">'products</span>')     \
  .<span class="keyword">in</span>(<span class="attribute">'is</span>').<span class="keyword">in</span>(<span class="attribute">'contains</span>').<span class="keyword">in</span>(<span class="attribute">'ordered</span>').except(<span class="attribute">'customer</span>')    \
  .<span class="keyword">out</span>(<span class="attribute">'ordered</span>').<span class="keyword">out</span>(<span class="attribute">'contains</span>').<span class="keyword">out</span>(<span class="attribute">'is</span>').except(<span class="attribute">'products</span>') \
  .groupCount().cap().orderMap(T.decr)[<span class="number">0.</span>.&lt;<span class="number">5</span>].productName</code></pre>
-<p><strong>References:</strong>
-
-</p>
+<p><strong>References:</strong></p>
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#side-effect/as">Gremlin as step</a></li>
