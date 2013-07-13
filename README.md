@@ -12,6 +12,8 @@ _Acknowledgement_: Gremlin artwork by [Ketrina Yim](http://ketrinadrawsalot.tumb
 
 ![Northwind Graph Model](http://sql2gremlin.com/assets/model.png)
 
+You can visually examine the graph by viewing the [Northwind Graph Visualization](http://sql2gremlin.com/graph/).
+
 ## Getting Started
 
 To get started download the latest Gremlin version from [gremlin.tinkerpop.com](http://gremlin.tinkerpop.com) and extract it. Then download the file [northwind.groovy](http://sql2gremlin.com/assets/northwind.groovy) and start your Gremlin shell:
