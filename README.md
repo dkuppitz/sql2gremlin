@@ -268,6 +268,31 @@ g.V('type','product').interval('unitPrice', 5f, 10f).map()
 * [Gremlin interval step](http://gremlindocs.com/#filter/interval)
 * [Gremlin map step](http://gremlindocs.com/#transform/map)
 
+### Multiple filter conditions
+
+This sample shows how to query all discontinued products that are still not out of stock.
+
+#### SQL
+```sql
+SELECT *
+  FROM Products
+ WHERE Discontinued = 1
+   AND UnitsInStock <> 0
+```
+
+#### Gremlin
+```groovy
+g.V('type','product').has('discontinued', true) \
+                     .hasNot('unitsInStock', 0).map()
+```
+
+**References:**
+
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin has step](http://gremlindocs.com/#filter/has)
+* [Gremlin hasNot step](http://gremlindocs.com/#filter/hasnot)
+* [Gremlin map step](http://gremlindocs.com/#transform/map)
+
 ## Ordering
 
 ### Order by value ascending
