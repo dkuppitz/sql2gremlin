@@ -95,6 +95,10 @@
                   <a href="#filtering/filter-by-value-range">Filter by value range</a>
                 </li>
               
+                <li>
+                  <a href="#filtering/multiple-filter-conditions">Multiple filter conditions</a>
+                </li>
+              
             </ul>
           
         </li>
@@ -392,6 +396,23 @@ unzip -<span class="keyword">q</span> <span class="variable">$LATEST_FILENAME</s
 <ul>
 <li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
 <li><a href="http://gremlindocs.com/#filter/interval">Gremlin interval step</a></li>
+<li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
+</ul>
+<h3 id='filtering/multiple-filter-conditions'>Multiple filter conditions</h3 id='filtering/multiple-filter-conditions'>
+<p>This sample shows how to query all discontinued products that are still not out of stock.</p>
+<h4>SQL</h4>
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">SELECT</span> *
+  <span class="keyword">FROM</span> Products
+ <span class="keyword">WHERE</span> Discontinued = <span class="number">1</span>
+   <span class="keyword">AND</span> UnitsInStock &lt;&gt; <span class="number">0</span></code></pre>
+<h4>Gremlin</h4>
+<pre><code class="lang-groovy"><span class="title">g</span>.<span class="type">V</span>('<span class="typedef"><span class="keyword">type</span>','product').has<span class="container">('<span class="title">discontinued'</span>, <span class="title">true</span>)</span> \</span>
+                     .hasNot('unitsInStock', <span class="number">0</span>).map()</code></pre>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#filter/has">Gremlin has step</a></li>
+<li><a href="http://gremlindocs.com/#filter/hasnot">Gremlin hasNot step</a></li>
 <li><a href="http://gremlindocs.com/#transform/map">Gremlin map step</a></li>
 </ul>
 <h2 id='ordering'>Ordering</h2 id='ordering'>
@@ -752,5 +773,6 @@ g.V('type','customer') \
 </ul>
 
   </div>
-</div></body>
+</div>
+</body>
 </html>
