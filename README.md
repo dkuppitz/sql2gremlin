@@ -528,6 +528,60 @@ g.V('type','customer').copySplit(
 * [Gremlin property access](http://gremlindocs.com/#transform/key)
 * [Gremlin exhaustMerge step](http://gremlindocs.com/#branch/exhaustmerge)
 
+### Create, Update and Delete
+
+This sample shows how to create new vertices and edges, how to update them and finally how to delete them.
+
+#### SQL
+```sql
+INSERT INTO [Categories] ([CategoryName], [Description])
+     VALUES (N'Merchandising', N'Cool products to promote Gremlin')
+
+INSERT INTO [Products] ([ProductName], [CategoryID])
+     SELECT TOP (1) N'Red Gremlin Jacket', [CategoryID]
+       FROM [Categories]
+      WHERE [CategoryName] = N'Merchandising'
+
+UPDATE [Products]
+   SET [Products].[ProductName] = N'Green Gremlin Jacket'
+ WHERE [Products].[ProductName] = N'Red Gremlin Jacket'
+
+DELETE FROM [Products]
+ WHERE [Products].[ProductName] = N'Green Gremlin Jacket'
+
+DELETE FROM [Categories]
+ WHERE [Categories].[CategoryName] = N'Merchandising'
+```
+
+#### Gremlin
+```groovy
+c = g.addVertex([ 'type'         : 'category'
+                , 'categoryName' : 'Merchandising'
+                , 'description'  : 'Cool products to promote Gremlin'])
+
+p = g.addVertex([ 'type'        : 'product'
+                , 'productName' : 'Red Gremlin Jacket'])
+
+g.addEdge(p, c, 'inCategory')
+
+g.V().has('productName', 'Red Gremlin Jacket').sideEffect({
+  it.setProperty('productName', 'Green Gremlin Jacket')
+}).iterate()
+
+p.remove()
+g.V('categoryName', 'Merchandising').remove()
+```
+
+**References:**
+
+* [Gremlin addVertex method](http://gremlindocs.com/#methods/graph-addvertex)
+* [Gremlin addEdge method](http://gremlindocs.com/#methods/graph-addedge)
+* [Gremlin vertex iterator](http://gremlindocs.com/#transform/v)
+* [Gremlin has step](http://gremlindocs.com/#filter/has)
+* [Gremlin sideEffect step](http://gremlindocs.com/#side-effect/sideeffect)
+* [Gremlin iterate method](http://gremlindocs.com/#methods/pipe-iterate)
+* [Gremlin remove method](http://gremlindocs.com/#methods/element-remove)
+
 ## CTE
 
 ### Recursive query
