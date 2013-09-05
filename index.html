@@ -176,6 +176,10 @@
                   <a href="#miscellaneous/concatenate">Concatenate</a>
                 </li>
               
+                <li>
+                  <a href="#miscellaneous/create-update-and-delete">Create, Update and Delete</a>
+                </li>
+              
             </ul>
           
         </li>
@@ -580,6 +584,52 @@ unzip -<span class="keyword">q</span> <span class="variable">$LATEST_FILENAME</s
 <li><a href="http://gremlindocs.com/#filter/filter">Gremlin filter step</a></li>
 <li><a href="http://gremlindocs.com/#transform/key">Gremlin property access</a></li>
 <li><a href="http://gremlindocs.com/#branch/exhaustmerge">Gremlin exhaustMerge step</a></li>
+</ul>
+<h3 id='miscellaneous/create-update-and-delete'>Create, Update and Delete</h3 id='miscellaneous/create-update-and-delete'>
+<p>This sample shows how to create new vertices and edges, how to update them and finally how to delete them.</p>
+<h4>SQL</h4>
+<pre><code class="lang-sql"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [Categories] ([CategoryName], [Description])
+     <span class="keyword">VALUES</span> (N<span class="string">'Merchandising'</span>, N<span class="string">'Cool products to promote Gremlin'</span>)
+
+<span class="keyword">INSERT</span> <span class="keyword">INTO</span> [Products] ([ProductName], [CategoryID])
+     <span class="keyword">SELECT</span> TOP (<span class="number">1</span>) N<span class="string">'Red Gremlin Jacket'</span>, [CategoryID]
+       <span class="keyword">FROM</span> [Categories]
+      <span class="keyword">WHERE</span> [CategoryName] = N<span class="string">'Merchandising'</span>
+
+<span class="keyword">UPDATE</span> [Products]
+   <span class="keyword">SET</span> [Products].[ProductName] = N<span class="string">'Green Gremlin Jacket'</span>
+ <span class="keyword">WHERE</span> [Products].[ProductName] = N<span class="string">'Red Gremlin Jacket'</span>
+
+<span class="keyword">DELETE</span> <span class="keyword">FROM</span> [Products]
+ <span class="keyword">WHERE</span> [Products].[ProductName] = N<span class="string">'Green Gremlin Jacket'</span>
+
+<span class="keyword">DELETE</span> <span class="keyword">FROM</span> [Categories]
+ <span class="keyword">WHERE</span> [Categories].[CategoryName] = N<span class="string">'Merchandising'</span></code></pre>
+<h4>Gremlin</h4>
+<pre><code class="lang-groovy">c = g.addVertex([ <span class="comment">'type'         : 'category'</span>
+                , <span class="comment">'categoryName' : 'Merchandising'</span>
+                , <span class="comment">'description'  : 'Cool products to promote Gremlin'])</span>
+
+p = g.addVertex([ <span class="comment">'type'        : 'product'</span>
+                , <span class="comment">'productName' : 'Red Gremlin Jacket'])</span>
+
+g.addEdge(p, c, <span class="comment">'inCategory')</span>
+
+g.V().has(<span class="comment">'productName', 'Red Gremlin Jacket').sideEffect({</span>
+  it.setProperty(<span class="comment">'productName', 'Green Gremlin Jacket')</span>
+}).iterate()
+
+p.remove()
+g.V(<span class="comment">'categoryName', 'Merchandising').remove()</span></code></pre>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="http://gremlindocs.com/#methods/graph-addvertex">Gremlin addVertex method</a></li>
+<li><a href="http://gremlindocs.com/#methods/graph-addedge">Gremlin addEdge method</a></li>
+<li><a href="http://gremlindocs.com/#transform/v">Gremlin vertex iterator</a></li>
+<li><a href="http://gremlindocs.com/#filter/has">Gremlin has step</a></li>
+<li><a href="http://gremlindocs.com/#side-effect/sideeffect">Gremlin sideEffect step</a></li>
+<li><a href="http://gremlindocs.com/#methods/pipe-iterate">Gremlin iterate method</a></li>
+<li><a href="http://gremlindocs.com/#methods/element-remove">Gremlin remove method</a></li>
 </ul>
 <h2 id='cte'>CTE</h2 id='cte'>
 <h3 id='cte/recursive-query'>Recursive query</h3 id='cte/recursive-query'>
