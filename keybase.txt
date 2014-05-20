@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/dkuppitz
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://sql2gremlin.com
+  * I am dkuppitz (https://keybase.io/dkuppitz) on keybase.
+  * I have a public key with fingerprint 38B3 2D41 63F4 A095 D530  6DDA 859B 38F9 F30C 8824
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "38b32d4163f4a095d5306dda859b38f9f30c8824",
+            "host": "keybase.io",
+            "key_id": "859b38f9f30c8824",
+            "uid": "978943bf222ef9459bcae704cacc7700",
+            "username": "dkuppitz"
+        },
+        "service": {
+            "hostname": "sql2gremlin.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1400551003,
+    "expire_in": 157680000,
+    "prev": "83a8ee5e7b4042254ccfb8195a5e58caeeab48d838758842af1399010d885a62",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.15
+Comment: https://keybase.io/crypto
+
+yML/AnicbZFrTBTXA8V5FAsI1cYGBIKt0xWbsNJ5Mne2VqAWqDRQUymKQKfzuLMM
+C7PL7EB5Cg3m31YNpdiFGIkoW2ptrfSvAqlBEGqq7JZo1AaN4hfL1kcfElnExRhn
+iP3W+TK55/7OOTm5Z6NDgyKDPQt7aNfe5Klg7xl/VdCWuoGieoS3i7WIpR6xwcWf
+JCtWqDpUWdEQC0IAnsBFEkslJJJDGUqkCDRVFDlAMTwBJEYiUAEAnETMSKndaTj0
+GJ5zwhTZrmv6gZVFXf0PvmrxgqEBQxK8hOM4lBhSxwQO0igpcIJA0yhqgE6oKlwF
+1GnRVuVwyFod0mhGdLVaFnS1frH6GeGsLMetKqwol5UUwV6h2x2qXbML9nL9slTT
+HBbDq9U6DPhjyLPPYlheVkR9um6ohqpTtiuIBdNJQZONXIxEUYrCUJQwI7DGIauQ
+lQ2ColMBqn9GDaw2hhIcgJCCNE+iJI5TpCBIPMAYiqMgBfRtkONJIAIC0BQAJM5J
+GMEwKIaKAFBcKq73O2GlYtez9SqNsxqbZKvCaVUqRBrHRoufCwqODFoSFmK8XlBk
+xPJ/37TnyLInVPnK+Bde/7PXvefE0jz6fxlSzFS4d/737xFbWQGJF7dPLuGuae+S
+Y37R5Pru/c5L8cOsz5P/alLXUENFWwF2Py0sxJ+4sLxzVlw12t+9f90q1bvJ9yAr
+8o+vvjW5/XM1nvCELe6RY1L6zNsdP5jTB72NJ9a+8eLlkp9evgjvqcLQmUDpnd0H
+A+kpuSGv/D1masv5/1BmXI/vdkzPqdbIh4db3b/ECs3sj+dHMlo2xG6+g8+O5wqF
+GEtabny6M+dKYoSfPn16cHVB4MFVZtf1JJARd/2IbfJsbGjSxujVw5ldXN/U5G8R
+5yo5oSYsOzsF5N+L2bfuTTqQOzOoRCz7a5JWurc/3pp2bbY/rmbi18A+j2sONCdW
+C+m2k8eShqxTTmtn083+A/mFj7LiHx1Gn4xXZs7fzeictkV/sTdx8NDKouPDCX7z
+iNjePJDTPSU17epy9a7feCu5JWz2thXNe7yzIsqcpnqm17420Na+fT3VVs1cKKkb
+V4f2+7wXtyXc8r3z3vlpU/K5C7Bmw+zPR4uiqG2+ibdiPO0tO9iFwt6O45fT+752
+sh1R/+RemTj1wYdLsY++vB939RLYOve595v8FQHXXUtJ9g6ugQz97PkytmnFJ/ia
+ozesybWjRScPcQ0zN19aQ21GMzdNOw/O+3fLxT35k3kP+4KziLLw1gPuOpP7KUuU
+lY4=
+=N9b8
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dkuppitz
+
+==================================================================
