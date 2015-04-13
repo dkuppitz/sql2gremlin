@@ -232,12 +232,12 @@ This sample shows how to query all products with a unit price not exceeding 10.
 ```sql
 SELECT *
   FROM Products
- WHERE NOT(UnitPrice > 10)
+ WHERE NOT(UnitsOnOrder = 0)
 ```
 
 #### Gremlin
 ```groovy
-g.V('type','product').hasNot('unitPrice', T.gt, 10f).map()
+g.V('type','product').hasNot('unitsOnOrder', 0).map()
 ```
 
 **References:**
