@@ -2969,9 +2969,9 @@ wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy
 <div class="paragraph"><p>In your Gremlin shell create the Northwind graph, a graph traversal source and you&#8217;re ready to go:</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; graph = NorthwindFactory.createGraph()
-==&gt;whatever
+==&gt;tinkergraph[vertices:3209 edges:6177]
 gremlin&gt; g = graph.traversal()
-==&gt;boo
+==&gt;graphtraversalsource[tinkergraph[vertices:3209 edges:6177], standard]
 </pre></div></div></div>
 <div class="paragraph"><p>The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:</p></div>
 <table class="tableblock frame-all grid-all"
@@ -4243,7 +4243,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-02 23:39:31 CEST
+Last updated 2015-10-03 00:00:37 CEST
 </div>
 </div>
 </body>
