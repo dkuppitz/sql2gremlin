@@ -42,9 +42,9 @@ In your Gremlin shell create the Northwind graph, a graph traversal source and y
 [source,text]
 ----
 gremlin> graph = NorthwindFactory.createGraph()
-==>whatever
+==>tinkergraph[vertices:3209 edges:6177]
 gremlin> g = graph.traversal()
-==>boo
+==>graphtraversalsource[tinkergraph[vertices:3209 edges:6177], standard]
 ----
 
 The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:
