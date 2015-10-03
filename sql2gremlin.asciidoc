@@ -528,8 +528,7 @@ SELECT [customer].[CompanyName]
 ----
 g.V().hasLabel("customer").union(
   filter {it.get().value("company")[0] == "A"},
-  filter {it.get().value("company")[0] == "E"}
-).values("company")
+  filter {it.get().value("company")[0] == "E"}).values("company")
 ----
 
 *References:*
