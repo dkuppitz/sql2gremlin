@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./compile.sh
+./compile.sh || exit 1
 
 mkdir -p /tmp/sql2gremlin
 mv index.html /tmp/sql2gremlin

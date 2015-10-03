@@ -19,10 +19,14 @@
 # under the License.
 #
 
+if [ -z ${GREMLIN_CONSOLE_HOME} ]; then
+  echo "Be sure that GREMLIN_CONSOLE_HOME is set."
+  exit 1
+fi
+
 pushd `dirname $0`/.. > /dev/null
 
 WORKING_DIR=`pwd`
-GREMLIN_CONSOLE_HOME=${GREMLIN_CONSOLE_HOME:-"/projects/apache/incubator-tinkerpop/gremlin-console/target/apache-gremlin-console-3.0.2-SNAPSHOT-standalone"}
 
 popd > /dev/null
 pushd ${GREMLIN_CONSOLE_HOME} > /dev/null
