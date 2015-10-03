@@ -3773,8 +3773,7 @@ gremlin&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).union(
            filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
-           filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}
-gremlin&gt; ).values(&quot;company&quot;)
+           filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
 ==&gt;Alfreds Futterkiste
 ==&gt;Ana Trujillo Emparedados y helados
 ==&gt;Antonio Moreno Taquería
@@ -4243,7 +4242,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-03 00:00:37 CEST
+Last updated 2015-10-03 03:36:20 CEST
 </div>
 </div>
 </body>
