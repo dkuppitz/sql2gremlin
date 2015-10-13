@@ -281,7 +281,7 @@ This sample shows how to query all discontinued products that are still not out 
 *SQL*
 [source,sql]
 ----
-SELECT ProductName, Discontinued, UnitsInStock
+SELECT ProductName, UnitsInStock
   FROM Products
  WHERE Discontinued = 1
    AND UnitsInStock <> 0
