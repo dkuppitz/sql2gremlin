@@ -2,7 +2,13 @@ class NorthwindFactory {
 
   public static Graph createGraph() {
     def graph = TinkerGraph.open()
-    NorthwindFactory.load(graph, 'http://sql2gremlin.com/assets/northwind.kryo')
+    def file = new File('/tmp/northwind.kryo')
+    if (file.exists() == false) {
+      def os = file.newOutputStream()
+      os << new URL('http://sql2gremlin.com/assets/northwind.kryo').openStream()
+      os.close()
+    }
+    NorthwindFactory.load(graph, file.getAbsolutePath())
     return graph
   }
 
