@@ -79,8 +79,8 @@ g.V().hasLabel("category").valueMap()
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 === Select single column
 
@@ -101,7 +101,7 @@ g.V().hasLabel("category").values("name")
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
 
 === Select multiple columns
 
@@ -122,8 +122,8 @@ g.V().hasLabel("category").valueMap("name", "description")
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 === Select calculated column
 
@@ -145,8 +145,8 @@ g.V().hasLabel("category").values("name").
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#lambda-steps[Lambda Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps[Lambda Steps]
 * http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--[String::length()]
 
 === Select distinct values
@@ -169,9 +169,9 @@ g.V().hasLabel("category").values("name").
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#dedup-step[Dedup Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#lambda-steps[Lambda Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#dedup-step[Dedup Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps[Lambda Steps]
 * http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--[String::length()]
 
 === Select scalar value
@@ -194,9 +194,9 @@ g.V().hasLabel("category").values("name").
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#lambda-steps[Lambda Steps]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#max-step[Max Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps[Lambda Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#max-step[Max Step]
 * http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#length--[String::length()]
 
 == Filtering
@@ -221,8 +221,8 @@ g.V().has("product", "unitsInStock", 0).valueMap("name", "unitsInStock")
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 === Filter by inequality
 
@@ -245,9 +245,9 @@ g.V().has("product", "unitsOnOrder", neq(0)).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#a-note-on-predicates[A Note on Predicates]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates[A Note on Predicates]
 
 === Filter by value range
 
@@ -270,9 +270,9 @@ g.V().has("product", "unitPrice", between(5f, 10f)).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#a-note-on-predicates[A Note on Predicates]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates[A Note on Predicates]
 
 === Multiple filter conditions
 
@@ -296,9 +296,9 @@ g.V().has("product", "discontinued", true).has("unitsInStock", neq(0)).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#a-note-on-predicates[A Note on Predicates]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates[A Note on Predicates]
 
 == Ordering
 
@@ -323,9 +323,9 @@ g.V().hasLabel("product").order().by("unitPrice", incr).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 === Order by value descending
 
@@ -348,9 +348,9 @@ g.V().hasLabel("product").order().by("unitPrice", decr).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 == Paging
 
@@ -375,10 +375,10 @@ g.V().hasLabel("product").order().by("unitPrice", incr).limit(5).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#limit-step[Limit Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step[Limit Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 === Paged result set
 
@@ -408,10 +408,10 @@ g.V().hasLabel("product").order().by("unitPrice", incr).range(5, 10).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#range-step[Range Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#range-step[Range Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 == Grouping
 
@@ -439,12 +439,12 @@ g.V().hasLabel("product").groupCount().by("unitPrice").
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#groupcount-step[GroupCount Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#limit-step[Limit Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#mapkeys-step[MapKeys Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#valuemap-step[ValueMap Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#groupcount-step[GroupCount Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step[Limit Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#mapkeys-step[MapKeys Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step[ValueMap Step]
 
 == Joining
 
@@ -470,8 +470,8 @@ g.V().has("name","Beverages").in("inCategory").values("name")
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#vertex-steps[Vertex Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps[Vertex Steps]
 
 === Left join
 
@@ -498,12 +498,12 @@ g.V().hasLabel("customer").match(
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#as-step[As Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#count-step[Count Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#match-step[Match Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#select-step[Select Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#vertex-steps[Vertex Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step[As Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#count-step[Count Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#match-step[Match Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step[Select Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps[Vertex Steps]
 
 == Miscellaneous
 
@@ -533,9 +533,9 @@ g.V().hasLabel("customer").union(
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#lambda-steps[Lambda Steps]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#union-step[Union Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps[Lambda Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#union-step[Union Step]
 
 === Create, Update and Delete
 
@@ -584,9 +584,9 @@ g.V().has("category", "name", "Merchandising").drop()
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#_mutating_the_graph[Mutating the Graph]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#drop-step[Drop Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#_mutating_the_graph[Mutating the Graph]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#drop-step[Drop Step]
 
 == CTE
 
@@ -652,14 +652,14 @@ g.V().hasLabel("employee").where(__.not(out("reportsTo"))).
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#as-step[As Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#lambda-steps[Lambda Steps]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#repeat-step[Repeat Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#select-step[Select Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#vertex-steps[Vertex Steps]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#tree-step[Tree Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#where-step[Where Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step[As Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps[Lambda Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#repeat-step[Repeat Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step[Select Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps[Vertex Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#tree-step[Tree Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step[Where Step]
 
 == Complex
 
@@ -712,29 +712,28 @@ INNER JOIN Customers
 [gremlin-groovy]
 ----
 months = new java.text.DateFormatSymbols().getShortMonths().toList(); []
-monthMap = (0..11).collectEntries {[months[it], []]}; []
 rowTotal = {it.get().value("unitPrice") * it.get().value("quantity")}; []
 
 g.V().hasLabel("customer").order().by("customerId", incr).
-  where(out("ordered")).as("customer").
-  map {
-    g.withSideEffect("m", monthMap.clone()).V(it.get()).out("ordered").
-      group("m").by {months[new Date(it.value("orderDate")).getMonth()]}.
-                 by(out('contains').map(rowTotal).sum()).
-                 by(sum(local)).cap("m").next().sort {months.indexOf(it.key)}
-  }.as("totals").select("customer", "totals").by(id).by()
+      where(out("ordered")).as("customer").
+      map {
+        def m = g.V(it.get()).out("ordered").
+                  group().by {new Date(it.value("orderDate")).getMonth()}.
+                          by(out("contains").map(rowTotal).sum()).next()
+        (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
+      }.as("totals").select("customer", "totals").by(id).by()
 ----
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#as-step[As Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#group-step[Group Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#select-step[Select Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#sum-step[Sum Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#where-step[Where Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#vertex-steps[Vertex Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step[As Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#group-step[Group Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step[Select Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#sum-step[Sum Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step[Where Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps[Vertex Steps]
 * http://mrhaki.blogspot.de/2011/09/groovy-goodness-transform-collection-to.html[Transform Collection to a Map with collectEntries]
 * http://docs.oracle.com/javase/8/docs/api/java/text/DateFormatSymbols.html#getShortMonths--[DateFormatSymbols::getShortMonths()]
 
@@ -801,13 +800,13 @@ g.V().has("customerId", "ALFKI").as("customer").
 
 *References:*
 
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#aggregate-step[Aggregate Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#as-step[As Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#groupcount-step[GroupCount Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#has-step[Has Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#limit-step[Limit Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#mapkeys-step[MapKeys Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#order-step[Order Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#vertex-steps[Vertex Steps]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#where-step[Where Step]
-* http://tinkerpop.incubator.apache.org/docs/3.0.1-incubating/#a-note-on-predicates[A Note on Predicates]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#aggregate-step[Aggregate Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step[As Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#groupcount-step[GroupCount Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step[Has Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step[Limit Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#mapkeys-step[MapKeys Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step[Order Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps[Vertex Steps]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step[Where Step]
+* http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates[A Note on Predicates]
