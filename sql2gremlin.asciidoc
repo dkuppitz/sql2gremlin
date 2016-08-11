@@ -24,7 +24,8 @@ To get started download the latest version of the Gremlin shell from http://www.
 [source,bash]
 ----
 # find the latest Gremlin shell download
-LATEST_URL=`curl -s http://tinkerpop.incubator.apache.org/ | grep -o 'http[s]*://.*\-console-.*\-bin\.zip'`
+MIRRORS_URL=`curl -s http://tinkerpop.apache.org/ | grep -o 'http[s]*://.*\-console-.*\-bin\.zip'`
+LATEST_URL=`curl -s $MIRRORS_URL | egrep -o 'http[s]*://.*?-console-.*?-bin.zip' | head -1`
 LATEST_FILENAME=`echo ${LATEST_URL} | grep -o '[^/]*$'`
 LATEST_DIRECTORY=`echo ${LATEST_FILENAME} | sed 's/-bin\.zip//'`
 
