@@ -435,7 +435,7 @@ ORDER BY [Count] DESC
 [gremlin-groovy]
 ----
 g.V().hasLabel("product").groupCount().by("unitPrice").
-      order(local).by(values, decr).select(keys).limit(1)
+      order(local).by(values, decr).select(keys).limit(local, 1)
 ----
 
 *References:*
@@ -795,8 +795,8 @@ g.V().has("customerId", "ALFKI").as("customer").
       out("ordered").out("contains").out("is").aggregate("products").
       in("is").in("contains").in("ordered").where(neq("customer")).
       out("ordered").out("contains").out("is").where(without("products")).
-      groupCount().order(local).by(values, decr).select(keys).limit(5).
-      values("name")
+      groupCount().order(local).by(values, decr).select(keys).limit(local, 5).
+      unfold().values("name")
 ----
 
 *References:*
@@ -808,6 +808,7 @@ g.V().has("customerId", "ALFKI").as("customer").
 * http://tinkerpop.apache.org/docs/current/reference/#limit-step[Limit Step]
 * http://tinkerpop.apache.org/docs/current/reference/#order-step[Order Step]
 * http://tinkerpop.apache.org/docs/current/reference/#select-step[Select Step]
+* http://tinkerpop.apache.org/docs/current/reference/#unfold-step[Unfold Step]
 * http://tinkerpop.apache.org/docs/current/reference/#vertex-steps[Vertex Steps]
 * http://tinkerpop.apache.org/docs/current/reference/#where-step[Where Step]
 * http://tinkerpop.apache.org/docs/current/reference/#a-note-on-predicates[A Note on Predicates]
