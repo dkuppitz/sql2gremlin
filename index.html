@@ -3125,7 +3125,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-......1&gt;       map {it.get().length()}
+               map {it.get().length()}
 ==&gt;9
 ==&gt;10
 ==&gt;11
@@ -3165,7 +3165,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-......1&gt;       map {it.get().length()}.dedup()
+               map {it.get().length()}.dedup()
 ==&gt;9
 ==&gt;10
 ==&gt;11
@@ -3208,7 +3208,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-......1&gt;       map {it.get().length()}.max()
+               map {it.get().length()}.max()
 ==&gt;14
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3284,7 +3284,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitsOnOrder&quot;, neq(0)).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitsOnOrder&quot;)
+               valueMap(&quot;name&quot;, &quot;unitsOnOrder&quot;)
 ==&gt;[name:[Chang],unitsOnOrder:[40]]
 ==&gt;[name:[Aniseed Syrup],unitsOnOrder:[70]]
 ==&gt;[name:[Queso Cabrales],unitsOnOrder:[30]]
@@ -3328,7 +3328,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitPrice&quot;, between(5f, 10f)).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
 ==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
 ==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
@@ -3371,7 +3371,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;discontinued&quot;, true).has(&quot;unitsInStock&quot;, neq(0)).
-......1&gt;      valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
+              valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
 ==&gt;[unitsInStock:[29],name:[Mishi Kobe Niku]]
 ==&gt;[unitsInStock:[20],name:[Guaraná Fantástica]]
 ==&gt;[unitsInStock:[26],name:[Rössle Sauerkraut]]
@@ -3413,7 +3413,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
 ==&gt;[unitPrice:[2.5],name:[Geitost]]
 ==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
@@ -3457,7 +3457,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, decr).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
 ==&gt;[unitPrice:[263.5],name:[Côte de Blaye]]
 ==&gt;[unitPrice:[123.79],name:[Thüringer Rostbratwurst]]
 ==&gt;[unitPrice:[97.0],name:[Mishi Kobe Niku]]
@@ -3506,7 +3506,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).limit(5).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
 ==&gt;[unitPrice:[2.5],name:[Geitost]]
 ==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
@@ -3556,7 +3556,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).range(5, 10).
-......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
 ==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
 ==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
 ==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
@@ -3607,7 +3607,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).groupCount().by(&quot;unitPrice&quot;).
-......1&gt;       order(local).by(values, decr).select(keys).limit(local, 1)
+               order(local).by(values, decr).select(keys).limit(local, 1)
 ==&gt;18.0
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3703,9 +3703,9 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).match(
-......1&gt;   __.as(&quot;c&quot;).values(&quot;customerId&quot;).as(&quot;customerId&quot;),
-......2&gt;   __.as(&quot;c&quot;).out(&quot;ordered&quot;).count().as(&quot;orders&quot;)
-......3&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
+           __.as(&quot;c&quot;).values(&quot;customerId&quot;).as(&quot;customerId&quot;),
+           __.as(&quot;c&quot;).out(&quot;ordered&quot;).count().as(&quot;orders&quot;)
+         ).select(&quot;customerId&quot;, &quot;orders&quot;)
 ==&gt;[customerId:ALFKI,orders:6]
 ==&gt;[customerId:ANATR,orders:4]
 ==&gt;[customerId:ANTON,orders:7]
@@ -3773,8 +3773,8 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).union(
-......1&gt;   filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
-......2&gt;   filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
+           filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
+           filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
 ==&gt;Alfreds Futterkiste
 ==&gt;Ana Trujillo Emparedados y helados
 ==&gt;Antonio Moreno Taquería
@@ -3827,19 +3827,19 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; c = graph.addVertex(label, &quot;category&quot;,
-......1&gt;           &quot;name&quot;, &quot;Merchandising&quot;,
-......2&gt;           &quot;description&quot;, &quot;Cool products to promote Gremlin&quot;)
+                   &quot;name&quot;, &quot;Merchandising&quot;,
+                   &quot;description&quot;, &quot;Cool products to promote Gremlin&quot;)
 ==&gt;v[0]
 gremlin&gt;
 gremlin&gt; p = graph.addVertex(label, &quot;product&quot;,
-......1&gt;           &quot;ame&quot;, &quot;Red Gremlin Jacket&quot;)
+                   &quot;ame&quot;, &quot;Red Gremlin Jacket&quot;)
 ==&gt;v[3]
 gremlin&gt;
 gremlin&gt; p.addEdge(&quot;inCategory&quot;, c)
 ==&gt;e[5][3-inCategory-&gt;0]
 gremlin&gt;
 gremlin&gt; g.V().has(&quot;product&quot;, &quot;name&quot;, &quot;Red Gremlin Jacket&quot;).
-......1&gt;       property(&quot;name&quot;, &quot;Green Gremlin Jacket&quot;).iterate()
+               property(&quot;name&quot;, &quot;Green Gremlin Jacket&quot;).iterate()
 gremlin&gt;
 gremlin&gt; p.remove()
 ==&gt;null
@@ -3906,21 +3906,21 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="paragraph"><p><strong>Gremlin</strong> (hierarchical)</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-......1&gt;       repeat(__.in(&quot;reportsTo&quot;)).emit().tree().by(map {
-......2&gt;         def employee = it.get()
-......3&gt;         employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
-......4&gt;       }).next()
+               repeat(__.in(&quot;reportsTo&quot;)).emit().tree().by(map {
+                 def employee = it.get()
+                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+               }).next()
 ==&gt;Andrew Fuller={Margaret Peacock={}, Janet Leverling={}, Nancy Davolio={}, Steven Buchanan={Anne Dodsworth={}, Michael Suyama={}, Robert King={}}, Laura Callahan={}}
 </pre></div></div></div>
 <div class="paragraph"><p>You can also produce the same tabular result that&#8217;s produced by SQL.</p></div>
 <div class="paragraph"><p><strong>Gremlin</strong> (tabular)</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-......1&gt;       repeat(__.as(&quot;reportsTo&quot;).in(&quot;reportsTo&quot;).as(&quot;employee&quot;)).emit().
-......2&gt;       select(last, &quot;reportsTo&quot;, &quot;employee&quot;).by(map {
-......3&gt;         def employee = it.get()
-......4&gt;         employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
-......5&gt;       })
+               repeat(__.as(&quot;reportsTo&quot;).in(&quot;reportsTo&quot;).as(&quot;employee&quot;)).emit().
+               select(last, &quot;reportsTo&quot;, &quot;employee&quot;).by(map {
+                 def employee = it.get()
+                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+               })
 ==&gt;[reportsTo:Andrew Fuller,employee:Nancy Davolio]
 ==&gt;[reportsTo:Andrew Fuller,employee:Janet Leverling]
 ==&gt;[reportsTo:Andrew Fuller,employee:Margaret Peacock]
@@ -4027,13 +4027,13 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 gremlin&gt; rowTotal = {it.get().value(&quot;unitPrice&quot;) * it.get().value(&quot;quantity&quot;)}; []
 gremlin&gt;
 gremlin&gt; g.V().hasLabel(&quot;customer&quot;).order().by(&quot;customerId&quot;, incr).
-......1&gt;       where(out(&quot;ordered&quot;)).as(&quot;customer&quot;).
-......2&gt;       map {
-......3&gt;         def m = g.V(it.get()).out(&quot;ordered&quot;).
-......4&gt;                   group().by {new Date(it.value(&quot;orderDate&quot;)).getMonth()}.
-......5&gt;                           by(out(&quot;contains&quot;).map(rowTotal).sum()).next()
-......6&gt;         (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
-......7&gt;       }.as(&quot;totals&quot;).select(&quot;customer&quot;, &quot;totals&quot;).by(id).by()
+               where(out(&quot;ordered&quot;)).as(&quot;customer&quot;).
+               map {
+                 def m = g.V(it.get()).out(&quot;ordered&quot;).
+                           group().by {new Date(it.value(&quot;orderDate&quot;)).getMonth()}.
+                                   by(out(&quot;contains&quot;).map(rowTotal).sum()).next()
+                 (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
+               }.as(&quot;totals&quot;).select(&quot;customer&quot;, &quot;totals&quot;).by(id).by()
 ==&gt;[customer:8,totals:[Jan:851.0,Feb:0,Mar:491.2,Apr:960.00,May:0,Jun:0,Jul:0,Aug:1086.0,Sep:0,Oct:1208.0,Nov:0,Dec:0]]
 ==&gt;[customer:9,totals:[Jan:0,Feb:0,Mar:514.4,Apr:0,May:0,Jun:0,Jul:0,Aug:479.75,Sep:88.8,Oct:0,Nov:320.0,Dec:0]]
 ==&gt;[customer:10,totals:[Jan:660.0,Feb:0,Mar:0,Apr:881.25,May:2156.5,Jun:2082.0,Jul:0,Aug:0,Sep:1332.40,Oct:0,Nov:403.2,Dec:0]]
@@ -4171,11 +4171,11 @@ rank products by occurence in other orders
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;customerId&quot;, &quot;ALFKI&quot;).as(&quot;customer&quot;).
-......1&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
-......2&gt;       in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
-......3&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
-......4&gt;       groupCount().order(local).by(values, decr).select(keys).limit(local, 5).
-......5&gt;       unfold().values(&quot;name&quot;)
+               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
+               in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
+               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
+               groupCount().order(local).by(values, decr).select(keys).limit(local, 5).
+               unfold().values(&quot;name&quot;)
 ==&gt;Gorgonzola Telino
 ==&gt;Guaraná Fantástica
 ==&gt;Camembert Pierrot
@@ -4247,7 +4247,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-29 12:29:32 CET
+Last updated 2016-12-29 12:43:16 CET
 </div>
 </div>
 </body>
