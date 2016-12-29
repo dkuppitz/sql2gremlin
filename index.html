@@ -2955,7 +2955,7 @@ C/oQM/n6AAAAAElFTkSuQmCC">
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="c"># find the latest Gremlin shell download</span>
 <span class="nv">MIRRORS_URL</span><span class="o">=</span><span class="sb">`</span>curl -s http://tinkerpop.apache.org/ | grep -o <span class="s1">&#39;http[s]*://.*\-console-.*\-bin\.zip&#39;</span><span class="sb">`</span>
-<span class="nv">LATEST_URL</span><span class="o">=</span><span class="sb">`</span>curl -s <span class="nv">$MIRRORS_URL</span> | egrep -o <span class="s1">&#39;http[s]*://.*?-console-.*?-bin.zip&#39;</span> | head -1<span class="sb">`</span>
+<span class="nv">LATEST_URL</span><span class="o">=</span><span class="sb">`</span>curl -s <span class="nv">$MIRRORS_URL</span> | egrep -o <span class="s1">&#39;http[s]?://[^&quot;]*-console-[^&quot;]*-bin.zip&#39;</span> | head -1<span class="sb">`</span>
 <span class="nv">LATEST_FILENAME</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">${</span><span class="nv">LATEST_URL</span><span class="k">}</span> | grep -o <span class="s1">&#39;[^/]*$&#39;</span><span class="sb">`</span>
 <span class="nv">LATEST_DIRECTORY</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">${</span><span class="nv">LATEST_FILENAME</span><span class="k">}</span> | sed <span class="s1">&#39;s/-bin\.zip//&#39;</span><span class="sb">`</span>
 
@@ -2965,7 +2965,7 @@ unzip -q <span class="k">${</span><span class="nv">LATEST_FILENAME</span><span c
 
 <span class="c"># start the Gremlin shell</span>
 wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy
-<span class="k">${</span><span class="nv">LATEST_DIRECTORY</span><span class="k">}</span>/bin/gremlin.sh /tmp/northwind.groovy
+<span class="k">${</span><span class="nv">LATEST_DIRECTORY</span><span class="k">}</span>/bin/gremlin.sh -i /tmp/northwind.groovy
 </pre></div></div></div>
 <div class="paragraph"><p>In your Gremlin shell create the Northwind graph, a graph traversal source and you&#8217;re ready to go:</p></div>
 <div class="listingblock">
@@ -3041,12 +3041,12 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3075,7 +3075,7 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 </ul></div>
@@ -3104,12 +3104,12 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3139,12 +3139,12 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps">Lambda Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#lambda-steps">Lambda Steps</a>
 </p>
 </li>
 <li>
@@ -3177,17 +3177,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#dedup-step">Dedup Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#dedup-step">Dedup Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps">Lambda Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#lambda-steps">Lambda Steps</a>
 </p>
 </li>
 <li>
@@ -3215,17 +3215,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps">Lambda Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#lambda-steps">Lambda Steps</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#max-step">Max Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#max-step">Max Step</a>
 </p>
 </li>
 <li>
@@ -3262,12 +3262,12 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3301,17 +3301,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates">A Note on Predicates</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#a-note-on-predicates">A Note on Predicates</a>
 </p>
 </li>
 </ul></div>
@@ -3343,17 +3343,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates">A Note on Predicates</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#a-note-on-predicates">A Note on Predicates</a>
 </p>
 </li>
 </ul></div>
@@ -3381,17 +3381,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates">A Note on Predicates</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#a-note-on-predicates">A Note on Predicates</a>
 </p>
 </li>
 </ul></div>
@@ -3430,17 +3430,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3474,17 +3474,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3517,22 +3517,22 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step">Limit Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#limit-step">Limit Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3567,22 +3567,22 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#range-step">Range Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#range-step">Range Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3607,39 +3607,39 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).groupCount().by(&quot;unitPrice&quot;).
-......1&gt;       order(local).by(valueDecr).mapKeys().limit(1)
+......1&gt;       order(local).by(values, decr).select(keys).limit(local, 1)
 ==&gt;18.0
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#groupcount-step">GroupCount Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#groupcount-step">GroupCount Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step">Limit Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#limit-step">Limit Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#mapkeys-step">MapKeys Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#select-step">Select Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#valuemap-step">ValueMap Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#valuemap-step">ValueMap Step</a>
 </p>
 </li>
 </ul></div>
@@ -3679,12 +3679,12 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps">Vertex Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#vertex-steps">Vertex Steps</a>
 </p>
 </li>
 </ul></div>
@@ -3722,32 +3722,32 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step">As Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#as-step">As Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#count-step">Count Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#count-step">Count Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#match-step">Match Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#match-step">Match Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step">Select Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#select-step">Select Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps">Vertex Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#vertex-steps">Vertex Steps</a>
 </p>
 </li>
 </ul></div>
@@ -3786,17 +3786,17 @@ width:100%;
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps">Lambda Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#lambda-steps">Lambda Steps</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#union-step">Union Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#union-step">Union Step</a>
 </p>
 </li>
 </ul></div>
@@ -3849,17 +3849,17 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#_mutating_the_graph">Mutating the Graph</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#_mutating_the_graph">Mutating the Graph</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#drop-step">Drop Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#drop-step">Drop Step</a>
 </p>
 </li>
 </ul></div>
@@ -3934,42 +3934,42 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step">As Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#as-step">As Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#lambda-steps">Lambda Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#lambda-steps">Lambda Steps</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#repeat-step">Repeat Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#repeat-step">Repeat Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step">Select Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#select-step">Select Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps">Vertex Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#vertex-steps">Vertex Steps</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#tree-step">Tree Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#tree-step">Tree Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step">Where Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#where-step">Where Step</a>
 </p>
 </li>
 </ul></div>
@@ -4050,42 +4050,42 @@ gremlin&gt; g.V().hasLabel(&quot;customer&quot;).order().by(&quot;customerId&quo
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step">As Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#as-step">As Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#group-step">Group Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#group-step">Group Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#select-step">Select Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#select-step">Select Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#sum-step">Sum Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#sum-step">Sum Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step">Where Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#where-step">Where Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps">Vertex Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#vertex-steps">Vertex Steps</a>
 </p>
 </li>
 <li>
@@ -4174,8 +4174,8 @@ rank products by occurence in other orders
 ......1&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
 ......2&gt;       in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
 ......3&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
-......4&gt;       groupCount().order(local).by(valueDecr).mapKeys().limit(5).
-......5&gt;       values(&quot;name&quot;)
+......4&gt;       groupCount().order(local).by(values, decr).select(keys).limit(local, 5).
+......5&gt;       unfold().values(&quot;name&quot;)
 ==&gt;Gorgonzola Telino
 ==&gt;Guaraná Fantástica
 ==&gt;Camembert Pierrot
@@ -4186,52 +4186,57 @@ rank products by occurence in other orders
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#aggregate-step">Aggregate Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#aggregate-step">Aggregate Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#as-step">As Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#as-step">As Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#groupcount-step">GroupCount Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#groupcount-step">GroupCount Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#has-step">Has Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#has-step">Has Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#limit-step">Limit Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#limit-step">Limit Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#mapkeys-step">MapKeys Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#order-step">Order Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#order-step">Order Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#select-step">Select Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#vertex-steps">Vertex Steps</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#unfold-step">Unfold Step</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#where-step">Where Step</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#vertex-steps">Vertex Steps</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://tinkerpop.apache.org/docs/3.2.0-incubating/reference/#a-note-on-predicates">A Note on Predicates</a>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#where-step">Where Step</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://tinkerpop.apache.org/docs/current/reference/#a-note-on-predicates">A Note on Predicates</a>
 </p>
 </li>
 </ul></div>
@@ -4242,7 +4247,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-29 11:56:57 CET
+Last updated 2016-12-29 12:29:32 CET
 </div>
 </div>
 </body>
