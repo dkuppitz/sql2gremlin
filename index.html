@@ -3028,14 +3028,14 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).valueMap()
-==&gt;[name:[Beverages], description:[Soft drinks, coffees, teas, beers, and ales]]
-==&gt;[name:[Condiments], description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
-==&gt;[name:[Confections], description:[Desserts, candies, and sweet breads]]
-==&gt;[name:[Dairy Products], description:[Cheeses]]
-==&gt;[name:[Grains/Cereals], description:[Breads, crackers, pasta, and cereal]]
-==&gt;[name:[Meat/Poultry], description:[Prepared meats]]
-==&gt;[name:[Produce], description:[Dried fruit and bean curd]]
-==&gt;[name:[Seafood], description:[Seaweed and fish]]
+==&gt;[name:[Beverages],description:[Soft drinks, coffees, teas, beers, and ales]]
+==&gt;[name:[Condiments],description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
+==&gt;[name:[Confections],description:[Desserts, candies, and sweet breads]]
+==&gt;[name:[Dairy Products],description:[Cheeses]]
+==&gt;[name:[Grains/Cereals],description:[Breads, crackers, pasta, and cereal]]
+==&gt;[name:[Meat/Poultry],description:[Prepared meats]]
+==&gt;[name:[Produce],description:[Dried fruit and bean curd]]
+==&gt;[name:[Seafood],description:[Seaweed and fish]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3091,14 +3091,14 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).valueMap(&quot;name&quot;, &quot;description&quot;)
-==&gt;[name:[Beverages], description:[Soft drinks, coffees, teas, beers, and ales]]
-==&gt;[name:[Condiments], description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
-==&gt;[name:[Confections], description:[Desserts, candies, and sweet breads]]
-==&gt;[name:[Dairy Products], description:[Cheeses]]
-==&gt;[name:[Grains/Cereals], description:[Breads, crackers, pasta, and cereal]]
-==&gt;[name:[Meat/Poultry], description:[Prepared meats]]
-==&gt;[name:[Produce], description:[Dried fruit and bean curd]]
-==&gt;[name:[Seafood], description:[Seaweed and fish]]
+==&gt;[name:[Beverages],description:[Soft drinks, coffees, teas, beers, and ales]]
+==&gt;[name:[Condiments],description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
+==&gt;[name:[Confections],description:[Desserts, candies, and sweet breads]]
+==&gt;[name:[Dairy Products],description:[Cheeses]]
+==&gt;[name:[Grains/Cereals],description:[Breads, crackers, pasta, and cereal]]
+==&gt;[name:[Meat/Poultry],description:[Prepared meats]]
+==&gt;[name:[Produce],description:[Dried fruit and bean curd]]
+==&gt;[name:[Seafood],description:[Seaweed and fish]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3125,7 +3125,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-               map {it.get().length()}
+......1&gt;       map {it.get().length()}
 ==&gt;9
 ==&gt;10
 ==&gt;11
@@ -3165,7 +3165,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-               map {it.get().length()}.dedup()
+......1&gt;       map {it.get().length()}.dedup()
 ==&gt;9
 ==&gt;10
 ==&gt;11
@@ -3208,7 +3208,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
-               map {it.get().length()}.max()
+......1&gt;       map {it.get().length()}.max()
 ==&gt;14
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3252,11 +3252,11 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitsInStock&quot;, 0).valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
-==&gt;[unitsInStock:[0], name:[Chef Anton&#39;s Gumbo Mix]]
-==&gt;[unitsInStock:[0], name:[Alice Mutton]]
-==&gt;[unitsInStock:[0], name:[Thüringer Rostbratwurst]]
-==&gt;[unitsInStock:[0], name:[Gorgonzola Telino]]
-==&gt;[unitsInStock:[0], name:[Perth Pasties]]
+==&gt;[unitsInStock:[0],name:[Chef Anton&#39;s Gumbo Mix]]
+==&gt;[unitsInStock:[0],name:[Alice Mutton]]
+==&gt;[unitsInStock:[0],name:[Thüringer Rostbratwurst]]
+==&gt;[unitsInStock:[0],name:[Gorgonzola Telino]]
+==&gt;[unitsInStock:[0],name:[Perth Pasties]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3274,7 +3274,7 @@ width:100%;
 </div>
 <div class="sect2">
 <h3 id="_filter_by_inequality">Filter by inequality</h3>
-<div class="paragraph"><p>This sample shows how to query all products with a unit price not exceeding 10.</p></div>
+<div class="paragraph"><p>This sample shows how to query all products where the number of units on order is not 0.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitsOnOrder</span>
@@ -3284,17 +3284,17 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitsOnOrder&quot;, neq(0)).
-               valueMap(&quot;name&quot;, &quot;unitsOnOrder&quot;)
-==&gt;[name:[Chang], unitsOnOrder:[40]]
-==&gt;[name:[Aniseed Syrup], unitsOnOrder:[70]]
-==&gt;[name:[Queso Cabrales], unitsOnOrder:[30]]
-==&gt;[name:[Sir Rodney&#39;s Scones], unitsOnOrder:[40]]
-==&gt;[name:[Gorgonzola Telino], unitsOnOrder:[70]]
-==&gt;[name:[Mascarpone Fabioli], unitsOnOrder:[40]]
-==&gt;[name:[Gravad lax], unitsOnOrder:[50]]
-==&gt;[name:[Ipoh Coffee], unitsOnOrder:[10]]
-==&gt;[name:[Rogede sild], unitsOnOrder:[70]]
-==&gt;[name:[Chocolade], unitsOnOrder:[70]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitsOnOrder&quot;)
+==&gt;[name:[Chang],unitsOnOrder:[40]]
+==&gt;[name:[Aniseed Syrup],unitsOnOrder:[70]]
+==&gt;[name:[Queso Cabrales],unitsOnOrder:[30]]
+==&gt;[name:[Sir Rodney&#39;s Scones],unitsOnOrder:[40]]
+==&gt;[name:[Gorgonzola Telino],unitsOnOrder:[70]]
+==&gt;[name:[Mascarpone Fabioli],unitsOnOrder:[40]]
+==&gt;[name:[Gravad lax],unitsOnOrder:[50]]
+==&gt;[name:[Ipoh Coffee],unitsOnOrder:[10]]
+==&gt;[name:[Rogede sild],unitsOnOrder:[70]]
+==&gt;[name:[Chocolade],unitsOnOrder:[70]]
 ...
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3328,16 +3328,16 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitPrice&quot;, between(5f, 10f)).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
-==&gt;[unitPrice:[6.0], name:[Konbu]]
-==&gt;[unitPrice:[9.2], name:[Teatime Chocolate Biscuits]]
-==&gt;[unitPrice:[9.0], name:[Tunnbröd]]
-==&gt;[unitPrice:[9.65], name:[Jack&#39;s New England Clam Chowder]]
-==&gt;[unitPrice:[9.5], name:[Rogede sild]]
-==&gt;[unitPrice:[9.5], name:[Zaanse koeken]]
-==&gt;[unitPrice:[7.0], name:[Filo Mix]]
-==&gt;[unitPrice:[7.45], name:[Tourtière]]
-==&gt;[unitPrice:[7.75], name:[Rhönbräu Klosterbier]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+==&gt;[unitPrice:[6.0],name:[Konbu]]
+==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
+==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
+==&gt;[unitPrice:[9.65],name:[Jack&#39;s New England Clam Chowder]]
+==&gt;[unitPrice:[9.5],name:[Rogede sild]]
+==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
+==&gt;[unitPrice:[7.0],name:[Filo Mix]]
+==&gt;[unitPrice:[7.45],name:[Tourtière]]
+==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3371,11 +3371,11 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;discontinued&quot;, true).has(&quot;unitsInStock&quot;, neq(0)).
-              valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
-==&gt;[unitsInStock:[29], name:[Mishi Kobe Niku]]
-==&gt;[unitsInStock:[20], name:[Guaraná Fantástica]]
-==&gt;[unitsInStock:[26], name:[Rössle Sauerkraut]]
-==&gt;[unitsInStock:[26], name:[Singaporean Hokkien Fried Mee]]
+......1&gt;      valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
+==&gt;[unitsInStock:[29],name:[Mishi Kobe Niku]]
+==&gt;[unitsInStock:[20],name:[Guaraná Fantástica]]
+==&gt;[unitsInStock:[26],name:[Rössle Sauerkraut]]
+==&gt;[unitsInStock:[26],name:[Singaporean Hokkien Fried Mee]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3413,17 +3413,17 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
-==&gt;[unitPrice:[2.5], name:[Geitost]]
-==&gt;[unitPrice:[4.5], name:[Guaraná Fantástica]]
-==&gt;[unitPrice:[6.0], name:[Konbu]]
-==&gt;[unitPrice:[7.0], name:[Filo Mix]]
-==&gt;[unitPrice:[7.45], name:[Tourtière]]
-==&gt;[unitPrice:[7.75], name:[Rhönbräu Klosterbier]]
-==&gt;[unitPrice:[9.0], name:[Tunnbröd]]
-==&gt;[unitPrice:[9.2], name:[Teatime Chocolate Biscuits]]
-==&gt;[unitPrice:[9.5], name:[Rogede sild]]
-==&gt;[unitPrice:[9.5], name:[Zaanse koeken]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+==&gt;[unitPrice:[2.5],name:[Geitost]]
+==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
+==&gt;[unitPrice:[6.0],name:[Konbu]]
+==&gt;[unitPrice:[7.0],name:[Filo Mix]]
+==&gt;[unitPrice:[7.45],name:[Tourtière]]
+==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
+==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
+==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
+==&gt;[unitPrice:[9.5],name:[Rogede sild]]
+==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
 ...
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3457,17 +3457,17 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, decr).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
-==&gt;[unitPrice:[263.5], name:[Côte de Blaye]]
-==&gt;[unitPrice:[123.79], name:[Thüringer Rostbratwurst]]
-==&gt;[unitPrice:[97.0], name:[Mishi Kobe Niku]]
-==&gt;[unitPrice:[81.0], name:[Sir Rodney&#39;s Marmalade]]
-==&gt;[unitPrice:[62.5], name:[Carnarvon Tigers]]
-==&gt;[unitPrice:[55.0], name:[Raclette Courdavault]]
-==&gt;[unitPrice:[53.0], name:[Manjimup Dried Apples]]
-==&gt;[unitPrice:[49.3], name:[Tarte au sucre]]
-==&gt;[unitPrice:[46.0], name:[Ipoh Coffee]]
-==&gt;[unitPrice:[45.6], name:[Rössle Sauerkraut]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+==&gt;[unitPrice:[263.5],name:[Côte de Blaye]]
+==&gt;[unitPrice:[123.79],name:[Thüringer Rostbratwurst]]
+==&gt;[unitPrice:[97.0],name:[Mishi Kobe Niku]]
+==&gt;[unitPrice:[81.0],name:[Sir Rodney&#39;s Marmalade]]
+==&gt;[unitPrice:[62.5],name:[Carnarvon Tigers]]
+==&gt;[unitPrice:[55.0],name:[Raclette Courdavault]]
+==&gt;[unitPrice:[53.0],name:[Manjimup Dried Apples]]
+==&gt;[unitPrice:[49.3],name:[Tarte au sucre]]
+==&gt;[unitPrice:[46.0],name:[Ipoh Coffee]]
+==&gt;[unitPrice:[45.6],name:[Rössle Sauerkraut]]
 ...
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3506,12 +3506,12 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).limit(5).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
-==&gt;[unitPrice:[2.5], name:[Geitost]]
-==&gt;[unitPrice:[4.5], name:[Guaraná Fantástica]]
-==&gt;[unitPrice:[6.0], name:[Konbu]]
-==&gt;[unitPrice:[7.0], name:[Filo Mix]]
-==&gt;[unitPrice:[7.45], name:[Tourtière]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+==&gt;[unitPrice:[2.5],name:[Geitost]]
+==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
+==&gt;[unitPrice:[6.0],name:[Konbu]]
+==&gt;[unitPrice:[7.0],name:[Filo Mix]]
+==&gt;[unitPrice:[7.45],name:[Tourtière]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3556,12 +3556,12 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).range(5, 10).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
-==&gt;[unitPrice:[7.75], name:[Rhönbräu Klosterbier]]
-==&gt;[unitPrice:[9.0], name:[Tunnbröd]]
-==&gt;[unitPrice:[9.2], name:[Teatime Chocolate Biscuits]]
-==&gt;[unitPrice:[9.5], name:[Rogede sild]]
-==&gt;[unitPrice:[9.5], name:[Zaanse koeken]]
+......1&gt;       valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
+==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
+==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
+==&gt;[unitPrice:[9.5],name:[Rogede sild]]
+==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -3607,7 +3607,7 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).groupCount().by(&quot;unitPrice&quot;).
-               order(local).by(valueDecr).mapKeys().limit(1)
+......1&gt;       order(local).by(valueDecr).mapKeys().limit(1)
 ==&gt;18.0
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3703,19 +3703,19 @@ width:100%;
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).match(
-           __.as(&quot;c&quot;).values(&quot;customerId&quot;).as(&quot;customerId&quot;),
-           __.as(&quot;c&quot;).out(&quot;ordered&quot;).count().as(&quot;orders&quot;)
-gremlin&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
-==&gt;[customerId:ALFKI, orders:6]
-==&gt;[customerId:ANATR, orders:4]
-==&gt;[customerId:ANTON, orders:7]
-==&gt;[customerId:AROUT, orders:13]
-==&gt;[customerId:BERGS, orders:18]
-==&gt;[customerId:BLAUS, orders:7]
-==&gt;[customerId:BLONP, orders:11]
-==&gt;[customerId:BOLID, orders:3]
-==&gt;[customerId:BONAP, orders:17]
-==&gt;[customerId:BOTTM, orders:14]
+......1&gt;   __.as(&quot;c&quot;).values(&quot;customerId&quot;).as(&quot;customerId&quot;),
+......2&gt;   __.as(&quot;c&quot;).out(&quot;ordered&quot;).count().as(&quot;orders&quot;)
+......3&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
+==&gt;[customerId:ALFKI,orders:6]
+==&gt;[customerId:ANATR,orders:4]
+==&gt;[customerId:ANTON,orders:7]
+==&gt;[customerId:AROUT,orders:13]
+==&gt;[customerId:BERGS,orders:18]
+==&gt;[customerId:BLAUS,orders:7]
+==&gt;[customerId:BLONP,orders:11]
+==&gt;[customerId:BOLID,orders:3]
+==&gt;[customerId:BONAP,orders:17]
+==&gt;[customerId:BOTTM,orders:14]
 ...
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -3773,8 +3773,8 @@ gremlin&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).union(
-           filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
-           filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
+......1&gt;   filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
+......2&gt;   filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
 ==&gt;Alfreds Futterkiste
 ==&gt;Ana Trujillo Emparedados y helados
 ==&gt;Antonio Moreno Taquería
@@ -3827,19 +3827,19 @@ gremlin&gt; ).select(&quot;customerId&quot;, &quot;orders&quot;)
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; c = graph.addVertex(label, &quot;category&quot;,
-                   &quot;name&quot;, &quot;Merchandising&quot;,
-                   &quot;description&quot;, &quot;Cool products to promote Gremlin&quot;)
+......1&gt;           &quot;name&quot;, &quot;Merchandising&quot;,
+......2&gt;           &quot;description&quot;, &quot;Cool products to promote Gremlin&quot;)
 ==&gt;v[0]
 gremlin&gt;
 gremlin&gt; p = graph.addVertex(label, &quot;product&quot;,
-                   &quot;ame&quot;, &quot;Red Gremlin Jacket&quot;)
+......1&gt;           &quot;ame&quot;, &quot;Red Gremlin Jacket&quot;)
 ==&gt;v[3]
 gremlin&gt;
 gremlin&gt; p.addEdge(&quot;inCategory&quot;, c)
 ==&gt;e[5][3-inCategory-&gt;0]
 gremlin&gt;
 gremlin&gt; g.V().has(&quot;product&quot;, &quot;name&quot;, &quot;Red Gremlin Jacket&quot;).
-               property(&quot;name&quot;, &quot;Green Gremlin Jacket&quot;).iterate()
+......1&gt;       property(&quot;name&quot;, &quot;Green Gremlin Jacket&quot;).iterate()
 gremlin&gt;
 gremlin&gt; p.remove()
 ==&gt;null
@@ -3906,29 +3906,29 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="paragraph"><p><strong>Gremlin</strong> (hierarchical)</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-               repeat(__.in(&quot;reportsTo&quot;)).emit().tree().by(map {
-                 def employee = it.get()
-                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
-               }).next()
+......1&gt;       repeat(__.in(&quot;reportsTo&quot;)).emit().tree().by(map {
+......2&gt;         def employee = it.get()
+......3&gt;         employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+......4&gt;       }).next()
 ==&gt;Andrew Fuller={Margaret Peacock={}, Janet Leverling={}, Nancy Davolio={}, Steven Buchanan={Anne Dodsworth={}, Michael Suyama={}, Robert King={}}, Laura Callahan={}}
 </pre></div></div></div>
 <div class="paragraph"><p>You can also produce the same tabular result that&#8217;s produced by SQL.</p></div>
 <div class="paragraph"><p><strong>Gremlin</strong> (tabular)</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-               repeat(__.as(&quot;reportsTo&quot;).in(&quot;reportsTo&quot;).as(&quot;employee&quot;)).emit().
-               select(last, &quot;reportsTo&quot;, &quot;employee&quot;).by(map {
-                 def employee = it.get()
-                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
-               })
-==&gt;[reportsTo:Andrew Fuller, employee:Nancy Davolio]
-==&gt;[reportsTo:Andrew Fuller, employee:Janet Leverling]
-==&gt;[reportsTo:Andrew Fuller, employee:Margaret Peacock]
-==&gt;[reportsTo:Andrew Fuller, employee:Steven Buchanan]
-==&gt;[reportsTo:Andrew Fuller, employee:Laura Callahan]
-==&gt;[reportsTo:Steven Buchanan, employee:Robert King]
-==&gt;[reportsTo:Steven Buchanan, employee:Anne Dodsworth]
-==&gt;[reportsTo:Steven Buchanan, employee:Michael Suyama]
+......1&gt;       repeat(__.as(&quot;reportsTo&quot;).in(&quot;reportsTo&quot;).as(&quot;employee&quot;)).emit().
+......2&gt;       select(last, &quot;reportsTo&quot;, &quot;employee&quot;).by(map {
+......3&gt;         def employee = it.get()
+......4&gt;         employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+......5&gt;       })
+==&gt;[reportsTo:Andrew Fuller,employee:Nancy Davolio]
+==&gt;[reportsTo:Andrew Fuller,employee:Janet Leverling]
+==&gt;[reportsTo:Andrew Fuller,employee:Margaret Peacock]
+==&gt;[reportsTo:Andrew Fuller,employee:Steven Buchanan]
+==&gt;[reportsTo:Andrew Fuller,employee:Laura Callahan]
+==&gt;[reportsTo:Steven Buchanan,employee:Robert King]
+==&gt;[reportsTo:Steven Buchanan,employee:Anne Dodsworth]
+==&gt;[reportsTo:Steven Buchanan,employee:Michael Suyama]
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
@@ -4027,23 +4027,23 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 gremlin&gt; rowTotal = {it.get().value(&quot;unitPrice&quot;) * it.get().value(&quot;quantity&quot;)}; []
 gremlin&gt;
 gremlin&gt; g.V().hasLabel(&quot;customer&quot;).order().by(&quot;customerId&quot;, incr).
-               where(out(&quot;ordered&quot;)).as(&quot;customer&quot;).
-               map {
-                 def m = g.V(it.get()).out(&quot;ordered&quot;).
-                           group().by {new Date(it.value(&quot;orderDate&quot;)).getMonth()}.
-                                   by(out(&quot;contains&quot;).map(rowTotal).sum()).next()
-                 (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
-               }.as(&quot;totals&quot;).select(&quot;customer&quot;, &quot;totals&quot;).by(id).by()
-==&gt;[customer:8, totals:[Jan:851.0, Feb:0, Mar:491.2, Apr:960.00, May:0, Jun:0, Jul:0, Aug:1086.0, Sep:0, Oct:1208.0, Nov:0, Dec:0]]
-==&gt;[customer:9, totals:[Jan:0, Feb:0, Mar:514.4, Apr:0, May:0, Jun:0, Jul:0, Aug:479.75, Sep:88.8, Oct:0, Nov:320.0, Dec:0]]
-==&gt;[customer:10, totals:[Jan:660.0, Feb:0, Mar:0, Apr:881.25, May:2156.5, Jun:2082.0, Jul:0, Aug:0, Sep:1332.40, Oct:0, Nov:403.2, Dec:0]]
-==&gt;[customer:11, totals:[Jan:0, Feb:735.0, Mar:5065.00, Apr:491.5, May:0, Jun:2142.9, Jul:0, Aug:0, Sep:0, Oct:1704.0, Nov:1101.0, Dec:2567.10]]
-==&gt;[customer:12, totals:[Jan:3884.95, Feb:3397.70, Mar:2034.50, Apr:0, May:3192.65, Jun:1565.65, Jul:0, Aug:3605.6, Sep:4879.20, Oct:630.0, Nov:1459.00, Dec:2318.90]]
-==&gt;[customer:13, totals:[Jan:625.0, Feb:0, Mar:677.0, Apr:1143.80, May:0, Jun:330.0, Jul:464.0, Aug:0, Sep:0, Oct:0, Nov:0, Dec:0]]
-==&gt;[customer:14, totals:[Jan:730.0, Feb:4049.0, Mar:0, Apr:0, May:0, Jun:3212.80, Jul:1176.0, Aug:450.0, Sep:2080.0, Oct:0, Nov:7390.2, Dec:0]]
-==&gt;[customer:15, totals:[Jan:0, Feb:0, Mar:280.0, Apr:0, May:0, Jun:0, Jul:0, Aug:0, Sep:0, Oct:982.0, Nov:0, Dec:4035.80]]
-==&gt;[customer:16, totals:[Jan:843.0, Feb:3000.40, Mar:4106.30, Apr:3000.0, May:1903.00, Jun:0, Jul:0, Aug:0, Sep:2032.0, Oct:3948.9, Nov:5017.35, Dec:0]]
-==&gt;[customer:17, totals:[Jan:4533.5, Feb:0, Mar:9222.60, Apr:3900.8, May:0, Jun:0, Jul:0, Aug:0, Sep:0, Oct:0, Nov:3118.0, Dec:1832.8]]
+......1&gt;       where(out(&quot;ordered&quot;)).as(&quot;customer&quot;).
+......2&gt;       map {
+......3&gt;         def m = g.V(it.get()).out(&quot;ordered&quot;).
+......4&gt;                   group().by {new Date(it.value(&quot;orderDate&quot;)).getMonth()}.
+......5&gt;                           by(out(&quot;contains&quot;).map(rowTotal).sum()).next()
+......6&gt;         (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
+......7&gt;       }.as(&quot;totals&quot;).select(&quot;customer&quot;, &quot;totals&quot;).by(id).by()
+==&gt;[customer:8,totals:[Jan:851.0,Feb:0,Mar:491.2,Apr:960.00,May:0,Jun:0,Jul:0,Aug:1086.0,Sep:0,Oct:1208.0,Nov:0,Dec:0]]
+==&gt;[customer:9,totals:[Jan:0,Feb:0,Mar:514.4,Apr:0,May:0,Jun:0,Jul:0,Aug:479.75,Sep:88.8,Oct:0,Nov:320.0,Dec:0]]
+==&gt;[customer:10,totals:[Jan:660.0,Feb:0,Mar:0,Apr:881.25,May:2156.5,Jun:2082.0,Jul:0,Aug:0,Sep:1332.40,Oct:0,Nov:403.2,Dec:0]]
+==&gt;[customer:11,totals:[Jan:0,Feb:735.0,Mar:5065.00,Apr:491.5,May:0,Jun:2142.9,Jul:0,Aug:0,Sep:0,Oct:1704.0,Nov:1101.0,Dec:2567.10]]
+==&gt;[customer:12,totals:[Jan:3884.95,Feb:3397.70,Mar:2034.50,Apr:0,May:3192.65,Jun:1565.65,Jul:0,Aug:3605.6,Sep:4879.20,Oct:630.0,Nov:1459.00,Dec:2318.90]]
+==&gt;[customer:13,totals:[Jan:625.0,Feb:0,Mar:677.0,Apr:1143.80,May:0,Jun:330.0,Jul:464.0,Aug:0,Sep:0,Oct:0,Nov:0,Dec:0]]
+==&gt;[customer:14,totals:[Jan:730.0,Feb:4049.0,Mar:0,Apr:0,May:0,Jun:3212.80,Jul:1176.0,Aug:450.0,Sep:2080.0,Oct:0,Nov:7390.2,Dec:0]]
+==&gt;[customer:15,totals:[Jan:0,Feb:0,Mar:280.0,Apr:0,May:0,Jun:0,Jul:0,Aug:0,Sep:0,Oct:982.0,Nov:0,Dec:4035.80]]
+==&gt;[customer:16,totals:[Jan:843.0,Feb:3000.40,Mar:4106.30,Apr:3000.0,May:1903.00,Jun:0,Jul:0,Aug:0,Sep:2032.0,Oct:3948.9,Nov:5017.35,Dec:0]]
+==&gt;[customer:17,totals:[Jan:4533.5,Feb:0,Mar:9222.60,Apr:3900.8,May:0,Jun:0,Jul:0,Aug:0,Sep:0,Oct:0,Nov:3118.0,Dec:1832.8]]
 ...
 </pre></div></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
@@ -4171,11 +4171,11 @@ rank products by occurence in other orders
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;customerId&quot;, &quot;ALFKI&quot;).as(&quot;customer&quot;).
-               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
-               in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
-               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
-               groupCount().order(local).by(valueDecr).mapKeys().limit(5).
-               values(&quot;name&quot;)
+......1&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
+......2&gt;       in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
+......3&gt;       out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
+......4&gt;       groupCount().order(local).by(valueDecr).mapKeys().limit(5).
+......5&gt;       values(&quot;name&quot;)
 ==&gt;Gorgonzola Telino
 ==&gt;Guaraná Fantástica
 ==&gt;Camembert Pierrot
@@ -4242,7 +4242,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-08-12 10:15:37 CEST
+Last updated 2016-12-29 11:56:57 CET
 </div>
 </div>
 </body>
