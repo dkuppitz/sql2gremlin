@@ -227,7 +227,7 @@ g.V().has("product", "unitsInStock", 0).valueMap("name", "unitsInStock")
 
 === Filter by inequality
 
-This sample shows how to query all products with a unit price not exceeding 10.
+This sample shows how to query all products where the number of units on order is not 0.
 
 *SQL*
 [source,sql]
