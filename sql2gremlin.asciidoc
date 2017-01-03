@@ -791,7 +791,7 @@ ORDER BY [t14].[value] DESC
 *Gremlin*
 [gremlin-groovy]
 ----
-g.V().has("customerId", "ALFKI").as("customer").
+g.V().has("customer", "customerId", "ALFKI").as("customer").
       out("ordered").out("contains").out("is").aggregate("products").
       in("is").in("contains").in("ordered").where(neq("customer")).
       out("ordered").out("contains").out("is").where(without("products")).
