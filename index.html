@@ -4170,7 +4170,7 @@ rank products by occurence in other orders
 </pre></div></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;customerId&quot;, &quot;ALFKI&quot;).as(&quot;customer&quot;).
+<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;customer&quot;, &quot;customerId&quot;, &quot;ALFKI&quot;).as(&quot;customer&quot;).
                out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
                in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
                out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
@@ -4247,7 +4247,7 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-29 12:43:16 CET
+Last updated 2017-01-03 21:30:57 CET
 </div>
 </div>
 </body>
