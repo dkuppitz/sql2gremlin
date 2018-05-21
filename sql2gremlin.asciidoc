@@ -40,7 +40,7 @@ ${LATEST_DIRECTORY}/bin/gremlin.sh -i /tmp/northwind.groovy
 
 In your Gremlin shell create the Northwind graph, a graph traversal source and you're ready to go:
 
-[source,text]
+[source,txt]
 ----
 gremlin> graph = NorthwindFactory.createGraph()
 ==>tinkergraph[vertices:3209 edges:6177]
@@ -133,7 +133,7 @@ This sample shows how to query the length of the name of all categories.
 *SQL*
 [source,sql]
 ----
-SELECT LENGTH(CategoryName)
+SELECT LEN(CategoryName)
   FROM Categories
 ----
 
@@ -157,7 +157,7 @@ This sample shows how to query all distinct lengths of category names.
 *SQL*
 [source,sql]
 ----
-SELECT DISTINCT LENGTH(CategoryName)
+SELECT DISTINCT LEN(CategoryName)
   FROM Categories
 ----
 
@@ -182,7 +182,7 @@ This sample shows how to query the length of the longest category name.
 *SQL*
 [source,sql]
 ----
-SELECT MAX(LENGTH(CategoryName))
+SELECT MAX(LEN(CategoryName))
   FROM Categories
 ----
 

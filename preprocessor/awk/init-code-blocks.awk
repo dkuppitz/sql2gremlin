@@ -26,12 +26,12 @@ BEGIN {
 /^pb\([0-9]*\); '\[gremlin-/ {
   delimiter = 1
   split($0, a, "-")
-  b = gensub(/]'/, "", "", a[2])
+  b = gensub(/]'/, "", "1", a[2])
   split(b, c, ",")
   split(a[1], d, ";")
   lang = c[1]
   #print d[1] "; '[source," lang "]'"
-  print d[1] "; '[source,text]'"
+  print d[1] "; '[source,txt]'"
   print "'+EVALUATED'"
   print "'+IGNORE'"
   print "graph = TinkerGraph.open()"
