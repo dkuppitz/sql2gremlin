@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.9">
+<meta name="generator" content="AsciiDoc 8.6.10">
 <title></title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -603,68 +603,6 @@ div.exampleblock > div.content, div.sidebarblock > div.content, div.listingblock
 div.verseblock { border-left-width: 0; margin-left: 3em; }
 div.quoteblock { border-left-width: 3px; margin-left: 0; margin-right: 0;}
 div.admonitionblock td.content { border-left: 3px solid #E8E8E8; }
-.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #808080 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0040D0 } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
 
 
 @media screen {
@@ -2953,27 +2891,33 @@ C/oQM/n6AAAAAElFTkSuQmCC">
 <div class="sectionbody">
 <div class="paragraph"><p>To get started download the latest version of the Gremlin shell from <a href="http://www.tinkerpop.com">www.tinkerpop.com</a> and extract it. Then download the file <a href="http://sql2gremlin.com/assets/northwind.groovy">northwind.groovy</a> and start your Gremlin shell:</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="c"># find the latest Gremlin shell download</span>
-<span class="nv">MIRRORS_URL</span><span class="o">=</span><span class="sb">`</span>curl -s http://tinkerpop.apache.org/ | grep -o <span class="s1">&#39;http[s]*://.*\-console-.*\-bin\.zip&#39;</span><span class="sb">`</span>
-<span class="nv">LATEST_URL</span><span class="o">=</span><span class="sb">`</span>curl -s <span class="nv">$MIRRORS_URL</span> | egrep -o <span class="s1">&#39;http[s]?://[^&quot;]*-console-[^&quot;]*-bin.zip&#39;</span> | head -1<span class="sb">`</span>
-<span class="nv">LATEST_FILENAME</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">${</span><span class="nv">LATEST_URL</span><span class="k">}</span> | grep -o <span class="s1">&#39;[^/]*$&#39;</span><span class="sb">`</span>
-<span class="nv">LATEST_DIRECTORY</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">${</span><span class="nv">LATEST_FILENAME</span><span class="k">}</span> | sed <span class="s1">&#39;s/-bin\.zip//&#39;</span><span class="sb">`</span>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-style: italic"><span style="color: #9A1900"># find the latest Gremlin shell download</span></span>
+<span style="color: #009900">MIRRORS_URL</span><span style="color: #990000">=</span>`curl -s http<span style="color: #990000">:</span>//tinkerpop<span style="color: #990000">.</span>apache<span style="color: #990000">.</span>org<span style="color: #990000">/</span> <span style="color: #990000">|</span> grep -o <span style="color: #FF0000">'http[s]*://.*</span><span style="color: #CC33CC">\-</span><span style="color: #FF0000">console-.*</span><span style="color: #CC33CC">\-</span><span style="color: #FF0000">bin</span><span style="color: #CC33CC">\.</span><span style="color: #FF0000">zip'</span>`
+<span style="color: #009900">LATEST_URL</span><span style="color: #990000">=</span>`curl -s <span style="color: #009900">$MIRRORS_URL</span> <span style="color: #990000">|</span> egrep -o <span style="color: #FF0000">'http[s]?://[^"]*-console-[^"]*-bin.zip'</span> <span style="color: #990000">|</span> head -<span style="color: #993399">1</span>`
+<span style="color: #009900">LATEST_FILENAME</span><span style="color: #990000">=</span>`echo <span style="color: #009900">${LATEST_URL}</span> <span style="color: #990000">|</span> grep -o <span style="color: #FF0000">'[^/]*$'</span>`
+<span style="color: #009900">LATEST_DIRECTORY</span><span style="color: #990000">=</span>`echo <span style="color: #009900">${LATEST_FILENAME}</span> <span style="color: #990000">|</span> sed <span style="color: #FF0000">'s/-bin</span><span style="color: #CC33CC">\.</span><span style="color: #FF0000">zip//'</span>`
 
-<span class="c"># download and extract the Gremlin shell</span>
-wget -q <span class="k">${</span><span class="nv">LATEST_URL</span><span class="k">}</span>
-unzip -q <span class="k">${</span><span class="nv">LATEST_FILENAME</span><span class="k">}</span>
+<span style="font-style: italic"><span style="color: #9A1900"># download and extract the Gremlin shell</span></span>
+wget -q <span style="color: #009900">${LATEST_URL}</span>
+unzip -q <span style="color: #009900">${LATEST_FILENAME}</span>
 
-<span class="c"># start the Gremlin shell</span>
-wget -q http://sql2gremlin.com/assets/northwind.groovy -O /tmp/northwind.groovy
-<span class="k">${</span><span class="nv">LATEST_DIRECTORY</span><span class="k">}</span>/bin/gremlin.sh -i /tmp/northwind.groovy
-</pre></div></div></div>
+<span style="font-style: italic"><span style="color: #9A1900"># start the Gremlin shell</span></span>
+wget -q http<span style="color: #990000">:</span>//sql2gremlin<span style="color: #990000">.</span>com/assets/northwind<span style="color: #990000">.</span>groovy -O /tmp/northwind<span style="color: #990000">.</span>groovy
+<span style="color: #009900">${LATEST_DIRECTORY}</span>/bin/gremlin<span style="color: #990000">.</span>sh -i /tmp/northwind<span style="color: #990000">.</span>groovy</tt></pre></div></div>
 <div class="paragraph"><p>In your Gremlin shell create the Northwind graph, a graph traversal source and you&#8217;re ready to go:</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; graph = NorthwindFactory.createGraph()
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; graph = NorthwindFactory.createGraph()
 ==&gt;tinkergraph[vertices:3209 edges:6177]
 gremlin&gt; g = graph.traversal()
-==&gt;graphtraversalsource[tinkergraph[vertices:3209 edges:6177], standard]
-</pre></div></div></div>
+==&gt;graphtraversalsource[tinkergraph[vertices:3209 edges:6177], standard]</tt></pre></div></div>
 <div class="paragraph"><p>The graph is now filled with vertices and edges. Vertices have a number of properties, depending on what they represent. The following properties are globally indexed for fast lookups:</p></div>
 <table class="tableblock frame-all grid-all"
 style="
@@ -3022,12 +2966,19 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all categories.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="color: #990000">*</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).valueMap()
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").valueMap()
 ==&gt;[name:[Beverages],description:[Soft drinks, coffees, teas, beers, and ales]]
 ==&gt;[name:[Condiments],description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
 ==&gt;[name:[Confections],description:[Desserts, candies, and sweet breads]]
@@ -3035,8 +2986,7 @@ width:100%;
 ==&gt;[name:[Grains/Cereals],description:[Breads, crackers, pasta, and cereal]]
 ==&gt;[name:[Meat/Poultry],description:[Prepared meats]]
 ==&gt;[name:[Produce],description:[Dried fruit and bean curd]]
-==&gt;[name:[Seafood],description:[Seaweed and fish]]
-</pre></div></div></div>
+==&gt;[name:[Seafood],description:[Seaweed and fish]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3056,12 +3006,19 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the names of all categories.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">CategoryName</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> CategoryName
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").values("name")
 ==&gt;Beverages
 ==&gt;Condiments
 ==&gt;Confections
@@ -3069,8 +3026,7 @@ width:100%;
 ==&gt;Grains/Cereals
 ==&gt;Meat/Poultry
 ==&gt;Produce
-==&gt;Seafood
-</pre></div></div></div>
+==&gt;Seafood</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3085,12 +3041,19 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the names and descriptions of all categories.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">CategoryName</span><span class="p">,</span> <span class="n">Description</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> CategoryName<span style="color: #990000">,</span> Description
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).valueMap(&quot;name&quot;, &quot;description&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").valueMap("name", "description")
 ==&gt;[name:[Beverages],description:[Soft drinks, coffees, teas, beers, and ales]]
 ==&gt;[name:[Condiments],description:[Sweet and savory sauces, relishes, spreads, and seasonings]]
 ==&gt;[name:[Confections],description:[Desserts, candies, and sweet breads]]
@@ -3098,8 +3061,7 @@ width:100%;
 ==&gt;[name:[Grains/Cereals],description:[Breads, crackers, pasta, and cereal]]
 ==&gt;[name:[Meat/Poultry],description:[Prepared meats]]
 ==&gt;[name:[Produce],description:[Dried fruit and bean curd]]
-==&gt;[name:[Seafood],description:[Seaweed and fish]]
-</pre></div></div></div>
+==&gt;[name:[Seafood],description:[Seaweed and fish]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3119,12 +3081,19 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the length of the name of all categories.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CategoryName</span><span class="p">)</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> LEN<span style="color: #990000">(</span>CategoryName<span style="color: #990000">)</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").values("name").
                map {it.get().length()}
 ==&gt;9
 ==&gt;10
@@ -3133,8 +3102,7 @@ width:100%;
 ==&gt;14
 ==&gt;12
 ==&gt;7
-==&gt;7
-</pre></div></div></div>
+==&gt;7</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3159,20 +3127,26 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all distinct lengths of category names.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CategoryName</span><span class="p">)</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">DISTINCT</span></span> LEN<span style="color: #990000">(</span>CategoryName<span style="color: #990000">)</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").values("name").
                map {it.get().length()}.dedup()
 ==&gt;9
 ==&gt;10
 ==&gt;11
 ==&gt;14
 ==&gt;12
-==&gt;7
-</pre></div></div></div>
+==&gt;7</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3202,15 +3176,21 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the length of the longest category name.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="k">LENGTH</span><span class="p">(</span><span class="n">CategoryName</span><span class="p">))</span>
-  <span class="k">FROM</span> <span class="n">Categories</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> MAX<span style="color: #990000">(</span>LEN<span style="color: #990000">(</span>CategoryName<span style="color: #990000">))</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Categories</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;category&quot;).values(&quot;name&quot;).
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("category").values("name").
                map {it.get().length()}.max()
-==&gt;14
-</pre></div></div></div>
+==&gt;14</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3245,19 +3225,25 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products having no unit in stock.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitsInStock</span>
-  <span class="k">FROM</span> <span class="n">Products</span>
- <span class="k">WHERE</span> <span class="n">UnitsInStock</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitsInStock
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> UnitsInStock <span style="color: #990000">=</span> <span style="color: #993399">0</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitsInStock&quot;, 0).valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
-==&gt;[unitsInStock:[0],name:[Chef Anton&#39;s Gumbo Mix]]
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("product", "unitsInStock", 0).valueMap("name", "unitsInStock")
+==&gt;[unitsInStock:[0],name:[Chef Anton's Gumbo Mix]]
 ==&gt;[unitsInStock:[0],name:[Alice Mutton]]
 ==&gt;[unitsInStock:[0],name:[Thüringer Rostbratwurst]]
 ==&gt;[unitsInStock:[0],name:[Gorgonzola Telino]]
-==&gt;[unitsInStock:[0],name:[Perth Pasties]]
-</pre></div></div></div>
+==&gt;[unitsInStock:[0],name:[Perth Pasties]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3277,26 +3263,32 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products where the number of units on order is not 0.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitsOnOrder</span>
-  <span class="k">FROM</span> <span class="n">Products</span>
- <span class="k">WHERE</span> <span class="k">NOT</span><span class="p">(</span><span class="n">UnitsOnOrder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitsOnOrder
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="font-weight: bold"><span style="color: #0000FF">NOT</span></span><span style="color: #990000">(</span>UnitsOnOrder <span style="color: #990000">=</span> <span style="color: #993399">0</span><span style="color: #990000">)</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitsOnOrder&quot;, neq(0)).
-               valueMap(&quot;name&quot;, &quot;unitsOnOrder&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("product", "unitsOnOrder", neq(0)).
+               valueMap("name", "unitsOnOrder")
 ==&gt;[name:[Chang],unitsOnOrder:[40]]
 ==&gt;[name:[Aniseed Syrup],unitsOnOrder:[70]]
 ==&gt;[name:[Queso Cabrales],unitsOnOrder:[30]]
-==&gt;[name:[Sir Rodney&#39;s Scones],unitsOnOrder:[40]]
+==&gt;[name:[Sir Rodney's Scones],unitsOnOrder:[40]]
 ==&gt;[name:[Gorgonzola Telino],unitsOnOrder:[70]]
 ==&gt;[name:[Mascarpone Fabioli],unitsOnOrder:[40]]
 ==&gt;[name:[Gravad lax],unitsOnOrder:[50]]
 ==&gt;[name:[Ipoh Coffee],unitsOnOrder:[10]]
 ==&gt;[name:[Rogede sild],unitsOnOrder:[70]]
 ==&gt;[name:[Chocolade],unitsOnOrder:[70]]
-...
-</pre></div></div></div>
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3321,24 +3313,30 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products with a minimum price of 5 and maximum price below 10.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span>
-  <span class="k">FROM</span> <span class="n">Products</span>
- <span class="k">WHERE</span> <span class="n">UnitPrice</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="k">AND</span> <span class="n">UnitPrice</span> <span class="o">&lt;</span> <span class="mi">10</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitPrice
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> UnitPrice <span style="color: #990000">&gt;=</span> <span style="color: #993399">5</span> <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> UnitPrice <span style="color: #990000">&lt;</span> <span style="color: #993399">10</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;unitPrice&quot;, between(5f, 10f)).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("product", "unitPrice", between(5f, 10f)).
+               valueMap("name", "unitPrice")
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
 ==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
 ==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
-==&gt;[unitPrice:[9.65],name:[Jack&#39;s New England Clam Chowder]]
+==&gt;[unitPrice:[9.65],name:[Jack's New England Clam Chowder]]
 ==&gt;[unitPrice:[9.5],name:[Rogede sild]]
 ==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
 ==&gt;[unitPrice:[7.0],name:[Filo Mix]]
 ==&gt;[unitPrice:[7.45],name:[Tourtière]]
-==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
-</pre></div></div></div>
+==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3363,20 +3361,26 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all discontinued products that are still not out of stock.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitsInStock</span>
-  <span class="k">FROM</span> <span class="n">Products</span>
- <span class="k">WHERE</span> <span class="n">Discontinued</span> <span class="o">=</span> <span class="mi">1</span>
-   <span class="k">AND</span> <span class="n">UnitsInStock</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitsInStock
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> Discontinued <span style="color: #990000">=</span> <span style="color: #993399">1</span>
+   <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> UnitsInStock <span style="color: #990000">&lt;&gt;</span> <span style="color: #993399">0</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;product&quot;, &quot;discontinued&quot;, true).has(&quot;unitsInStock&quot;, neq(0)).
-              valueMap(&quot;name&quot;, &quot;unitsInStock&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("product", "discontinued", true).has("unitsInStock", neq(0)).
+              valueMap("name", "unitsInStock")
 ==&gt;[unitsInStock:[29],name:[Mishi Kobe Niku]]
 ==&gt;[unitsInStock:[20],name:[Guaraná Fantástica]]
 ==&gt;[unitsInStock:[26],name:[Rössle Sauerkraut]]
-==&gt;[unitsInStock:[26],name:[Singaporean Hokkien Fried Mee]]
-</pre></div></div></div>
+==&gt;[unitsInStock:[26],name:[Singaporean Hokkien Fried Mee]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3406,14 +3410,21 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products ordered by unit price.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>  <span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span>
-    <span class="k">FROM</span> <span class="n">Products</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">UnitPrice</span> <span class="k">ASC</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitPrice
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> UnitPrice <span style="font-weight: bold"><span style="color: #0000FF">ASC</span></span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("product").order().by("unitPrice", incr).
+               valueMap("name", "unitPrice")
 ==&gt;[unitPrice:[2.5],name:[Geitost]]
 ==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
@@ -3424,8 +3435,7 @@ width:100%;
 ==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
 ==&gt;[unitPrice:[9.5],name:[Rogede sild]]
 ==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
-...
-</pre></div></div></div>
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3450,26 +3460,32 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products ordered by descending unit price.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>  <span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span>
-    <span class="k">FROM</span> <span class="n">Products</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">UnitPrice</span> <span class="k">DESC</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ProductName<span style="color: #990000">,</span> UnitPrice
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> UnitPrice <span style="font-weight: bold"><span style="color: #0000FF">DESC</span></span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, decr).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("product").order().by("unitPrice", decr).
+               valueMap("name", "unitPrice")
 ==&gt;[unitPrice:[263.5],name:[Côte de Blaye]]
 ==&gt;[unitPrice:[123.79],name:[Thüringer Rostbratwurst]]
 ==&gt;[unitPrice:[97.0],name:[Mishi Kobe Niku]]
-==&gt;[unitPrice:[81.0],name:[Sir Rodney&#39;s Marmalade]]
+==&gt;[unitPrice:[81.0],name:[Sir Rodney's Marmalade]]
 ==&gt;[unitPrice:[62.5],name:[Carnarvon Tigers]]
 ==&gt;[unitPrice:[55.0],name:[Raclette Courdavault]]
 ==&gt;[unitPrice:[53.0],name:[Manjimup Dried Apples]]
 ==&gt;[unitPrice:[49.3],name:[Tarte au sucre]]
 ==&gt;[unitPrice:[46.0],name:[Ipoh Coffee]]
 ==&gt;[unitPrice:[45.6],name:[Rössle Sauerkraut]]
-...
-</pre></div></div></div>
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3499,20 +3515,26 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the first 5 products ordered by unit price.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>  <span class="k">SELECT</span> <span class="n">TOP</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">UnitPrice</span>
-    <span class="k">FROM</span> <span class="n">Products</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">UnitPrice</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> TOP <span style="color: #990000">(</span><span style="color: #993399">5</span><span style="color: #990000">)</span> ProductName<span style="color: #990000">,</span> UnitPrice
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> UnitPrice</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).limit(5).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("product").order().by("unitPrice", incr).limit(5).
+               valueMap("name", "unitPrice")
 ==&gt;[unitPrice:[2.5],name:[Geitost]]
 ==&gt;[unitPrice:[4.5],name:[Guaraná Fantástica]]
 ==&gt;[unitPrice:[6.0],name:[Konbu]]
 ==&gt;[unitPrice:[7.0],name:[Filo Mix]]
-==&gt;[unitPrice:[7.45],name:[Tourtière]]
-</pre></div></div></div>
+==&gt;[unitPrice:[7.45],name:[Tourtière]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3542,27 +3564,33 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query the next 5 products (page 2) ordered by unit price.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>   <span class="k">SELECT</span> <span class="n">Products</span><span class="p">.</span><span class="n">ProductName</span><span class="p">,</span> <span class="n">Products</span><span class="p">.</span><span class="n">UnitPrice</span>
-     <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ROW_NUMBER</span><span class="p">()</span>
-                    <span class="n">OVER</span> <span class="p">(</span>
-                      <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">UnitPrice</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ROW_NUMBER</span><span class="p">],</span>
-                  <span class="n">ProductID</span>
-             <span class="k">FROM</span> <span class="n">Products</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SortedProducts</span>
-       <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Products</span>
-               <span class="k">ON</span> <span class="n">Products</span><span class="p">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">SortedProducts</span><span class="p">.</span><span class="n">ProductID</span>
-    <span class="k">WHERE</span> <span class="p">[</span><span class="n">ROW_NUMBER</span><span class="p">]</span> <span class="k">BETWEEN</span> <span class="mi">6</span> <span class="k">AND</span> <span class="mi">10</span>
- <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">[</span><span class="n">ROW_NUMBER</span><span class="p">]</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>   <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Products<span style="color: #990000">.</span>ProductName<span style="color: #990000">,</span> Products<span style="color: #990000">.</span>UnitPrice
+     <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> ROW_NUMBER<span style="color: #990000">()</span>
+                    OVER <span style="color: #990000">(</span>
+                      <span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> UnitPrice<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>ROW_NUMBER<span style="color: #990000">],</span>
+                  ProductID
+             <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> SortedProducts
+       <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> Products
+               <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> Products<span style="color: #990000">.</span>ProductID <span style="color: #990000">=</span> SortedProducts<span style="color: #990000">.</span>ProductID
+    <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>ROW_NUMBER<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">BETWEEN</span></span> <span style="color: #993399">6</span> <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #993399">10</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> <span style="color: #990000">[</span>ROW_NUMBER<span style="color: #990000">]</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).order().by(&quot;unitPrice&quot;, incr).range(5, 10).
-               valueMap(&quot;name&quot;, &quot;unitPrice&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("product").order().by("unitPrice", incr).range(5, 10).
+               valueMap("name", "unitPrice")
 ==&gt;[unitPrice:[7.75],name:[Rhönbräu Klosterbier]]
 ==&gt;[unitPrice:[9.0],name:[Tunnbröd]]
 ==&gt;[unitPrice:[9.2],name:[Teatime Chocolate Biscuits]]
 ==&gt;[unitPrice:[9.5],name:[Rogede sild]]
-==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]
-</pre></div></div></div>
+==&gt;[unitPrice:[9.5],name:[Zaanse koeken]]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3597,19 +3625,25 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to determine the most used unit price.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>  <span class="k">SELECT</span> <span class="n">TOP</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">UnitPrice</span>
-    <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">Products</span><span class="p">.</span><span class="n">UnitPrice</span><span class="p">,</span>
-                 <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Count</span><span class="p">]</span>
-            <span class="k">FROM</span> <span class="n">Products</span>
-        <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Products</span><span class="p">.</span><span class="n">UnitPrice</span><span class="p">)</span> <span class="k">AS</span> <span class="n">T</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">[</span><span class="k">Count</span><span class="p">]</span> <span class="k">DESC</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> TOP<span style="color: #990000">(</span><span style="color: #993399">1</span><span style="color: #990000">)</span> UnitPrice
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Products<span style="color: #990000">.</span>UnitPrice<span style="color: #990000">,</span>
+                 COUNT<span style="color: #990000">(*)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Count<span style="color: #990000">]</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+        <span style="font-weight: bold"><span style="color: #0000FF">GROUP</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> Products<span style="color: #990000">.</span>UnitPrice<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> T
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> <span style="color: #990000">[</span>Count<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">DESC</span></span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;product&quot;).groupCount().by(&quot;unitPrice&quot;).
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("product").groupCount().by("unitPrice").
                order(local).by(values, decr).select(keys).limit(local, 1)
-==&gt;18.0
-</pre></div></div></div>
+==&gt;18.0</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3654,15 +3688,22 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to query all products from a specific category.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>    <span class="k">SELECT</span> <span class="n">Products</span><span class="p">.</span><span class="n">ProductName</span>
-      <span class="k">FROM</span> <span class="n">Products</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Categories</span>
-        <span class="k">ON</span> <span class="n">Categories</span><span class="p">.</span><span class="n">CategoryID</span> <span class="o">=</span> <span class="n">Products</span><span class="p">.</span><span class="n">CategoryID</span>
-     <span class="k">WHERE</span> <span class="n">Categories</span><span class="p">.</span><span class="n">CategoryName</span> <span class="o">=</span> <span class="s1">&#39;Beverages&#39;</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>    <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Products<span style="color: #990000">.</span>ProductName
+      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Products
+<span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> Categories
+        <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> Categories<span style="color: #990000">.</span>CategoryID <span style="color: #990000">=</span> Products<span style="color: #990000">.</span>CategoryID
+     <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> Categories<span style="color: #990000">.</span>CategoryName <span style="color: #990000">=</span> <span style="color: #FF0000">'Beverages'</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;name&quot;,&quot;Beverages&quot;).in(&quot;inCategory&quot;).values(&quot;name&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("name","Beverages").in("inCategory").values("name")
 ==&gt;Chai
 ==&gt;Rhönbräu Klosterbier
 ==&gt;Chartreuse verte
@@ -3673,8 +3714,7 @@ width:100%;
 ==&gt;Côte de Blaye
 ==&gt;Steeleye Stout
 ==&gt;Outback Lager
-...
-</pre></div></div></div>
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3694,18 +3734,25 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to count the number of orders for each customer.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>    <span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Orders</span><span class="p">.</span><span class="n">OrderID</span><span class="p">)</span>
-      <span class="k">FROM</span> <span class="n">Customers</span>
- <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">Orders</span>
-        <span class="k">ON</span> <span class="n">Orders</span><span class="p">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CustomerID</span>
-  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CustomerID</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>    <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Customers<span style="color: #990000">.</span>CustomerID<span style="color: #990000">,</span> COUNT<span style="color: #990000">(</span>Orders<span style="color: #990000">.</span>OrderID<span style="color: #990000">)</span>
+      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Customers
+ <span style="font-weight: bold"><span style="color: #0000FF">LEFT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> Orders
+        <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> Orders<span style="color: #990000">.</span>CustomerID <span style="color: #990000">=</span> Customers<span style="color: #990000">.</span>CustomerID
+  <span style="font-weight: bold"><span style="color: #0000FF">GROUP</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> Customers<span style="color: #990000">.</span>CustomerID</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).match(
-           __.as(&quot;c&quot;).values(&quot;customerId&quot;).as(&quot;customerId&quot;),
-           __.as(&quot;c&quot;).out(&quot;ordered&quot;).count().as(&quot;orders&quot;)
-         ).select(&quot;customerId&quot;, &quot;orders&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("customer").match(
+           __.as("c").values("customerId").as("customerId"),
+           __.as("c").out("ordered").count().as("orders")
+         ).select("customerId", "orders")
 ==&gt;[customerId:ALFKI,orders:6]
 ==&gt;[customerId:ANATR,orders:4]
 ==&gt;[customerId:ANTON,orders:7]
@@ -3716,8 +3763,7 @@ width:100%;
 ==&gt;[customerId:BOLID,orders:3]
 ==&gt;[customerId:BONAP,orders:17]
 ==&gt;[customerId:BOTTM,orders:14]
-...
-</pre></div></div></div>
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3762,26 +3808,32 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to concatenate two result sets (customers whos company name starts with <em>A</em> and customers whos company name starts with <em>E</em>).</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">SELECT</span> <span class="p">[</span><span class="n">customer</span><span class="p">].[</span><span class="n">CompanyName</span><span class="p">]</span>
-  <span class="k">FROM</span> <span class="p">[</span><span class="n">Customers</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">customer</span><span class="p">]</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">customer</span><span class="p">].[</span><span class="n">CompanyName</span><span class="p">]</span> <span class="k">LIKE</span> <span class="s1">&#39;A%&#39;</span>
- <span class="k">UNION</span> <span class="k">ALL</span>
-<span class="k">SELECT</span> <span class="p">[</span><span class="n">customer</span><span class="p">].[</span><span class="n">CompanyName</span><span class="p">]</span>
-  <span class="k">FROM</span> <span class="p">[</span><span class="n">Customers</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">customer</span><span class="p">]</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">customer</span><span class="p">].[</span><span class="n">CompanyName</span><span class="p">]</span> <span class="k">LIKE</span> <span class="s1">&#39;E%&#39;</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">].[</span>CompanyName<span style="color: #990000">]</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>Customers<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">]</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">].[</span>CompanyName<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">LIKE</span></span> <span style="color: #FF0000">'A%'</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">UNION</span></span> <span style="font-weight: bold"><span style="color: #0000FF">ALL</span></span>
+<span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">].[</span>CompanyName<span style="color: #990000">]</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>Customers<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">]</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>customer<span style="color: #990000">].[</span>CompanyName<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">LIKE</span></span> <span style="color: #FF0000">'E%'</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;customer&quot;).union(
-           filter {it.get().value(&quot;company&quot;)[0] == &quot;A&quot;},
-           filter {it.get().value(&quot;company&quot;)[0] == &quot;E&quot;}).values(&quot;company&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("customer").union(
+           filter {it.get().value("company")[0] == "A"},
+           filter {it.get().value("company")[0] == "E"}).values("company")
 ==&gt;Alfreds Futterkiste
 ==&gt;Ana Trujillo Emparedados y helados
 ==&gt;Antonio Moreno Taquería
 ==&gt;Around the Horn
 ==&gt;Eastern Connection
-==&gt;Ernst Handel
-</pre></div></div></div>
+==&gt;Ernst Handel</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3806,45 +3858,51 @@ width:100%;
 <div class="paragraph"><p>This sample shows how to create new vertices and edges, how to update them and finally how to delete them.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">Categories</span><span class="p">]</span> <span class="p">([</span><span class="n">CategoryName</span><span class="p">],</span> <span class="p">[</span><span class="n">Description</span><span class="p">])</span>
-     <span class="k">VALUES</span> <span class="p">(</span><span class="n">N</span><span class="s1">&#39;Merchandising&#39;</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;Cool products to promote Gremlin&#39;</span><span class="p">)</span>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">INSERT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">INTO</span></span> <span style="color: #990000">[</span>Categories<span style="color: #990000">]</span> <span style="color: #990000">([</span>CategoryName<span style="color: #990000">],</span> <span style="color: #990000">[</span>Description<span style="color: #990000">])</span>
+     <span style="font-weight: bold"><span style="color: #0000FF">VALUES</span></span> <span style="color: #990000">(</span>N<span style="color: #FF0000">'Merchandising'</span><span style="color: #990000">,</span> N<span style="color: #FF0000">'Cool products to promote Gremlin'</span><span style="color: #990000">)</span>
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">Products</span><span class="p">]</span> <span class="p">([</span><span class="n">ProductName</span><span class="p">],</span> <span class="p">[</span><span class="n">CategoryID</span><span class="p">])</span>
-     <span class="k">SELECT</span> <span class="n">TOP</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">N</span><span class="s1">&#39;Red Gremlin Jacket&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">CategoryID</span><span class="p">]</span>
-       <span class="k">FROM</span> <span class="p">[</span><span class="n">Categories</span><span class="p">]</span>
-      <span class="k">WHERE</span> <span class="p">[</span><span class="n">CategoryName</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Merchandising&#39;</span>
+<span style="font-weight: bold"><span style="color: #0000FF">INSERT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">INTO</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">]</span> <span style="color: #990000">([</span>ProductName<span style="color: #990000">],</span> <span style="color: #990000">[</span>CategoryID<span style="color: #990000">])</span>
+     <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> TOP <span style="color: #990000">(</span><span style="color: #993399">1</span><span style="color: #990000">)</span> N<span style="color: #FF0000">'Red Gremlin Jacket'</span><span style="color: #990000">,</span> <span style="color: #990000">[</span>CategoryID<span style="color: #990000">]</span>
+       <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>Categories<span style="color: #990000">]</span>
+      <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>CategoryName<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'Merchandising'</span>
 
-<span class="k">UPDATE</span> <span class="p">[</span><span class="n">Products</span><span class="p">]</span>
-   <span class="k">SET</span> <span class="p">[</span><span class="n">Products</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Green Gremlin Jacket&#39;</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">Products</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Red Gremlin Jacket&#39;</span>
+<span style="font-weight: bold"><span style="color: #0000FF">UPDATE</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">]</span>
+   <span style="font-weight: bold"><span style="color: #0000FF">SET</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'Green Gremlin Jacket'</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'Red Gremlin Jacket'</span>
 
-<span class="k">DELETE</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">Products</span><span class="p">]</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">Products</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Green Gremlin Jacket&#39;</span>
+<span style="font-weight: bold"><span style="color: #0000FF">DELETE</span></span> <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">]</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>Products<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'Green Gremlin Jacket'</span>
 
-<span class="k">DELETE</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">Categories</span><span class="p">]</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">Categories</span><span class="p">].[</span><span class="n">CategoryName</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Merchandising&#39;</span>
-</pre></div></div></div>
+<span style="font-weight: bold"><span style="color: #0000FF">DELETE</span></span> <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>Categories<span style="color: #990000">]</span>
+ <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>Categories<span style="color: #990000">].[</span>CategoryName<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'Merchandising'</span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; c = graph.addVertex(label, &quot;category&quot;,
-                   &quot;name&quot;, &quot;Merchandising&quot;,
-                   &quot;description&quot;, &quot;Cool products to promote Gremlin&quot;)
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; c = graph.addVertex(label, "category",
+                   "name", "Merchandising",
+                   "description", "Cool products to promote Gremlin")
 ==&gt;v[0]
 gremlin&gt;
-gremlin&gt; p = graph.addVertex(label, &quot;product&quot;,
-                   &quot;ame&quot;, &quot;Red Gremlin Jacket&quot;)
+gremlin&gt; p = graph.addVertex(label, "product",
+                   "ame", "Red Gremlin Jacket")
 ==&gt;v[3]
 gremlin&gt;
-gremlin&gt; p.addEdge(&quot;inCategory&quot;, c)
+gremlin&gt; p.addEdge("inCategory", c)
 ==&gt;e[5][3-inCategory-&gt;0]
 gremlin&gt;
-gremlin&gt; g.V().has(&quot;product&quot;, &quot;name&quot;, &quot;Red Gremlin Jacket&quot;).
-               property(&quot;name&quot;, &quot;Green Gremlin Jacket&quot;).iterate()
+gremlin&gt; g.V().has("product", "name", "Red Gremlin Jacket").
+               property("name", "Green Gremlin Jacket").iterate()
 gremlin&gt;
 gremlin&gt; p.remove()
 ==&gt;null
-gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandising&quot;).drop()
-</pre></div></div></div>
+gremlin&gt; g.V().has("category", "name", "Merchandising").drop()</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3874,52 +3932,62 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="paragraph"><p>This sample shows how to query all employees, their supervisors and their hierarchy level depending on where the employee is located in the supervisor chain.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="k">WITH</span> <span class="n">EmployeeHierarchy</span> <span class="p">(</span><span class="n">EmployeeID</span><span class="p">,</span>
-                        <span class="n">LastName</span><span class="p">,</span>
-                        <span class="n">FirstName</span><span class="p">,</span>
-                        <span class="n">ReportsTo</span><span class="p">,</span>
-                        <span class="n">HierarchyLevel</span><span class="p">)</span> <span class="k">AS</span>
-<span class="p">(</span>
-    <span class="k">SELECT</span> <span class="n">EmployeeID</span>
-         <span class="p">,</span> <span class="n">LastName</span>
-         <span class="p">,</span> <span class="n">FirstName</span>
-         <span class="p">,</span> <span class="n">ReportsTo</span>
-         <span class="p">,</span> <span class="mi">1</span> <span class="k">as</span> <span class="n">HierarchyLevel</span>
-      <span class="k">FROM</span> <span class="n">Employees</span>
-     <span class="k">WHERE</span> <span class="n">ReportsTo</span> <span class="k">IS</span> <span class="k">NULL</span>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">WITH</span></span> EmployeeHierarchy <span style="color: #990000">(</span>EmployeeID<span style="color: #990000">,</span>
+                        LastName<span style="color: #990000">,</span>
+                        FirstName<span style="color: #990000">,</span>
+                        ReportsTo<span style="color: #990000">,</span>
+                        HierarchyLevel<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span>
+<span style="color: #990000">(</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> EmployeeID
+         <span style="color: #990000">,</span> LastName
+         <span style="color: #990000">,</span> FirstName
+         <span style="color: #990000">,</span> ReportsTo
+         <span style="color: #990000">,</span> <span style="color: #993399">1</span> <span style="font-weight: bold"><span style="color: #0000FF">as</span></span> HierarchyLevel
+      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Employees
+     <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> ReportsTo <span style="font-weight: bold"><span style="color: #0000FF">IS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">NULL</span></span>
 
-     <span class="k">UNION</span> <span class="k">ALL</span>
+     <span style="font-weight: bold"><span style="color: #0000FF">UNION</span></span> <span style="font-weight: bold"><span style="color: #0000FF">ALL</span></span>
 
-    <span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">EmployeeID</span>
-         <span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">LastName</span>
-         <span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">FirstName</span>
-         <span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">ReportsTo</span>
-         <span class="p">,</span> <span class="n">eh</span><span class="p">.</span><span class="n">HierarchyLevel</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">AS</span> <span class="n">HierarchyLevel</span>
-      <span class="k">FROM</span> <span class="n">Employees</span> <span class="n">e</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">EmployeeHierarchy</span> <span class="n">eh</span>
-        <span class="k">ON</span> <span class="n">e</span><span class="p">.</span><span class="n">ReportsTo</span> <span class="o">=</span> <span class="n">eh</span><span class="p">.</span><span class="n">EmployeeID</span>
-<span class="p">)</span>
-  <span class="k">SELECT</span> <span class="o">*</span>
-    <span class="k">FROM</span> <span class="n">EmployeeHierarchy</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">HierarchyLevel</span><span class="p">,</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
-</pre></div></div></div>
+    <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> e<span style="color: #990000">.</span>EmployeeID
+         <span style="color: #990000">,</span> e<span style="color: #990000">.</span>LastName
+         <span style="color: #990000">,</span> e<span style="color: #990000">.</span>FirstName
+         <span style="color: #990000">,</span> e<span style="color: #990000">.</span>ReportsTo
+         <span style="color: #990000">,</span> eh<span style="color: #990000">.</span>HierarchyLevel <span style="color: #990000">+</span> <span style="color: #993399">1</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> HierarchyLevel
+      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Employees e
+<span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> EmployeeHierarchy eh
+        <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> e<span style="color: #990000">.</span>ReportsTo <span style="color: #990000">=</span> eh<span style="color: #990000">.</span>EmployeeID
+<span style="color: #990000">)</span>
+  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="color: #990000">*</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> EmployeeHierarchy
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> HierarchyLevel<span style="color: #990000">,</span> LastName<span style="color: #990000">,</span> FirstName</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong> (hierarchical)</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-               repeat(__.in(&quot;reportsTo&quot;)).emit().tree().by(map {
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("employee").where(__.not(out("reportsTo"))).
+               repeat(__.in("reportsTo")).emit().tree().by(map {
                  def employee = it.get()
-                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+                 employee.value("firstName") + " " + employee.value("lastName")
                }).next()
-==&gt;Andrew Fuller={Margaret Peacock={}, Janet Leverling={}, Nancy Davolio={}, Steven Buchanan={Anne Dodsworth={}, Michael Suyama={}, Robert King={}}, Laura Callahan={}}
-</pre></div></div></div>
+==&gt;Andrew Fuller={Margaret Peacock={}, Janet Leverling={}, Nancy Davolio={}, Steven Buchanan={Anne Dodsworth={}, Michael Suyama={}, Robert King={}}, Laura Callahan={}}</tt></pre></div></div>
 <div class="paragraph"><p>You can also produce the same tabular result that&#8217;s produced by SQL.</p></div>
 <div class="paragraph"><p><strong>Gremlin</strong> (tabular)</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().hasLabel(&quot;employee&quot;).where(__.not(out(&quot;reportsTo&quot;))).
-               repeat(__.as(&quot;reportsTo&quot;).in(&quot;reportsTo&quot;).as(&quot;employee&quot;)).emit().
-               select(last, &quot;reportsTo&quot;, &quot;employee&quot;).by(map {
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().hasLabel("employee").where(__.not(out("reportsTo"))).
+               repeat(__.as("reportsTo").in("reportsTo").as("employee")).emit().
+               select(last, "reportsTo", "employee").by(map {
                  def employee = it.get()
-                 employee.value(&quot;firstName&quot;) + &quot; &quot; + employee.value(&quot;lastName&quot;)
+                 employee.value("firstName") + " " + employee.value("lastName")
                })
 ==&gt;[reportsTo:Andrew Fuller,employee:Nancy Davolio]
 ==&gt;[reportsTo:Andrew Fuller,employee:Janet Leverling]
@@ -3928,8 +3996,7 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 ==&gt;[reportsTo:Andrew Fuller,employee:Laura Callahan]
 ==&gt;[reportsTo:Steven Buchanan,employee:Robert King]
 ==&gt;[reportsTo:Steven Buchanan,employee:Anne Dodsworth]
-==&gt;[reportsTo:Steven Buchanan,employee:Michael Suyama]
-</pre></div></div></div>
+==&gt;[reportsTo:Steven Buchanan,employee:Michael Suyama]</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -3984,68 +4051,74 @@ gremlin&gt; g.V().has(&quot;category&quot;, &quot;name&quot;, &quot;Merchandisin
 <div class="paragraph"><p>This sample shows how to determine the average total order value per month for each customer.</p></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>    <span class="k">SELECT</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CompanyName</span><span class="p">,</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Jan</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Feb</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Mar</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">4</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Apr</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">5</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">May</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">6</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Jun</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">7</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Jul</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">8</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Aug</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">9</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>  <span class="k">AS</span> <span class="p">[</span><span class="n">Sep</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Oct</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">11</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Nov</span><span class="p">],</span>
-           <span class="n">COALESCE</span><span class="p">([</span><span class="mi">12</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="nb">Dec</span><span class="p">]</span>
-      <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">Orders</span><span class="p">.</span><span class="n">CustomerID</span><span class="p">,</span>
-                   <span class="k">MONTH</span><span class="p">(</span><span class="n">Orders</span><span class="p">.</span><span class="n">OrderDate</span><span class="p">)</span>                                   <span class="k">AS</span> <span class="p">[</span><span class="k">Month</span><span class="p">],</span>
-                   <span class="k">SUM</span><span class="p">([</span><span class="k">Order</span> <span class="n">Details</span><span class="p">].</span><span class="n">UnitPrice</span> <span class="o">*</span> <span class="p">[</span><span class="k">Order</span> <span class="n">Details</span><span class="p">].</span><span class="n">Quantity</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Total</span>
-              <span class="k">FROM</span> <span class="n">Orders</span>
-        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="k">Order</span> <span class="n">Details</span><span class="p">]</span>
-                <span class="k">ON</span> <span class="p">[</span><span class="k">Order</span> <span class="n">Details</span><span class="p">].</span><span class="n">OrderID</span> <span class="o">=</span> <span class="n">Orders</span><span class="p">.</span><span class="n">OrderID</span>
-          <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Orders</span><span class="p">.</span><span class="n">CustomerID</span><span class="p">,</span>
-                   <span class="k">MONTH</span><span class="p">(</span><span class="n">Orders</span><span class="p">.</span><span class="n">OrderDate</span><span class="p">))</span> <span class="n">o</span>
-     <span class="n">PIVOT</span> <span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span> <span class="k">FOR</span> <span class="p">[</span><span class="k">Month</span><span class="p">]</span> <span class="k">IN</span> <span class="p">([</span><span class="mi">1</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">3</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">5</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">6</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">7</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">8</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">9</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">10</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">11</span><span class="p">],</span>
-                                       <span class="p">[</span><span class="mi">12</span><span class="p">]))</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Pivot</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Customers</span>
-        <span class="k">ON</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="p">[</span><span class="n">Pivot</span><span class="p">].</span><span class="n">CustomerID</span>
-  <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Customers</span><span class="p">.</span><span class="n">CompanyName</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>    <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Customers<span style="color: #990000">.</span>CompanyName<span style="color: #990000">,</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">1</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Jan<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">2</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Feb<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">3</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Mar<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">4</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Apr<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">5</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>May<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">6</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Jun<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">7</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Jul<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">8</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Aug<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">9</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span>  <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Sep<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">10</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Oct<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">11</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Nov<span style="color: #990000">],</span>
+           COALESCE<span style="color: #990000">([</span><span style="color: #993399">12</span><span style="color: #990000">],</span> <span style="color: #993399">0</span><span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Dec<span style="color: #990000">]</span>
+      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> Orders<span style="color: #990000">.</span>CustomerID<span style="color: #990000">,</span>
+                   MONTH<span style="color: #990000">(</span>Orders<span style="color: #990000">.</span>OrderDate<span style="color: #990000">)</span>                                   <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Month<span style="color: #990000">],</span>
+                   SUM<span style="color: #990000">([</span><span style="font-weight: bold"><span style="color: #0000FF">Order</span></span> Details<span style="color: #990000">].</span>UnitPrice <span style="color: #990000">*</span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">Order</span></span> Details<span style="color: #990000">].</span>Quantity<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> Total
+              <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> Orders
+        <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">Order</span></span> Details<span style="color: #990000">]</span>
+                <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">Order</span></span> Details<span style="color: #990000">].</span>OrderID <span style="color: #990000">=</span> Orders<span style="color: #990000">.</span>OrderID
+          <span style="font-weight: bold"><span style="color: #0000FF">GROUP</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> Orders<span style="color: #990000">.</span>CustomerID<span style="color: #990000">,</span>
+                   MONTH<span style="color: #990000">(</span>Orders<span style="color: #990000">.</span>OrderDate<span style="color: #990000">))</span> o
+     PIVOT <span style="color: #990000">(</span>AVG<span style="color: #990000">(</span>Total<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">FOR</span></span> <span style="color: #990000">[</span>Month<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">IN</span></span> <span style="color: #990000">([</span><span style="color: #993399">1</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">2</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">3</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">4</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">5</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">6</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">7</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">8</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">9</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">10</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">11</span><span style="color: #990000">],</span>
+                                       <span style="color: #990000">[</span><span style="color: #993399">12</span><span style="color: #990000">]))</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>Pivot<span style="color: #990000">]</span>
+<span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> Customers
+        <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> Customers<span style="color: #990000">.</span>CustomerID <span style="color: #990000">=</span> <span style="color: #990000">[</span>Pivot<span style="color: #990000">].</span>CustomerID
+  <span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> Customers<span style="color: #990000">.</span>CompanyName</tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; months = new java.text.DateFormatSymbols().getShortMonths().toList(); []
-gremlin&gt; rowTotal = {it.get().value(&quot;unitPrice&quot;) * it.get().value(&quot;quantity&quot;)}; []
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; months = new java.text.DateFormatSymbols().getShortMonths().toList(); []
+gremlin&gt; rowTotal = {it.get().value("unitPrice") * it.get().value("quantity")}; []
 gremlin&gt;
-gremlin&gt; g.V().hasLabel(&quot;customer&quot;).order().by(&quot;customerId&quot;, incr).
-               where(out(&quot;ordered&quot;)).as(&quot;customer&quot;).
+gremlin&gt; g.V().hasLabel("customer").order().by("customerId", incr).
+               where(out("ordered")).as("customer").
                map {
-                 def m = g.V(it.get()).out(&quot;ordered&quot;).
-                           group().by {new Date(it.value(&quot;orderDate&quot;)).getMonth()}.
-                                   by(out(&quot;contains&quot;).map(rowTotal).sum()).next()
+                 def m = g.V(it.get()).out("ordered").
+                           group().by {new Date(it.value("orderDate")).getMonth()}.
+                                   by(out("contains").map(rowTotal).sum()).next()
                  (0..11).collectEntries {[months[it], m.containsKey(it) ? m[it] : 0]}
-               }.as(&quot;totals&quot;).select(&quot;customer&quot;, &quot;totals&quot;).by(id).by()
+               }.as("totals").select("customer", "totals").by(id).by()
 ==&gt;[customer:8,totals:[Jan:851.0,Feb:0,Mar:491.2,Apr:960.00,May:0,Jun:0,Jul:0,Aug:1086.0,Sep:0,Oct:1208.0,Nov:0,Dec:0]]
 ==&gt;[customer:9,totals:[Jan:0,Feb:0,Mar:514.4,Apr:0,May:0,Jun:0,Jul:0,Aug:479.75,Sep:88.8,Oct:0,Nov:320.0,Dec:0]]
 ==&gt;[customer:10,totals:[Jan:660.0,Feb:0,Mar:0,Apr:881.25,May:2156.5,Jun:2082.0,Jul:0,Aug:0,Sep:1332.40,Oct:0,Nov:403.2,Dec:0]]
 ==&gt;[customer:11,totals:[Jan:0,Feb:735.0,Mar:5065.00,Apr:491.5,May:0,Jun:2142.9,Jul:0,Aug:0,Sep:0,Oct:1704.0,Nov:1101.0,Dec:2567.10]]
-==&gt;[customer:12,totals:[Jan:3884.95,Feb:3397.70,Mar:2034.50,Apr:0,May:3192.65,Jun:1565.65,Jul:0,Aug:3605.6,Sep:4879.20,Oct:630.0,Nov:1459.00,Dec:2318.90]]
+==&gt;[customer:12,totals:[Jan:3884.95,Feb:3397.70,Mar:2034.50,Apr:3192.65,May:0,Jun:1565.65,Jul:0,Aug:3605.6,Sep:5509.20,Oct:0,Nov:1459.00,Dec:2318.90]]
 ==&gt;[customer:13,totals:[Jan:625.0,Feb:0,Mar:677.0,Apr:1143.80,May:0,Jun:330.0,Jul:464.0,Aug:0,Sep:0,Oct:0,Nov:0,Dec:0]]
 ==&gt;[customer:14,totals:[Jan:730.0,Feb:4049.0,Mar:0,Apr:0,May:0,Jun:3212.80,Jul:1176.0,Aug:450.0,Sep:2080.0,Oct:0,Nov:7390.2,Dec:0]]
 ==&gt;[customer:15,totals:[Jan:0,Feb:0,Mar:280.0,Apr:0,May:0,Jun:0,Jul:0,Aug:0,Sep:0,Oct:982.0,Nov:0,Dec:4035.80]]
 ==&gt;[customer:16,totals:[Jan:843.0,Feb:3000.40,Mar:4106.30,Apr:3000.0,May:1903.00,Jun:0,Jul:0,Aug:0,Sep:2032.0,Oct:3948.9,Nov:5017.35,Dec:0]]
-==&gt;[customer:17,totals:[Jan:4533.5,Feb:0,Mar:9222.60,Apr:3900.8,May:0,Jun:0,Jul:0,Aug:0,Sep:0,Oct:0,Nov:3118.0,Dec:1832.8]]
-...
-</pre></div></div></div>
+==&gt;[customer:17,totals:[Jan:4533.5,Feb:0,Mar:10118.60,Apr:3004.8,May:0,Jun:0,Jul:0,Aug:0,Sep:0,Oct:0,Nov:3118.0,Dec:1832.8]]
+...</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -4132,56 +4205,62 @@ rank products by occurence in other orders
 </ul></div>
 <div class="paragraph"><p><strong>SQL</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>  <span class="k">SELECT</span> <span class="n">TOP</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">[</span><span class="n">t14</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span>
-    <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">value</span><span class="p">],</span>
-                 <span class="p">[</span><span class="n">t13</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span>
-            <span class="k">FROM</span> <span class="p">[</span><span class="n">customers</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t0</span><span class="p">]</span>
-     <span class="k">CROSS</span> <span class="n">APPLY</span> <span class="p">(</span><span class="k">SELECT</span> <span class="p">[</span><span class="n">t9</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">]</span>
-                    <span class="k">FROM</span> <span class="p">[</span><span class="n">orders</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t1</span><span class="p">]</span>
-              <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="p">[</span><span class="k">order</span> <span class="n">details</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t2</span><span class="p">]</span>
-              <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">products</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t3</span><span class="p">]</span>
-                      <span class="k">ON</span> <span class="p">[</span><span class="n">t3</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t2</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span>
-              <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="p">[</span><span class="k">order</span> <span class="n">details</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t4</span><span class="p">]</span>
-              <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">orders</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t5</span><span class="p">]</span>
-                      <span class="k">ON</span> <span class="p">[</span><span class="n">t5</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t4</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span>
-               <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">customers</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t6</span><span class="p">]</span>
-                      <span class="k">ON</span> <span class="p">[</span><span class="n">t6</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t5</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span>
-              <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="p">([</span><span class="n">orders</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t7</span><span class="p">]</span>
-                          <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="p">[</span><span class="k">order</span> <span class="n">details</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t8</span><span class="p">]</span>
-                          <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">products</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t9</span><span class="p">]</span>
-                                  <span class="k">ON</span> <span class="p">[</span><span class="n">t9</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t8</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">])</span>
-                   <span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span> <span class="k">NULL</span> <span class="k">AS</span> <span class="p">[</span><span class="n">EMPTY</span><span class="p">]</span>
-                                      <span class="k">FROM</span> <span class="p">[</span><span class="n">orders</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t10</span><span class="p">]</span>
-                                <span class="k">CROSS</span> <span class="k">JOIN</span> <span class="p">[</span><span class="k">order</span> <span class="n">details</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t11</span><span class="p">]</span>
-                                <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">products</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t12</span><span class="p">]</span>
-                                        <span class="k">ON</span> <span class="p">[</span><span class="n">t12</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t11</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span>
-                                     <span class="k">WHERE</span> <span class="p">[</span><span class="n">t9</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t12</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span>
-                                       <span class="k">AND</span> <span class="p">[</span><span class="n">t10</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t0</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span>
-                                       <span class="k">AND</span> <span class="p">[</span><span class="n">t11</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t10</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">])</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t6</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="p">[</span><span class="n">t0</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t1</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t0</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t2</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t1</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t4</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t3</span><span class="p">].[</span><span class="n">ProductID</span><span class="p">]</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t7</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t6</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span>
-                     <span class="k">AND</span> <span class="p">[</span><span class="n">t8</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t7</span><span class="p">].[</span><span class="n">OrderID</span><span class="p">])</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t13</span><span class="p">]</span>
-           <span class="k">WHERE</span> <span class="p">[</span><span class="n">t0</span><span class="p">].[</span><span class="n">CustomerID</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;ALFKI&#39;</span>
-        <span class="k">GROUP</span> <span class="k">BY</span> <span class="p">[</span><span class="n">t13</span><span class="p">].[</span><span class="n">ProductName</span><span class="p">])</span> <span class="k">AS</span> <span class="p">[</span><span class="n">t14</span><span class="p">]</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">[</span><span class="n">t14</span><span class="p">].[</span><span class="n">value</span><span class="p">]</span> <span class="k">DESC</span>
-</pre></div></div></div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  <span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> TOP <span style="color: #990000">(</span><span style="color: #993399">5</span><span style="color: #990000">)</span> <span style="color: #990000">[</span>t14<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> COUNT<span style="color: #990000">(*)</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>value<span style="color: #990000">],</span>
+                 <span style="color: #990000">[</span>t13<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span>
+            <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>customers<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t0<span style="color: #990000">]</span>
+     <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> APPLY <span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="color: #990000">[</span>t9<span style="color: #990000">].[</span>ProductName<span style="color: #990000">]</span>
+                    <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>orders<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t1<span style="color: #990000">]</span>
+              <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">order</span></span> details<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t2<span style="color: #990000">]</span>
+              <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span>products<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t3<span style="color: #990000">]</span>
+                      <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span>t3<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t2<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span>
+              <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">order</span></span> details<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t4<span style="color: #990000">]</span>
+              <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span>orders<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t5<span style="color: #990000">]</span>
+                      <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span>t5<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t4<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span>
+               <span style="font-weight: bold"><span style="color: #0000FF">LEFT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span>customers<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t6<span style="color: #990000">]</span>
+                      <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span>t6<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t5<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span>
+              <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">([</span>orders<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t7<span style="color: #990000">]</span>
+                          <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">order</span></span> details<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t8<span style="color: #990000">]</span>
+                          <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span>products<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t9<span style="color: #990000">]</span>
+                                  <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span>t9<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t8<span style="color: #990000">].[</span>ProductID<span style="color: #990000">])</span>
+                   <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="font-weight: bold"><span style="color: #0000FF">NOT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">EXISTS</span></span><span style="color: #990000">(</span><span style="font-weight: bold"><span style="color: #0000FF">SELECT</span></span> <span style="font-weight: bold"><span style="color: #0000FF">NULL</span></span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>EMPTY<span style="color: #990000">]</span>
+                                      <span style="font-weight: bold"><span style="color: #0000FF">FROM</span></span> <span style="color: #990000">[</span>orders<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t10<span style="color: #990000">]</span>
+                                <span style="font-weight: bold"><span style="color: #0000FF">CROSS</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">order</span></span> details<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t11<span style="color: #990000">]</span>
+                                <span style="font-weight: bold"><span style="color: #0000FF">INNER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">JOIN</span></span> <span style="color: #990000">[</span>products<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t12<span style="color: #990000">]</span>
+                                        <span style="font-weight: bold"><span style="color: #0000FF">ON</span></span> <span style="color: #990000">[</span>t12<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t11<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span>
+                                     <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>t9<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t12<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span>
+                                       <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t10<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t0<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span>
+                                       <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t11<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t10<span style="color: #990000">].[</span>OrderID<span style="color: #990000">])</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t6<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">&lt;&gt;</span> <span style="color: #990000">[</span>t0<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t1<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t0<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t2<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t1<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t4<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t3<span style="color: #990000">].[</span>ProductID<span style="color: #990000">]</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t7<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t6<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span>
+                     <span style="font-weight: bold"><span style="color: #0000FF">AND</span></span> <span style="color: #990000">[</span>t8<span style="color: #990000">].[</span>OrderID<span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #990000">[</span>t7<span style="color: #990000">].[</span>OrderID<span style="color: #990000">])</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t13<span style="color: #990000">]</span>
+           <span style="font-weight: bold"><span style="color: #0000FF">WHERE</span></span> <span style="color: #990000">[</span>t0<span style="color: #990000">].[</span>CustomerID<span style="color: #990000">]</span> <span style="color: #990000">=</span> N<span style="color: #FF0000">'ALFKI'</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">GROUP</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> <span style="color: #990000">[</span>t13<span style="color: #990000">].[</span>ProductName<span style="color: #990000">])</span> <span style="font-weight: bold"><span style="color: #0000FF">AS</span></span> <span style="color: #990000">[</span>t14<span style="color: #990000">]</span>
+<span style="font-weight: bold"><span style="color: #0000FF">ORDER</span></span> <span style="font-weight: bold"><span style="color: #0000FF">BY</span></span> <span style="color: #990000">[</span>t14<span style="color: #990000">].[</span>value<span style="color: #990000">]</span> <span style="font-weight: bold"><span style="color: #0000FF">DESC</span></span></tt></pre></div></div>
 <div class="paragraph"><p><strong>Gremlin</strong></p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gremlin&gt; g.V().has(&quot;customer&quot;, &quot;customerId&quot;, &quot;ALFKI&quot;).as(&quot;customer&quot;).
-               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).aggregate(&quot;products&quot;).
-               in(&quot;is&quot;).in(&quot;contains&quot;).in(&quot;ordered&quot;).where(neq(&quot;customer&quot;)).
-               out(&quot;ordered&quot;).out(&quot;contains&quot;).out(&quot;is&quot;).where(without(&quot;products&quot;)).
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>gremlin&gt; g.V().has("customer", "customerId", "ALFKI").as("customer").
+               out("ordered").out("contains").out("is").aggregate("products").
+               in("is").in("contains").in("ordered").where(neq("customer")).
+               out("ordered").out("contains").out("is").where(without("products")).
                groupCount().order(local).by(values, decr).select(keys).limit(local, 5).
-               unfold().values(&quot;name&quot;)
+               unfold().values("name")
 ==&gt;Gorgonzola Telino
 ==&gt;Guaraná Fantástica
 ==&gt;Camembert Pierrot
 ==&gt;Chang
-==&gt;Jack&#39;s New England Clam Chowder
-</pre></div></div></div>
+==&gt;Jack's New England Clam Chowder</tt></pre></div></div>
 <div class="paragraph"><p><strong>References:</strong></p></div>
 <div class="ulist"><ul>
 <li>
@@ -4247,7 +4326,8 @@ rank products by occurence in other orders
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-03 21:30:57 CET
+Last updated
+ 2018-05-21 14:19:11 MST
 </div>
 </div>
 </body>
