@@ -572,7 +572,7 @@ c = graph.addVertex(label, "category",
           "description", "Cool products to promote Gremlin")
 
 p = graph.addVertex(label, "product",
-          "ame", "Red Gremlin Jacket")
+          "name", "Red Gremlin Jacket")
 
 p.addEdge("inCategory", c)
 
